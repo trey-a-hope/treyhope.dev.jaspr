@@ -2,9 +2,8 @@ import 'dart:developer';
 
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-// import 'package:treyhope_dev/jaspr_app.dart';
 
-import '../components/counter.dart';
+// import '../components/counter.dart';
 
 // By using the @client annotation this component will be automatically compiled to javascript and mounted
 // on the client. Therefore:
@@ -41,8 +40,7 @@ class HomeState extends State<Home> {
       const h1([.text('Welcome')]),
       const p([.text('You successfully create a new Jaspr site.')]),
       div(styles: Styles(height: 100.px), const []),
-      const Counter(),
-      // const JasprApp(),
+      // const Counter(),
     ]);
   }
 }

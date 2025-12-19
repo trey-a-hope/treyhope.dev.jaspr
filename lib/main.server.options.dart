@@ -5,7 +5,6 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
-import 'package:treyhope_dev/components/counter.dart' as _counter;
 import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/pages/about.dart' as _about;
 import 'package:treyhope_dev/pages/home.dart' as _home;
@@ -34,7 +33,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _home.Home: ClientTarget<_home.Home>('home'),
   },
   styles: () => [
-    ..._counter.CounterState.styles,
     ..._header.Header.styles,
     ..._about.About.styles,
     ..._app.App.styles,
