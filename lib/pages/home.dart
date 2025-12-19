@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+// import 'package:treyhope_dev/jaspr_app.dart';
 
 import '../components/counter.dart';
 
@@ -41,6 +42,7 @@ class HomeState extends State<Home> {
       const p([.text('You successfully create a new Jaspr site.')]),
       div(styles: Styles(height: 100.px), const []),
       const Counter(),
+      // const JasprApp(),
     ]);
   }
 }
