@@ -4,7 +4,8 @@
 .packages
 
 # Conventional directory for build output.
-/build/
+# /build/
+# /build/jaspr TODO (Trey) - Only expose the build/jaspr directory
 
 # Miscellaneous
 *.class
