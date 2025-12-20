@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/components/embedded_walkdown_game.dart';
+import 'package:treyhope_dev/components/embedded_counter_widget.dart';
 
 // import '../components/counter.dart';
 
@@ -41,7 +41,7 @@ class HomeState extends State<Home> {
       h1([.text('Welcome')]),
       p([.text('You successfully create a new Jaspr site.')]),
       // div(styles: Styles(height: 100.px), const []),
-      EmbeddedWalkdownGame(),
+      EmbeddedCounterWidget(),
     ]);
   }
 }

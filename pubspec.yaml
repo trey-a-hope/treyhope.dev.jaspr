@@ -1,6 +1,7 @@
 name: treyhope_dev
 description: A new Jaspr project
 version: 0.0.1
+publish_to: none
 
 environment:
   sdk: ^3.10.0
@@ -8,10 +9,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  # walkdown:
+  #   git: https://github.com/trey-a-hope/walkdown.git
+  walkdown:
+    path: /Users/treyhope/Desktop/Development/walkdown
+  # flutter_lints: ^2.0.3
   jaspr: ^0.22.0
   jaspr_flutter_embed: ^0.4.10
   jaspr_router: ^0.8.1
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   build_runner: ^2.10.0
@@ -19,8 +25,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   jaspr_builder: ^0.22.0
-  lints: ^2.1.0
+  lints: ^6.0.0
 
 jaspr:
   mode: static
   flutter: embedded
+
+flutter:
+  uses-material-design: true

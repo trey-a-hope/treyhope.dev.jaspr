@@ -6,7 +6,7 @@
 
 // ignore_for_file: directives_ordering, deprecated_member_use
 
-import '../../../widgets/walkdown_game.dart' show WalkdownGame;
-export '../../../widgets/walkdown_game.dart' show WalkdownGame;
+import '../../../widgets/counter_widget.dart' show CounterWidget;
+export '../../../widgets/counter_widget.dart' show CounterWidget;
 
-typedef WalkdownGameOrStubbed = WalkdownGame;
+typedef CounterWidgetOrStubbed = CounterWidget;

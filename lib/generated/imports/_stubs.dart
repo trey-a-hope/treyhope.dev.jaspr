@@ -6,5 +6,5 @@
 
 // ignore_for_file: directives_ordering, non_constant_identifier_names
 
-dynamic WalkdownGame;
-typedef WalkdownGameOrStubbed = dynamic;
+dynamic CounterWidget;
+typedef CounterWidgetOrStubbed = dynamic;
