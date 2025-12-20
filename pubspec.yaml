@@ -32,4 +32,4 @@ jaspr:
 flutter:
   uses-material-design: true
   assets:
-    - assets/animation.json
+    - assets/loading_animation.json
