@@ -1,5 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/components/embedded_lottie_widget.dart';
+import 'package:treyhope_dev/constants/lottie_type.dart';
 
 @client
 class Projects extends StatelessComponent {
@@ -7,11 +9,12 @@ class Projects extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section(classes: 'centered-container', [
+    return section(classes: 'centered-container', [
       h1(classes: 'title', [.text('Projects')]),
-      p([
-        .text('Here are some of the projects I have worked on.'),
+      h4([
+        .text('Page currently under construction'),
       ]),
+      EmbeddedLottieWidget(type: LottieType.underConstruction),
     ]);
   }
 
