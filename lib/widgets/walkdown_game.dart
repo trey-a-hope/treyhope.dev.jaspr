@@ -5,9 +5,10 @@ class WalkdownGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Center(
-        child: Text('Big Text Here', style: Theme.of(context).textTheme.headlineLarge),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Center(
+        child: Placeholder(),
       ),
     );
   }
