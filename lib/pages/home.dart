@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:jaspr/jaspr.dart';
 
 import 'package:jaspr/dom.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/embedded_counter_widget.dart';
 
 // import '../components/counter.dart';
@@ -38,13 +39,19 @@ class HomeState extends State<Home> {
   Component build(BuildContext context) {
     return section([
       img(src: 'images/logo.svg', width: 80),
-      h1(classes: 'title', [.text('Hey, I\'m Trey')]),
+      div(classes: 'block', [
+        h1(classes: 'title', [.text('Hey, I\'m Trey')]),
+      ]),
       h2(classes: 'subtitle', [.text('And I\'m a Flutter fanactic')]),
-      EmbeddedCounterWidget(),
-      button(
-        classes: 'button',
-        onClick: () => log('clicked'),
-        [.text('Click here')],
+      div(classes: 'block', [
+        EmbeddedCounterWidget(),
+      ]),
+      Link(
+        to: '/about',
+        child: button(
+          classes: 'button',
+          [.text('Learn more')],
+        ),
       ),
     ]);
   }

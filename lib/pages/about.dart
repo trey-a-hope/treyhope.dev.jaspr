@@ -13,19 +13,36 @@ class About extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return const section(classes: 'center-container', [
-      h1(classes: 'title', [.text('About')]),
-
-      p([
-        .text(
-          'Greetings, my name is Trey, a software developer that has a knack for creating. A small town in Ohio named '
-          'Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as '
-          'graphic design using Photoshop, has evolved into a core love for mobile app development.',
-        ),
+      div(classes: 'block', [
+        h1(classes: 'title', [.text('About')]),
       ]),
-      p([
-        .text(
-          'My favorite framework to work with is Flutter if you haven\'t figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.',
-        ),
+      div(classes: 'block', [
+        p([
+          .text(
+            'Greetings, my name is',
+          ),
+          strong([
+            .text(' Trey'),
+          ]),
+          .text(
+            ', a software developer that has a knack for creating. A small town in Ohio named '
+            'Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as '
+            'graphic design using Photoshop, has evolved into a core love for mobile app development.',
+          ),
+        ]),
+      ]),
+      div(classes: 'block', [
+        p([
+          .text(
+            'My favorite framework to work with is',
+          ),
+          strong([
+            .text(' Flutter'),
+          ]),
+          .text(
+            ' if you haven\'t figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.',
+          ),
+        ]),
       ]),
     ]);
   }

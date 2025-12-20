@@ -44,7 +44,7 @@ class App extends StatelessComponent {
   @css
   static List<StyleRule> get styles => [
     css('.center-container').styles(
-      maxWidth: 1200.px,
+      maxWidth: 1000.px,
       margin: Spacing.symmetric(horizontal: Unit.auto),
     ),
     css('.main', [

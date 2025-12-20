@@ -25,6 +25,11 @@
     <!--/-->
     <script src="main.client.dart.js" defer></script>
     <style>
+      .button-row {
+        display: flex;
+        justify-content: center;
+        column-gap: 1em;
+      }
       footer {
         width: 100%;
         margin-top: 2rem;
@@ -40,25 +45,6 @@
         margin: inherit;
         justify-content: space-between;
         align-items: center;
-      }
-      footer .copyright {
-        color: #94a3b8;
-        font-size: 0.9rem;
-        font-weight: 400;
-      }
-      footer .social-links {
-        display: flex;
-        align-items: center;
-        row-gap: 1.5em;
-      }
-      footer .social-icon {
-        display: flex;
-        transition: color ease 200ms;
-        align-items: center;
-        color: #94a3b8;
-      }
-      footer .social-icon:hover {
-        color: white;
       }
       header {
         width: 100%;
@@ -100,7 +86,7 @@
         color: white;
       }
       .center-container {
-        max-width: 1200px;
+        max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -123,6 +109,7 @@
     <div class="main">
       <header>
         <link href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" rel="stylesheet"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
         <nav class="center-container">
           <a href="/"><div class="brand">Trey Hope</div></a>
           <div class="nav-links">
@@ -134,8 +121,20 @@
         </nav>
       </header>
       <!--@blog--><section><h1>Blog</h1></section><!--/@blog-->
-      <footer>
-        <div class="footer-content"><div class="copyright">Copyright © 2025</div><div class="social-links"></div></div>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            Site built with <a href="https://jaspr.site/" target="_blank">Jaspr</a> and <a href="https://bulma.io/" target="_blank">Bulma</a>; view source code
+            <a href="https://github.com/trey-a-hope/treyhope.dev.jaspr/tree/main" target="_blank"> here.</a>
+          </p>
+        </div>
+        <div class="center-container button-row">
+          <a href="https://github.com/trey-a-hope/" target="_blank"><button class="button is-dark"><span class="icon"><i class="fab fa-github"></i></span></button></a>
+          <a href="https://x.com/trey_codes" target="_blank"><button class="button is-dark"><span class="icon"><i class="fab fa-x-twitter"></i></span></button></a>
+          <a href="https://www.linkedin.com/in/trey-hope-69a3a774/" target="_blank"><button class="button is-dark"><span class="icon"><i class="fab fa-linkedin"></i></span></button></a>
+          <a href="https://www.youtube.com/@TreyHope" target="_blank"><button class="button is-dark"><span class="icon"><i class="fab fa-youtube"></i></span></button></a>
+          <a href="https://www.tiktok.com/@trey_codes" target="_blank"><button class="button is-dark"><span class="icon"><i class="fab fa-tiktok"></i></span></button></a>
+        </div>
       </footer>
     </div>
   </body>
