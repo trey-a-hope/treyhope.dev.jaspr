@@ -8,3 +8,5 @@
 
 dynamic CounterWidget;
 typedef CounterWidgetOrStubbed = dynamic;
+dynamic LottieWidget;
+typedef LottieWidgetOrStubbed = dynamic;
