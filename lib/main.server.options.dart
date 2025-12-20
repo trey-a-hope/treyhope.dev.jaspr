@@ -5,9 +5,13 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
+import 'package:treyhope_dev/components/footer.dart' as _footer;
 import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/pages/about.dart' as _about;
+import 'package:treyhope_dev/pages/blog.dart' as _blog;
+import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' as _home;
+import 'package:treyhope_dev/pages/projects.dart' as _projects;
 import 'package:treyhope_dev/app.dart' as _app;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -30,11 +34,18 @@ ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
     _about.About: ClientTarget<_about.About>('about'),
+    _blog.Blog: ClientTarget<_blog.Blog>('blog'),
+    _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
     _home.Home: ClientTarget<_home.Home>('home'),
+    _projects.Projects: ClientTarget<_projects.Projects>('projects'),
   },
   styles: () => [
+    ..._footer.Footer.styles,
     ..._header.Header.styles,
     ..._about.About.styles,
+    ..._blog.Blog.styles,
+    ..._code_flows.CodeFlows.styles,
+    ..._projects.Projects.styles,
     ..._app.App.styles,
   ],
 );
