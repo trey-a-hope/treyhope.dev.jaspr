@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:treyhope_dev/extensions/widget_extensions.dart';
 
 class CounterWidget extends StatelessWidget {
@@ -46,7 +47,7 @@ class CounterWidgetView extends StatelessWidget {
                   FloatingActionButton(
                     onPressed: () => context.read<CounterCubit>().decrement(),
                     tooltip: 'Decrement',
-                    child: const Icon(Icons.remove),
+                    child: const Icon(LucideIcons.delete),
                   ),
                   const SizedBox(width: 16),
                   FloatingActionButton(
