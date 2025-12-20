@@ -12,8 +12,9 @@ class About extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section(classes: 'pagespacing', [
-      h1([.text('About')]),
+    return const section(classes: 'center-container', [
+      h1(classes: 'title', [.text('About')]),
+
       p([
         .text(
           'Greetings, my name is Trey, a software developer that has a knack for creating. A small town in Ohio named '
@@ -21,13 +22,14 @@ class About extends StatelessComponent {
           'graphic design using Photoshop, has evolved into a core love for mobile app development.',
         ),
       ]),
+      p([
+        .text(
+          'My favorite framework to work with is Flutter if you haven\'t figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.',
+        ),
+      ]),
     ]);
   }
 
   @css
-  static List<StyleRule> get styles => [
-    css('.pagespacing').styles(
-      margin: Spacing.symmetric(horizontal: 20.px),
-    ),
-  ];
+  static List<StyleRule> get styles => [];
 }

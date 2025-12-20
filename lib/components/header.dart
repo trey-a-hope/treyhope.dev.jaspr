@@ -10,7 +10,8 @@ class Header extends StatelessComponent {
     var activePath = context.url;
 
     return header([
-      nav([
+      link(rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css'),
+      nav(classes: 'center-container', [
         // Logo/Brand on the left
         const Link(
           to: '/',
@@ -44,9 +45,7 @@ class Header extends StatelessComponent {
       css('nav', [
         css('&').styles(
           display: .flex,
-          maxWidth: 1400.px,
-          padding: .symmetric(horizontal: 3.em, vertical: 1.5.em),
-          margin: .inherit,
+          padding: .symmetric(vertical: 1.5.em),
           justifyContent: .spaceBetween,
           alignItems: .center,
         ),
@@ -73,7 +72,6 @@ class Header extends StatelessComponent {
             transition: const Transition('color ease', duration: Duration(milliseconds: 200)),
             color: const Color('#94a3b8'),
             fontSize: 1.em,
-            // gap: Gap.row(10.em), // Note: Gap is not working, using padding instead
             fontWeight: .w500,
             textDecoration: const TextDecoration(line: .none),
           ),

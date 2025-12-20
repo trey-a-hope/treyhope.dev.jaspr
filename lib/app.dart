@@ -43,6 +43,10 @@ class App extends StatelessComponent {
   // Must be a variable or getter of type [List<StyleRule>].
   @css
   static List<StyleRule> get styles => [
+    css('.center-container').styles(
+      maxWidth: 1200.px,
+      margin: Spacing.symmetric(horizontal: Unit.auto),
+    ),
     css('.main', [
       // The '&' refers to the parent selector of a nested style rules.
       css('&').styles(
