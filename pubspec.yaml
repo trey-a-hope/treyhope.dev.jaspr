@@ -9,16 +9,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # walkdown:
-  #   git: https://github.com/trey-a-hope/walkdown.git
-  walkdown:
-    path: /Users/treyhope/Desktop/Development/walkdown
-  # flutter_lints: ^2.0.3
+  flutter_bloc: ^9.1.1
+  google_fonts: ^6.1.0 # or latest version
   jaspr: ^0.22.0
   jaspr_flutter_embed: ^0.4.10
   jaspr_router: ^0.8.1
-  flutter_bloc: ^9.1.1
-  google_fonts: ^6.1.0 # or latest version
   lucide_icons_flutter: ^3.1.8
 
 dev_dependencies:

@@ -19,6 +19,7 @@ class CounterWidgetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final counterCubit = context.read<CounterCubit>();
 
     return Card(
       child: Padding(
@@ -45,21 +46,21 @@ class CounterWidgetView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FloatingActionButton(
-                    onPressed: () => context.read<CounterCubit>().decrement(),
+                    onPressed: () => counterCubit.decrement(),
                     tooltip: 'Decrement',
-                    child: const Icon(LucideIcons.delete),
+                    child: const Icon(LucideIcons.minus),
                   ),
                   const SizedBox(width: 16),
                   FloatingActionButton(
-                    onPressed: () => context.read<CounterCubit>().reset(),
+                    onPressed: () => counterCubit.reset(),
                     tooltip: 'Reset',
-                    child: const Icon(Icons.refresh),
+                    child: const Icon(Icons.rotate_90_degrees_cw_outlined),
                   ),
                   const SizedBox(width: 16),
                   FloatingActionButton(
-                    onPressed: () => context.read<CounterCubit>().increment(),
+                    onPressed: () => counterCubit.increment(),
                     tooltip: 'Increment',
-                    child: const Icon(Icons.add),
+                    child: const Icon(LucideIcons.plus),
                   ),
                 ],
               ),
@@ -74,15 +75,7 @@ class CounterWidgetView extends StatelessWidget {
 class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
-  void increment() {
-    emit(state + 1);
-  }
-
-  void decrement() {
-    emit(state - 1);
-  }
-
-  void reset() {
-    emit(0);
-  }
+  void increment() =>     emit(state + 1);
+  void decrement() =>     emit(state - 1);
+  void reset() =>     emit(0);
 }
