@@ -27,7 +27,7 @@ class About extends StatelessComponent {
   @css
   static List<StyleRule> get styles => [
     css('.pagespacing').styles(
-      maxWidth: 1000.px,
+      margin: Spacing.symmetric(horizontal: 20.px),
     ),
   ];
 }
