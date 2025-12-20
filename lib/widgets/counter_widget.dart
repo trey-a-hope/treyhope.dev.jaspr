@@ -8,7 +8,7 @@ class CounterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocProvider(
     create: (_) => CounterCubit(),
-    child: const CounterWidgetView().embed(),
+    child: const CounterWidgetView().mApp(),
   );
 }
 
