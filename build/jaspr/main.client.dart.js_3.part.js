@@ -1,20 +1,20 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var B,C,A={lU:function lU(d,e,f){this.d=d
+$__dart_deferred_initializers__.current=function(a,b,c,$){var B,C,A={qm:function qm(d,e,f){this.d=d
 this.w=e
-this.a=f},lX:function lX(d,e,f){this.d=d
+this.a=f},qp:function qp(d,e,f){this.d=d
 this.w=e
 this.a=f}}
 B=c[0]
-C=c[15]
-A=a.updateHolder(c[14],A)
-A.lU.prototype={
-L(d){var y=null
-return new B.dK("h1",y,this.d,y,y,y,this.w,y)}}
-A.lX.prototype={
-L(d){var y=null
-return new B.dK("section",y,this.d,y,y,y,this.w,y)}}
+C=c[21]
+A=a.updateHolder(c[20],A)
+A.qm.prototype={
+N(d){var y=null
+return new B.eE("h1",y,this.d,y,y,y,this.w,y)}}
+A.qp.prototype={
+N(d){var y=null
+return new B.eE("section",y,this.d,y,y,y,this.w,y)}}
 var z=a.updateTypes([]);(function inheritance(){var y=a.inheritMany
-y(C.bM,[A.lU,A.lX])})()
-B.fn(b.typeUniverse,JSON.parse('{"lU":{"bM":[],"aN":[]},"lX":{"bM":[],"aN":[]}}'))};
-(a=>{a["uPf9Wo+aF/x6CCEt/c/hVP0GjDU="]=a.current})($__dart_deferred_initializers__);
+y(C.c_,[A.qm,A.qp])})()
+B.e8(b.typeUniverse,JSON.parse('{"qm":{"c_":[],"aS":[]},"qp":{"c_":[],"aS":[]}}'))};
+(a=>{a["PD+K1XqYlpG0vVHKWxGb24euWsw="]=a.current})($__dart_deferred_initializers__);
 //# sourceMappingURL=main.client.dart.js_3.part.js.map

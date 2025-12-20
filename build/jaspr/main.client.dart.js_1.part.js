@@ -1,48 +1,48 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var B,C={AT:function AT(d,e){this.w=d
+$__dart_deferred_initializers__.current=function(a,b,c,$){var B,C={DR:function DR(d,e){this.w=d
 this.a=e},
-ahJ(){return new C.lZ(null)},
-lZ:function lZ(d){this.a=d}},A,G,E,D,F
+apP(){return new C.nt(null)},
+nt:function nt(d){this.a=d}},A,G,E,D,F
 B=c[0]
 C=a.updateHolder(c[3],C)
-A=c[19]
-G=c[15]
-E=c[14]
-D=c[13]
-F=c[11]
-C.AT.prototype={
-L(d){var x=null
-return new B.dK("strong",x,x,x,x,x,this.w,x)}}
-C.lZ.prototype={
-L(d){return A.MV}}
+A=c[29]
+G=c[21]
+E=c[20]
+D=c[18]
+F=c[12]
+C.DR.prototype={
+N(d){var x=null
+return new B.eE("strong",x,x,x,x,x,this.w,x)}}
+C.nt.prototype={
+N(d){return A.P6}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inheritMany
-x(G.bM,[C.AT,C.lZ])})()
-B.fn(b.typeUniverse,JSON.parse('{"AT":{"bM":[],"aN":[]},"lZ":{"bM":[],"aN":[]}}'))
-var y={d:B.a2("v<aN>")};(function constants(){var x=a.makeConstList
-A.Kx=new B.d6("About",null)
-A.zP=x([A.Kx],y.d)
-A.MM=new E.lU("title",A.zP,null)
-A.zY=x([A.MM],y.d)
-A.MK=new D.oz(null,"block",null,A.zY,null)
-A.KB=new B.d6("Greetings, my name is",null)
-A.KD=new B.d6(" Trey",null)
-A.zA=x([A.KD],y.d)
-A.MX=new C.AT(A.zA,null)
-A.KE=new B.d6(', a software developer that has a knack for creating. A small town in Ohio named Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as graphic design using Photoshop, has evolved into a core love for mobile app development.',null)
-A.zB=x([A.KB,A.MX,A.KE],y.d)
-A.MR=new F.ta(A.zB,null)
-A.zM=x([A.MR],y.d)
-A.MJ=new D.oz(null,"block",null,A.zM,null)
-A.KF=new B.d6("My favorite framework to work with is",null)
-A.Kv=new B.d6(" Flutter",null)
-A.A1=x([A.Kv],y.d)
-A.MY=new C.AT(A.A1,null)
-A.KC=new B.d6(" if you haven't figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.",null)
-A.Ar=x([A.KF,A.MY,A.KC],y.d)
-A.MQ=new F.ta(A.Ar,null)
-A.zN=x([A.MQ],y.d)
-A.ML=new D.oz(null,"block",null,A.zN,null)
-A.zE=x([A.MK,A.MJ,A.ML],y.d)
-A.MV=new E.lX("center-container",A.zE,null)})()};
-(a=>{a["m/PerQt/F1nvR/e+xHp+CRMyPdQ="]=a.current})($__dart_deferred_initializers__);
+x(G.c_,[C.DR,C.nt])})()
+B.e8(b.typeUniverse,JSON.parse('{"DR":{"c_":[],"aS":[]},"nt":{"c_":[],"aS":[]}}'))
+var y={d:B.X("o<aS>")};(function constants(){var x=a.makeConstList
+A.MJ=new B.dv("About",null)
+A.BH=x([A.MJ],y.d)
+A.P0=new E.qm("title",A.BH,null)
+A.BQ=x([A.P0],y.d)
+A.OZ=new D.qk(null,"block",null,A.BQ,null)
+A.ML=new B.dv("Greetings, my name is",null)
+A.MN=new B.dv(" Trey",null)
+A.Br=x([A.MN],y.d)
+A.P8=new C.DR(A.Br,null)
+A.MO=new B.dv(', a software developer that has a knack for creating. A small town in Ohio named Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as graphic design using Photoshop, has evolved into a core love for mobile app development.',null)
+A.Bs=x([A.ML,A.P8,A.MO],y.d)
+A.P4=new F.vi(A.Bs,null)
+A.BE=x([A.P4],y.d)
+A.OY=new D.qk(null,"block",null,A.BE,null)
+A.MP=new B.dv("My favorite framework to work with is",null)
+A.MH=new B.dv(" Flutter",null)
+A.BU=x([A.MH],y.d)
+A.P9=new C.DR(A.BU,null)
+A.MM=new B.dv(" if you haven't figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.",null)
+A.Co=x([A.MP,A.P9,A.MM],y.d)
+A.P3=new F.vi(A.Co,null)
+A.BF=x([A.P3],y.d)
+A.P_=new D.qk(null,"block",null,A.BF,null)
+A.Bw=x([A.OZ,A.OY,A.P_],y.d)
+A.P6=new E.qp("center-container",A.Bw,null)})()};
+(a=>{a["JXeWO7dJZL43d96bVMhFCmtkB2E="]=a.current})($__dart_deferred_initializers__);
 //# sourceMappingURL=main.client.dart.js_1.part.js.map
