@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:treyhope_dev/extensions/widget_extensions.dart';
 
 class CounterWidget extends StatelessWidget {
   const CounterWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => CounterCubit(),
-      child: const CounterWidgetView(),
-    );
-  }
+  Widget build(BuildContext context) => BlocProvider(
+    create: (_) => CounterCubit(),
+    child: const CounterWidgetView().embed(),
+  );
 }
 
 class CounterWidgetView extends StatelessWidget {
