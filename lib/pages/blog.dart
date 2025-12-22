@@ -9,7 +9,7 @@ class Blog extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section([
+    return const section(classes: 'container is-max-desktop section', [
       h1(classes: 'title', [.text('Blog')]),
       h4([
         .text('Page currently under construction'),

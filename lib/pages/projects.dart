@@ -9,7 +9,7 @@ class Projects extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section(classes: 'centered-container', [
+    return section(classes: 'container is-max-desktop section', [
       h1(classes: 'title', [.text('Projects')]),
       h4([
         .text('Page currently under construction'),
@@ -61,9 +61,9 @@ class IconLabel extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return fragment([
+    return .fragment([
       span(classes: 'icon', [i(classes: 'fas fa-$icon', [])]),
-      span([text(label)]),
+      span([.text(label)]),
     ]);
   }
 }

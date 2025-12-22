@@ -33,6 +33,7 @@ import 'package:treyhope_dev/app.dart' as _app;
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
+    _header.Header: ClientTarget<_header.Header>('header'),
     _about.About: ClientTarget<_about.About>('about'),
     _blog.Blog: ClientTarget<_blog.Blog>('blog'),
     _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
@@ -43,7 +44,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _projects.Projects: ClientTarget<_projects.Projects>('projects'),
   },
   styles: () => [
-    ..._header.Header.styles,
+    ..._header.HeaderState.styles,
     ..._about.About.styles,
     ..._blog.Blog.styles,
     ..._code_flows.CodeFlows.styles,

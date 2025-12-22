@@ -2,7 +2,6 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/footer.dart';
-import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/pages/blog.dart';
 import 'package:treyhope_dev/pages/code_flows.dart';
 import 'package:treyhope_dev/pages/page_not_found.dart';
@@ -26,7 +25,6 @@ class App extends StatelessComponent {
     // Renders a <div class="main"> html element with children.
     return div(classes: 'main', [
       const Header(),
-      const Spacer(.xl),
       Router(
         routes: [
           Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
@@ -37,7 +35,6 @@ class App extends StatelessComponent {
         ],
         errorBuilder: (context, state) => const PageNotFound(),
       ),
-      const Spacer(.xl),
       const Footer(),
     ]);
   }
@@ -48,10 +45,6 @@ class App extends StatelessComponent {
   // Must be a variable or getter of type [List<StyleRule>].
   @css
   static List<StyleRule> get styles => [
-    css('.center-container').styles(
-      maxWidth: 1000.px,
-      margin: Spacing.symmetric(horizontal: Unit.auto),
-    ),
     css('.main', [
       // The '&' refers to the parent selector of a nested style rules.
       css('&').styles(

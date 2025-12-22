@@ -6,6 +6,7 @@
 
 import 'package:jaspr/client.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:treyhope_dev/components/header.dart' deferred as _header;
 import 'package:treyhope_dev/pages/about.dart' deferred as _about;
 import 'package:treyhope_dev/pages/blog.dart' deferred as _blog;
 import 'package:treyhope_dev/pages/code_flows.dart' deferred as _code_flows;
@@ -39,6 +40,10 @@ ClientOptions get defaultClientOptions => ClientOptions(
     registrar.registerMessageHandler();
   },
   clients: {
+    'header': ClientLoader(
+      (p) => _header.Header(),
+      loader: _header.loadLibrary,
+    ),
     'about': ClientLoader((p) => _about.About(), loader: _about.loadLibrary),
     'blog': ClientLoader((p) => _blog.Blog(), loader: _blog.loadLibrary),
     'code_flows': ClientLoader(
