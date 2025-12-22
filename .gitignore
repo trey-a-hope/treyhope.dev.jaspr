@@ -6,8 +6,6 @@
 # Conventional directory for build output.
 # Ignore everything in build directory
 build/*
-# But don't ignore the jaspr subdirectory
-!build/jaspr/
 
 # Miscellaneous
 *.class
