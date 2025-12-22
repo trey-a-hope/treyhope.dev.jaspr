@@ -12,7 +12,7 @@ class About extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section(classes: 'center-container', [
+    return const section(classes: 'container is-max-desktop section', [
       div(classes: 'block', [
         h1(classes: 'title', [.text('About')]),
       ]),

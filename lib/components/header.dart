@@ -1,7 +1,8 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/constants/globals.dart';
 
-@client // Add this annotation
+@client
 class Header extends StatefulComponent {
   const Header({super.key});
 
@@ -20,53 +21,55 @@ class HeaderState extends State<Header> {
       classes: 'navbar',
       attributes: {'role': 'navigation', 'aria-label': 'main navigation'},
       [
-        // Navbar hamburger (mobile)
-        div(classes: 'navbar-brand', [
-          a(classes: 'navbar-item', href: '/', [
-            strong([.text('Trey Hope')]),
+        div(classes: 'navbar-container container is-max-desktop', [
+          // Navbar hamburger (mobile)
+          div(classes: 'navbar-brand', [
+            a(classes: 'navbar-item', href: '/', [
+              strong([.text('Trey Hope')]),
+            ]),
+            button(
+              onClick: () {
+                print('Menu toggled! isMenuOpen: $isMenuOpen');
+                _toggleMenu();
+              },
+              classes: 'navbar-burger${isMenuOpen ? ' is-active' : ''}',
+              attributes: {
+                'role': 'button',
+                'aria-label': 'menu',
+                'aria-expanded': '$isMenuOpen',
+                'data-target': 'navMenu',
+              },
+              [
+                span(attributes: {'aria-hidden': 'true'}, []),
+                span(attributes: {'aria-hidden': 'true'}, []),
+                span(attributes: {'aria-hidden': 'true'}, []),
+                span(attributes: {'aria-hidden': 'true'}, []),
+              ],
+            ),
           ]),
-          button(
-            onClick: () {
-              print('Menu toggled! isMenuOpen: $isMenuOpen');
-              _toggleMenu();
-            },
-            classes: 'navbar-burger${isMenuOpen ? ' is-active' : ''}',
-            attributes: {
-              'role': 'button',
-              'aria-label': 'menu',
-              'aria-expanded': '$isMenuOpen',
-              'data-target': 'navMenu',
-            },
+          // Navbar menu (desktop)
+          div(
+            id: 'navMenu',
+            classes: 'navbar-menu${isMenuOpen ? ' is-active' : ''}',
             [
-              span(attributes: {'aria-hidden': 'true'}, []),
-              span(attributes: {'aria-hidden': 'true'}, []),
-              span(attributes: {'aria-hidden': 'true'}, []),
-              span(attributes: {'aria-hidden': 'true'}, []),
+              div(classes: 'navbar-start', []),
+              div(classes: 'navbar-end', [
+                a(href: '/about', classes: 'navbar-item', [
+                  .text('About'),
+                ]),
+                a(href: '/projects', classes: 'navbar-item', [
+                  .text('Projects'),
+                ]),
+                a(href: '/code-flows', classes: 'navbar-item', [
+                  .text('Code Flows'),
+                ]),
+                a(href: '/blog', classes: 'navbar-item', [
+                  .text('Blog'),
+                ]),
+              ]),
             ],
           ),
         ]),
-        // Navbar menu (desktop)
-        div(
-          id: 'navMenu',
-          classes: 'navbar-menu${isMenuOpen ? ' is-active' : ''}',
-          [
-            div(classes: 'navbar-start', []),
-            div(classes: 'navbar-end', [
-              a(href: '/about', classes: 'navbar-item', [
-                .text('About'),
-              ]),
-              a(href: '/projects', classes: 'navbar-item', [
-                .text('Projects'),
-              ]),
-              a(href: '/code-flows', classes: 'navbar-item', [
-                .text('Code Flows'),
-              ]),
-              a(href: '/blog', classes: 'navbar-item', [
-                .text('Blog'),
-              ]),
-            ]),
-          ],
-        ),
       ],
     );
   }
@@ -85,5 +88,11 @@ class HeaderState extends State<Header> {
     css('.navbar-burger span').styles(
       raw: {'pointer-events': 'none'},
     ),
+    // Apply larger padding on desktop (screens wider than 768px)
+    css.media(MediaQuery.screen(minWidth: Globals.desktopBreakpoint.px), [
+      css('.navbar-container').styles(
+        padding: Padding.symmetric(horizontal: 3.5.rem),
+      ),
+    ]),
   ];
 }

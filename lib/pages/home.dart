@@ -39,7 +39,7 @@ class HomeState extends State<Home> {
 
   @override
   Component build(BuildContext context) {
-    return section(classes: 'center-container', [
+    return section(classes: 'container is-max-desktop section', [
       img(src: 'images/logo.svg', width: 80),
       Spacer(.xl),
       h1(classes: 'title', [.text('Hey, I\'m Trey')]),

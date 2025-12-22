@@ -3,7 +3,7 @@ part of 'footer.dart';
 class SocialButtons extends StatelessComponent {
   @override
   Component build(BuildContext context) {
-    return div(id: 'social-buttons', classes: 'center-container', [
+    return div(id: 'social-buttons', classes: 'container is-max-desktop', [
       _SocialButton(url: 'https://github.com/trey-a-hope/', icon: 'github'),
       _SocialButton(url: 'https://x.com/trey_codes', icon: 'x-twitter'),
       _SocialButton(url: 'https://www.linkedin.com/in/trey-hope-69a3a774/', icon: 'linkedin'),

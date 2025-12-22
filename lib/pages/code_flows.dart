@@ -9,7 +9,7 @@ class CodeFlows extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section([
+    return const section(classes: 'container is-max-desktop section', [
       h1(classes: 'title', [.text('Code Flows')]),
       h4([
         .text('Page currently under construction'),
