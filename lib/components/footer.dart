@@ -1,18 +1,23 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/spacer.dart';
 
 part 'social_button.dart';
 part 'footer_sentence.dart';
 
 class Footer extends StatelessComponent {
+  static const String _jasprHref = 'https://jaspr.site/';
+
   const Footer({super.key});
 
   @override
   Component build(BuildContext context) {
-    return footer(classes: 'footer', [
+    return footer(classes: 'footer has-text-centered', [
       FooterSentence(),
       SocialButtons(),
+      Spacer(.lg),
+      Link(target: Target.blank, to: _jasprHref, child: JasprBadge.lightTwoTone()),
     ]);
   }
 

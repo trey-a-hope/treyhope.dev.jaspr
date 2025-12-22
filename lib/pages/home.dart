@@ -41,9 +41,9 @@ class HomeState extends State<Home> {
     return section(classes: 'center-container', [
       // TODO (Trey) - Add images to app this way
       img(src: 'images/logo.svg', width: 80),
-      Spacer(SpacerHeight.xl),
+      Spacer(.xl),
       h1(classes: 'title', [.text('Hey, I\'m Trey')]),
-      Spacer(SpacerHeight.small),
+      Spacer(.sm),
       div(classes: 'content has-text-centered', [
         h4([
           .text(
@@ -51,9 +51,9 @@ class HomeState extends State<Home> {
           ),
         ]),
       ]),
-      Spacer(SpacerHeight.small),
+      Spacer(.sm),
       EmbeddedCounterWidget(),
-      Spacer(SpacerHeight.xl),
+      Spacer(.xl),
       Link(
         to: '/about',
         child: button(
