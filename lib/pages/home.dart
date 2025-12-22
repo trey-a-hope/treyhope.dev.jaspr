@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr_router/jaspr_router.dart';
@@ -13,29 +12,10 @@ import 'package:treyhope_dev/components/spacer.dart';
 // - this component and any child components will be built once on the server during pre-rendering and then
 //   again on the client during normal rendering.
 @client
-class Home extends StatefulComponent {
-  const Home({super.key});
-
-  @override
-  State<Home> createState() => HomeState();
-}
-
-class HomeState extends State<Home> {
+class Home extends StatelessComponent {
   static const String _walkdownUrl = 'https://walkdown.codemagic.app/';
 
-  @override
-  void initState() {
-    super.initState();
-    // Run code depending on the rendering environment.
-    if (kIsWeb) {
-      log("Hello client");
-      // When using @client components there is no default `main()` function on the client where you would normally
-      // run any client-side initialization logic. Instead you can put it here, considering this component is only
-      // mounted once at the root of your client-side component tree.
-    } else {
-      log("Hello server");
-    }
-  }
+  const Home({super.key});
 
   @override
   Component build(BuildContext context) {
@@ -60,7 +40,7 @@ class HomeState extends State<Home> {
         to: '/about',
         child: button(
           classes: 'button',
-          [.text('More about me')],
+          [.text('More about NOTHING!')],
         ),
       ),
     ]);
