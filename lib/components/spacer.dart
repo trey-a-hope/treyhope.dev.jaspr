@@ -19,5 +19,9 @@ class Spacer extends StatelessComponent {
   const Spacer(this.spacerHeight);
 
   @override
-  Component build(BuildContext context) => div(styles: Styles(height: spacerHeight.value.px), []);
+  Component build(BuildContext context) => div(
+    id: 'spacer',
+    styles: Styles(height: spacerHeight.value.px),
+    [],
+  );
 }

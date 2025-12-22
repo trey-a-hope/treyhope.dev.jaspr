@@ -37,6 +37,7 @@ class App extends StatelessComponent {
         ],
         errorBuilder: (context, state) => const PageNotFound(),
       ),
+      const Spacer(SpacerHeight.xl),
       const Footer(),
     ]);
   }

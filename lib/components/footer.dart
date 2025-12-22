@@ -12,13 +12,7 @@ class Footer extends StatelessComponent {
   Component build(BuildContext context) {
     return footer(classes: 'footer', [
       FooterSentence(),
-      div(classes: 'center-container button-row', [
-        SocialButton(url: 'https://github.com/trey-a-hope/', icon: 'github'),
-        SocialButton(url: 'https://x.com/trey_codes', icon: 'x-twitter'),
-        SocialButton(url: 'https://www.linkedin.com/in/trey-hope-69a3a774/', icon: 'linkedin'),
-        SocialButton(url: 'https://www.youtube.com/@TreyHope', icon: 'youtube'),
-        SocialButton(url: 'https://www.tiktok.com/@trey_codes', icon: 'tiktok'),
-      ]),
+      SocialButtons(),
     ]);
   }
 

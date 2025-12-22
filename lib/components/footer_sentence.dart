@@ -8,7 +8,7 @@ class FooterSentence extends StatelessComponent {
   const FooterSentence();
 
   @override
-  Component build(BuildContext context) => div(classes: 'content has-text-centered', [
+  Component build(BuildContext context) => div(id: 'footer-sentence', classes: 'content has-text-centered', [
     p([
       .text('Site built with '),
       a(target: Target.blank, href: _jasprHref, [
