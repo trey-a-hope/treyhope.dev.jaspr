@@ -1,87 +1,89 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_router/jaspr_router.dart';
 
-class Header extends StatelessComponent {
+@client // Add this annotation
+class Header extends StatefulComponent {
   const Header({super.key});
 
   @override
+  State<Header> createState() => HeaderState();
+}
+
+class HeaderState extends State<Header> {
+  bool isMenuOpen = false;
+
+  void _toggleMenu() => setState(() => isMenuOpen = !isMenuOpen);
+
+  @override
   Component build(BuildContext context) {
-    var activePath = context.url;
-
-    return header([
-      nav(classes: 'center-container', [
-        // Logo/Brand on the left
-        const Link(
-          to: '/',
-          child: div(classes: 'brand', [.text('Trey Hope')]),
-        ),
-
-        // Nav items on the right
-        div(classes: 'nav-links', [
-          for (var route in [
-            (label: 'About', path: '/about'),
-            (label: 'Projects', path: '/projects'),
-            (label: 'Code Flows', path: '/code-flows'),
-            (label: 'Blog', path: '/blog'),
-          ])
-            Link(to: route.path, classes: activePath == route.path ? 'active' : null, child: .text(route.label)),
+    return nav(
+      classes: 'navbar',
+      attributes: {'role': 'navigation', 'aria-label': 'main navigation'},
+      [
+        // Navbar hamburger (mobile)
+        div(classes: 'navbar-brand', [
+          a(classes: 'navbar-item', href: '/', [
+            strong([.text('Trey Hope')]),
+          ]),
+          button(
+            onClick: () {
+              print('Menu toggled! isMenuOpen: $isMenuOpen');
+              _toggleMenu();
+            },
+            classes: 'navbar-burger${isMenuOpen ? ' is-active' : ''}',
+            attributes: {
+              'role': 'button',
+              'aria-label': 'menu',
+              'aria-expanded': '$isMenuOpen',
+              'data-target': 'navMenu',
+            },
+            [
+              span(attributes: {'aria-hidden': 'true'}, []),
+              span(attributes: {'aria-hidden': 'true'}, []),
+              span(attributes: {'aria-hidden': 'true'}, []),
+              span(attributes: {'aria-hidden': 'true'}, []),
+            ],
+          ),
         ]),
-      ]),
-    ]);
+        // Navbar menu (desktop)
+        div(
+          id: 'navMenu',
+          classes: 'navbar-menu${isMenuOpen ? ' is-active' : ''}',
+          [
+            div(classes: 'navbar-start', []),
+            div(classes: 'navbar-end', [
+              a(href: '/about', classes: 'navbar-item', [
+                .text('About'),
+              ]),
+              a(href: '/projects', classes: 'navbar-item', [
+                .text('Projects'),
+              ]),
+              a(href: '/code-flows', classes: 'navbar-item', [
+                .text('Code Flows'),
+              ]),
+              a(href: '/blog', classes: 'navbar-item', [
+                .text('Blog'),
+              ]),
+            ]),
+          ],
+        ),
+      ],
+    );
   }
 
   @css
   static List<StyleRule> get styles => [
-    css('header', [
-      css('&').styles(
-        width: 100.percent,
-        border: Border.only(
-          bottom: BorderSide(color: const Color('#1a2942'), width: 1.px),
-        ), // Direct hex string
-        backgroundColor: const Color('#0a1628'),
-      ),
-      css('nav', [
-        css('&').styles(
-          display: .flex,
-          padding: .symmetric(vertical: 1.5.em),
-          justifyContent: .spaceBetween,
-          alignItems: .center,
-        ),
-        // Brand/Logo styling
-        css('.brand', [
-          css('&').styles(
-            color: Colors.white,
-            fontSize: 1.25.rem,
-            fontWeight: .w600,
-            textDecoration: const TextDecoration(line: .none),
-          ),
-        ]),
-        // Nav links container
-        css('.nav-links', [
-          css('&').styles(
-            display: .flex,
-            alignItems: .center,
-          ),
-        ]),
-        // Individual nav links
-        css('a:not(.brand)', [
-          css('&').styles(
-            padding: Padding.symmetric(horizontal: 0.5.em),
-            transition: const Transition('color ease', duration: Duration(milliseconds: 200)),
-            color: const Color('#94a3b8'),
-            fontSize: 1.em,
-            fontWeight: .w500,
-            textDecoration: const TextDecoration(line: .none),
-          ),
-          css('&:hover').styles(
-            color: Colors.white,
-          ),
-          css('&.active').styles(
-            color: Colors.white,
-          ),
-        ]),
-      ]),
-    ]),
+    css('.navbar-burger').styles(
+      border: Border.none,
+      cursor: Cursor.pointer,
+      backgroundColor: Colors.transparent,
+    ),
+    css('.navbar').styles(
+      padding: Padding.all(1.rem),
+      backgroundColor: Color('#333'),
+    ),
+    css('.navbar-burger span').styles(
+      raw: {'pointer-events': 'none'},
+    ),
   ];
 }
