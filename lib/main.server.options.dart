@@ -5,12 +5,12 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
-import 'package:treyhope_dev/components/footer.dart' as _footer;
 import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/pages/about.dart' as _about;
 import 'package:treyhope_dev/pages/blog.dart' as _blog;
 import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' as _home;
+import 'package:treyhope_dev/pages/page_not_found.dart' as _page_not_found;
 import 'package:treyhope_dev/pages/projects.dart' as _projects;
 import 'package:treyhope_dev/app.dart' as _app;
 
@@ -37,14 +37,17 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _blog.Blog: ClientTarget<_blog.Blog>('blog'),
     _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
     _home.Home: ClientTarget<_home.Home>('home'),
+    _page_not_found.PageNotFound: ClientTarget<_page_not_found.PageNotFound>(
+      'page_not_found',
+    ),
     _projects.Projects: ClientTarget<_projects.Projects>('projects'),
   },
   styles: () => [
-    ..._footer.Footer.styles,
     ..._header.Header.styles,
     ..._about.About.styles,
     ..._blog.Blog.styles,
     ..._code_flows.CodeFlows.styles,
+    ..._page_not_found.PageNotFound.styles,
     ..._projects.Projects.styles,
     ..._app.App.styles,
   ],

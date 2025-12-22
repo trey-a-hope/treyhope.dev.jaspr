@@ -1,50 +1,47 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,B={DQ:function DQ(d,e){this.w=d
-this.a=e},DT:function DT(d,e){this.w=d
+$__dart_deferred_initializers__.current=function(a,b,c,$){var B,C={Ea:function Ea(d,e){this.w=d
 this.a=e},
-apR(){return new B.nr(null)},
-nr:function nr(d){this.a=d}},A,D,E
-C=c[0]
-B=a.updateHolder(c[3],B)
-A=c[25]
-D=c[19]
-E=c[17]
-B.DQ.prototype={
+aqm(){return new C.nv(null)},
+nv:function nv(d){this.a=d}},A,D,E,F
+B=c[0]
+C=a.updateHolder(c[3],C)
+A=c[27]
+D=c[21]
+E=c[20]
+F=c[14]
+C.Ea.prototype={
 N(d){var x=null
-return new C.e9("p",x,x,x,x,x,this.w,x)}}
-B.DT.prototype={
-N(d){var x=null
-return new C.e9("strong",x,x,x,x,x,this.w,x)}}
-B.nr.prototype={
-N(d){return A.P7}}
+return new B.eD("strong",x,x,x,x,x,this.w,x)}}
+C.nv.prototype={
+N(d){return A.PY}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inheritMany
-x(D.bV,[B.DQ,B.DT,B.nr])})()
-C.fh(b.typeUniverse,JSON.parse('{"DQ":{"bV":[],"aR":[]},"DT":{"bV":[],"aR":[]},"nr":{"bV":[],"aR":[]}}'))
-var y={d:C.Z("o<aR>")};(function constants(){var x=a.makeConstList
-A.ML=new C.dG("About",null)
-A.BK=x([A.ML],y.d)
-A.P2=new E.v8("title",A.BK,null)
-A.BT=x([A.P2],y.d)
-A.P0=new D.qg(null,"block",null,A.BT,null)
-A.MM=new C.dG("Greetings, my name is",null)
-A.MO=new C.dG(" Trey",null)
-A.Bv=x([A.MO],y.d)
-A.P8=new B.DT(A.Bv,null)
-A.MQ=new C.dG(', a software developer that has a knack for creating. A small town in Ohio named Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as graphic design using Photoshop, has evolved into a core love for mobile app development.',null)
-A.Bw=x([A.MM,A.P8,A.MQ],y.d)
-A.P6=new B.DQ(A.Bw,null)
-A.BI=x([A.P6],y.d)
-A.P_=new D.qg(null,"block",null,A.BI,null)
-A.MR=new C.dG("My favorite framework to work with is",null)
-A.MJ=new C.dG(" Flutter",null)
-A.BX=x([A.MJ],y.d)
-A.P9=new B.DT(A.BX,null)
-A.MN=new C.dG(" if you haven't figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.",null)
-A.Cq=x([A.MR,A.P9,A.MN],y.d)
-A.P5=new B.DQ(A.Cq,null)
-A.BJ=x([A.P5],y.d)
-A.P1=new D.qg(null,"block",null,A.BJ,null)
-A.BA=x([A.P0,A.P_,A.P1],y.d)
-A.P7=new E.vg("center-container",A.BA,null)})()};
-(a=>{a["ku7di6nqUCjgmyszHBm+M7xTLog="]=a.current})($__dart_deferred_initializers__);
+x(D.bM,[C.Ea,C.nv])})()
+B.et(b.typeUniverse,JSON.parse('{"Ea":{"bM":[],"aP":[]},"nv":{"bM":[],"aP":[]}}'))
+var y={d:B.Z("o<aP>")};(function constants(){var x=a.makeConstList
+A.Np=new B.d6("About",null)
+A.C8=x([A.Np],y.d)
+A.PQ=new E.nn("title",A.C8,null)
+A.Cj=x([A.PQ],y.d)
+A.PN=new D.lT(null,"block",null,A.Cj,null)
+A.Ns=new B.d6("Greetings, my name is",null)
+A.Nu=new B.d6(" Trey",null)
+A.BS=x([A.Nu],y.d)
+A.Q0=new C.Ea(A.BS,null)
+A.Nx=new B.d6(', a software developer that has a knack for creating. A small town in Ohio named Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as graphic design using Photoshop, has evolved into a core love for mobile app development.',null)
+A.BT=x([A.Ns,A.Q0,A.Nx],y.d)
+A.PV=new F.vA(A.BT,null)
+A.C4=x([A.PV],y.d)
+A.PM=new D.lT(null,"block",null,A.C4,null)
+A.Ny=new B.d6("My favorite framework to work with is",null)
+A.Nn=new B.d6(" Flutter",null)
+A.Cp=x([A.Nn],y.d)
+A.Q1=new C.Ea(A.Cp,null)
+A.Nt=new B.d6(" if you haven't figured out yet. Being able to make video games, web apps, and desktop dashboards, all from a single code base is what has kept me coding. My goal is to keep learning about the best hybrid framework on the planet, while continuing that knack for creativity.",null)
+A.CZ=x([A.Ny,A.Q1,A.Nt],y.d)
+A.PU=new F.vA(A.CZ,null)
+A.C5=x([A.PU],y.d)
+A.PO=new D.lT(null,"block",null,A.C5,null)
+A.BX=x([A.PN,A.PM,A.PO],y.d)
+A.PY=new E.nr("center-container",A.BX,null)})()};
+(a=>{a["zmJQ3ALbVR+XFYI2bLLj/AV0xBA="]=a.current})($__dart_deferred_initializers__);
 //# sourceMappingURL=main.client.dart.js_1.part.js.map

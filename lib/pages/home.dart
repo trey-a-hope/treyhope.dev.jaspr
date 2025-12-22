@@ -4,6 +4,7 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/embedded_counter_widget.dart';
+import 'package:treyhope_dev/components/spacer.dart';
 
 // import '../components/counter.dart';
 
@@ -37,20 +38,27 @@ class HomeState extends State<Home> {
 
   @override
   Component build(BuildContext context) {
-    return section([
+    return section(classes: 'center-container', [
+      // TODO (Trey) - Add images to app this way
       img(src: 'images/logo.svg', width: 80),
-      div(classes: 'block', [
-        h1(classes: 'title', [.text('Hey, I\'m Trey')]),
+      Spacer(SpacerHeight.xl),
+      h1(classes: 'title', [.text('Hey, I\'m Trey')]),
+      Spacer(SpacerHeight.small),
+      div(classes: 'content has-text-centered', [
+        h4([
+          .text(
+            'I\'m a Flutter fanatic passionate about building websites, mobile apps, and desktop applications. Want to see what I\'m working on? Check out this 2D side scroller game I\'m creating with Flutter!',
+          ),
+        ]),
       ]),
-      h2(classes: 'subtitle', [.text('And I\'m a Flutter fanactic')]),
-      div(classes: 'block', [
-        EmbeddedCounterWidget(),
-      ]),
+      Spacer(SpacerHeight.small),
+      EmbeddedCounterWidget(),
+      Spacer(SpacerHeight.xl),
       Link(
         to: '/about',
         child: button(
           classes: 'button',
-          [.text('Learn more')],
+          [.text('More about me')],
         ),
       ),
     ]);

@@ -10,6 +10,8 @@ import 'package:treyhope_dev/pages/about.dart' deferred as _about;
 import 'package:treyhope_dev/pages/blog.dart' deferred as _blog;
 import 'package:treyhope_dev/pages/code_flows.dart' deferred as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' deferred as _home;
+import 'package:treyhope_dev/pages/page_not_found.dart'
+    deferred as _page_not_found;
 import 'package:treyhope_dev/pages/projects.dart' deferred as _projects;
 
 /// Default [ClientOptions] for use with your Jaspr project.
@@ -37,6 +39,10 @@ ClientOptions get defaultClientOptions => ClientOptions(
       loader: _code_flows.loadLibrary,
     ),
     'home': ClientLoader((p) => _home.Home(), loader: _home.loadLibrary),
+    'page_not_found': ClientLoader(
+      (p) => _page_not_found.PageNotFound(),
+      loader: _page_not_found.loadLibrary,
+    ),
     'projects': ClientLoader(
       (p) => _projects.Projects(),
       loader: _projects.loadLibrary,
