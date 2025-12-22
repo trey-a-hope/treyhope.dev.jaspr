@@ -14,7 +14,6 @@ class Footer extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return footer(classes: 'footer has-text-centered', [
-      FooterSentence(),
       SocialButtons(),
       Spacer(.lg),
       Link(target: Target.blank, to: _jasprHref, child: JasprBadge.lightTwoTone()),

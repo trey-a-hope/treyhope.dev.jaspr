@@ -5,7 +5,7 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/client.dart';
-
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:treyhope_dev/pages/about.dart' deferred as _about;
 import 'package:treyhope_dev/pages/blog.dart' deferred as _blog;
 import 'package:treyhope_dev/pages/code_flows.dart' deferred as _code_flows;
@@ -13,6 +13,8 @@ import 'package:treyhope_dev/pages/home.dart' deferred as _home;
 import 'package:treyhope_dev/pages/page_not_found.dart'
     deferred as _page_not_found;
 import 'package:treyhope_dev/pages/projects.dart' deferred as _projects;
+import 'package:webview_flutter_web/webview_flutter_web.dart'
+    as _webview_flutter_web;
 
 /// Default [ClientOptions] for use with your Jaspr project.
 ///
@@ -31,6 +33,11 @@ import 'package:treyhope_dev/pages/projects.dart' deferred as _projects;
 /// }
 /// ```
 ClientOptions get defaultClientOptions => ClientOptions(
+  initialize: () {
+    final Registrar registrar = webPluginRegistrar;
+    _webview_flutter_web.WebWebViewPlatform.registerWith(registrar);
+    registrar.registerMessageHandler();
+  },
   clients: {
     'about': ClientLoader((p) => _about.About(), loader: _about.loadLibrary),
     'blog': ClientLoader((p) => _blog.Blog(), loader: _blog.loadLibrary),
