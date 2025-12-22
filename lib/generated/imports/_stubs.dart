@@ -10,3 +10,5 @@ dynamic CounterWidget;
 typedef CounterWidgetOrStubbed = dynamic;
 dynamic LottieWidget;
 typedef LottieWidgetOrStubbed = dynamic;
+dynamic WebviewWidget;
+typedef WebviewWidgetOrStubbed = dynamic;

@@ -3,9 +3,9 @@ import 'package:jaspr/jaspr.dart';
 
 enum SpacerHeight {
   xs(4),
-  small(8),
-  medium(16),
-  large(24),
+  sm(8),
+  md(16),
+  lg(24),
   xl(32)
   ;
 
@@ -19,5 +19,9 @@ class Spacer extends StatelessComponent {
   const Spacer(this.spacerHeight);
 
   @override
-  Component build(BuildContext context) => div(styles: Styles(height: spacerHeight.value.px), []);
+  Component build(BuildContext context) => div(
+    id: 'spacer',
+    styles: Styles(height: spacerHeight.value.px),
+    [],
+  );
 }

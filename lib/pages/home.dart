@@ -1,9 +1,8 @@
 import 'dart:developer';
 import 'package:jaspr/jaspr.dart';
-
 import 'package:jaspr/dom.dart';
 import 'package:jaspr_router/jaspr_router.dart';
-import 'package:treyhope_dev/components/embedded_counter_widget.dart';
+import 'package:treyhope_dev/components/embedded_webview_widget.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 
 // import '../components/counter.dart';
@@ -22,6 +21,8 @@ class Home extends StatefulComponent {
 }
 
 class HomeState extends State<Home> {
+  static const String _walkdownUrl = 'https://walkdown.codemagic.app/';
+
   @override
   void initState() {
     super.initState();
@@ -41,9 +42,9 @@ class HomeState extends State<Home> {
     return section(classes: 'center-container', [
       // TODO (Trey) - Add images to app this way
       img(src: 'images/logo.svg', width: 80),
-      Spacer(SpacerHeight.xl),
+      Spacer(.xl),
       h1(classes: 'title', [.text('Hey, I\'m Trey')]),
-      Spacer(SpacerHeight.small),
+      Spacer(.sm),
       div(classes: 'content has-text-centered', [
         h4([
           .text(
@@ -51,9 +52,11 @@ class HomeState extends State<Home> {
           ),
         ]),
       ]),
-      Spacer(SpacerHeight.small),
-      EmbeddedCounterWidget(),
-      Spacer(SpacerHeight.xl),
+      Spacer(.sm),
+      EmbeddedWebviewWidget(_walkdownUrl),
+      Spacer(.xl),
+      _GameDetails(),
+      Spacer(.xl),
       Link(
         to: '/about',
         child: button(
@@ -63,4 +66,21 @@ class HomeState extends State<Home> {
       ),
     ]);
   }
+}
+
+class _GameDetails extends StatelessComponent {
+  static const String _bonfireHref = 'https://bonfire-engine.github.io/#/';
+  static const String _walkdownHref = 'https://github.com/trey-a-hope/walkdown';
+
+  @override
+  Component build(BuildContext context) => p([
+    .text('Game built with '),
+    a(target: Target.blank, href: _bonfireHref, [
+      .text('Bonfire'),
+    ]),
+    .text('; view source code'),
+    a(target: Target.blank, href: _walkdownHref, [
+      .text(' here.'),
+    ]),
+  ]);
 }

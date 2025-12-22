@@ -8,8 +8,11 @@
 
 import '../../../widgets/counter_widget.dart' show CounterWidget;
 import '../../../widgets/lottie_widget.dart' show LottieWidget;
+import '../../../widgets/webview_widget.dart' show WebviewWidget;
 export '../../../widgets/counter_widget.dart' show CounterWidget;
 export '../../../widgets/lottie_widget.dart' show LottieWidget;
+export '../../../widgets/webview_widget.dart' show WebviewWidget;
 
 typedef CounterWidgetOrStubbed = CounterWidget;
 typedef LottieWidgetOrStubbed = LottieWidget;
+typedef WebviewWidgetOrStubbed = WebviewWidget;

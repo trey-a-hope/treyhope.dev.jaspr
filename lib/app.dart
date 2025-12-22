@@ -26,7 +26,7 @@ class App extends StatelessComponent {
     // Renders a <div class="main"> html element with children.
     return div(classes: 'main', [
       const Header(),
-      const Spacer(SpacerHeight.xl),
+      const Spacer(.xl),
       Router(
         routes: [
           Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
@@ -37,6 +37,7 @@ class App extends StatelessComponent {
         ],
         errorBuilder: (context, state) => const PageNotFound(),
       ),
+      const Spacer(.xl),
       const Footer(),
     ]);
   }
