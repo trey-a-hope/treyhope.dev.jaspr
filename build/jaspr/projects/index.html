@@ -27,27 +27,6 @@
     <!--/-->
     <script src="main.client.dart.js" defer></script>
     <style>
-      .button-row {
-        display: flex;
-        justify-content: center;
-        column-gap: 1em;
-      }
-      footer {
-        width: 100%;
-        margin-top: 2rem;
-        border-top-style: solid;
-        border-top-color: #1a2942;
-        border-top-width: 1px;
-        background-color: #0a1628;
-      }
-      footer .footer-content {
-        display: flex;
-        max-width: 1400px;
-        padding: 1.5em 3em;
-        margin: inherit;
-        justify-content: space-between;
-        align-items: center;
-      }
       header {
         width: 100%;
         border-bottom-style: solid;
@@ -93,10 +72,9 @@
         margin-right: auto;
       }
       .main {
-        display: flex;
-        height: 100vh;
+        display: contents;
+        min-height: 100vh;
         flex-direction: column;
-        flex-wrap: wrap;
       }
       .main section {
         display: flex;
@@ -104,6 +82,7 @@
         justify-content: center;
         align-items: center;
         flex-grow: 1;
+        flex-shrink: 0;
       }
     </style>
   </head>
@@ -120,6 +99,7 @@
           </div>
         </nav>
       </header>
+      <div style="height: 32px"></div>
       <!--@projects-->
       <section class="centered-container">
         <h1 class="title">Projects</h1>

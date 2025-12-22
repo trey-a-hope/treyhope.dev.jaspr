@@ -2,8 +2,10 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/footer.dart';
+import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/pages/blog.dart';
 import 'package:treyhope_dev/pages/code_flows.dart';
+import 'package:treyhope_dev/pages/page_not_found.dart';
 import 'package:treyhope_dev/pages/projects.dart';
 
 import 'components/header.dart';
@@ -24,6 +26,7 @@ class App extends StatelessComponent {
     // Renders a <div class="main"> html element with children.
     return div(classes: 'main', [
       const Header(),
+      const Spacer(SpacerHeight.xl),
       Router(
         routes: [
           Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
@@ -32,6 +35,7 @@ class App extends StatelessComponent {
           Route(path: '/code-flows', title: 'Code Flows', builder: (context, state) => const CodeFlows()),
           Route(path: '/blog', title: 'Blog', builder: (context, state) => const Blog()),
         ],
+        errorBuilder: (context, state) => const PageNotFound(),
       ),
       const Footer(),
     ]);
@@ -50,17 +54,16 @@ class App extends StatelessComponent {
     css('.main', [
       // The '&' refers to the parent selector of a nested style rules.
       css('&').styles(
-        display: .flex,
-        height: 100.vh,
+        display: .contents,
+        minHeight: 100.vh,
         flexDirection: .column,
-        flexWrap: .wrap,
       ),
       css('section').styles(
         display: .flex,
         flexDirection: .column,
         justifyContent: .center,
         alignItems: .center,
-        flex: const Flex(grow: 1),
+        flex: const Flex(grow: 1, shrink: 0),
       ),
     ]),
   ];

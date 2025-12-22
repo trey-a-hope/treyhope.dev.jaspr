@@ -27,27 +27,6 @@
     <!--/-->
     <script src="main.client.dart.js" defer></script>
     <style>
-      .button-row {
-        display: flex;
-        justify-content: center;
-        column-gap: 1em;
-      }
-      footer {
-        width: 100%;
-        margin-top: 2rem;
-        border-top-style: solid;
-        border-top-color: #1a2942;
-        border-top-width: 1px;
-        background-color: #0a1628;
-      }
-      footer .footer-content {
-        display: flex;
-        max-width: 1400px;
-        padding: 1.5em 3em;
-        margin: inherit;
-        justify-content: space-between;
-        align-items: center;
-      }
       header {
         width: 100%;
         border-bottom-style: solid;
@@ -93,10 +72,9 @@
         margin-right: auto;
       }
       .main {
-        display: flex;
-        height: 100vh;
+        display: contents;
+        min-height: 100vh;
         flex-direction: column;
-        flex-wrap: wrap;
       }
       .main section {
         display: flex;
@@ -104,6 +82,7 @@
         justify-content: center;
         align-items: center;
         flex-grow: 1;
+        flex-shrink: 0;
       }
     </style>
   </head>
@@ -120,13 +99,22 @@
           </div>
         </nav>
       </header>
+      <div style="height: 32px"></div>
       <!--@home-->
-      <section>
+      <section class="center-container">
         <img width="80" src="images/logo.svg"/>
-        <div class="block"><h1 class="title">Hey, I'm Trey</h1></div>
-        <h2 class="subtitle">And I'm a Flutter fanactic</h2>
-        <div class="block"><div id="counter_widget" style="min-width: 500px; min-height: 300px; margin-top: 2rem"></div></div>
-        <a href="/about"><button class="button">Learn more</button></a>
+        <div style="height: 32px"></div>
+        <h1 class="title">Hey, I'm Trey</h1>
+        <div style="height: 8px"></div>
+        <div class="content has-text-centered">
+          <h4>
+            I'm a Flutter fanatic passionate about building websites, mobile apps, and desktop applications. Want to see what I'm working on? Check out this 2D side scroller game I'm creating with Flutter!
+          </h4>
+        </div>
+        <div style="height: 8px"></div>
+        <div id="counter_widget" style="min-width: 500px; min-height: 300px; margin-top: 2rem"></div>
+        <div style="height: 32px"></div>
+        <a href="/about"><button class="button">More about me</button></a>
       </section>
       <!--/@home-->
       <footer class="footer">
