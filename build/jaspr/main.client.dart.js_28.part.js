@@ -1,19 +1,23 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var A,D,E,F,C,B={
-av6(){return new B.p6(null)},
-p6:function p6(d){this.a=d}}
-A=c[0]
-D=c[21]
-E=c[17]
-F=c[33]
-C=c[15]
-B=a.updateHolder(c[8],B)
-B.p6.prototype={
-N(d){var x=y.d
-return C.amv(A.c([C.am7(A.c([new A.d6("Projects",null)],x),"title"),C.am8(A.c([new A.d6("Page currently under construction",null)],x)),new E.x8(F.pu,null)],x),"centered-container")}}
+$__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,B={
+akH(){return new B.mC(null)},
+mC:function mC(d){this.a=d}},A,F
+C=c[0]
+D=c[24]
+E=c[32]
+B=a.updateHolder(c[6],B)
+A=c[33]
+F=c[25]
+B.mC.prototype={
+M(d){return A.MD}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inherit
-x(B.p6,D.bM)})()
-A.et(b.typeUniverse,JSON.parse('{"p6":{"bM":[],"aP":[]}}'))
-var y={d:A.Z("o<aP>")}};
-(a=>{a["zaOSX6gIURifRDS2D4PWiog5924="]=a.current})($__dart_deferred_initializers__);
+x(B.mC,F.b5)})()
+C.cU(b.typeUniverse,JSON.parse('{"mC":{"b5":[],"aq":[]}}'))
+var y={d:C.U("o<aq>")};(function constants(){var x=a.makeConstList
+A.Kl=new C.bU("Code Flows",null)
+A.zM=x([A.Kl],y.d)
+A.Mw=new D.m7("title",A.zM,null)
+A.Ab=x([A.Mw,E.up,E.iz],y.d)
+A.MD=new D.ma("container is-max-desktop section",A.Ab,null)})()};
+(a=>{a["k9iqovlKlctCYG26G4fJH/fpNgo="]=a.current})($__dart_deferred_initializers__);
 //# sourceMappingURL=main.client.dart.js_28.part.js.map
