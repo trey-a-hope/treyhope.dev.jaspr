@@ -15,6 +15,6 @@ class LottieWidget extends StatelessWidget {
       width: 400, // Optional: specify width
       height: 400, // Optional: specify height
       fit: BoxFit.fill, // Optional: specify fit
-    ).mApp();
+    ).materialApp();
   }
 }
