@@ -61,103 +61,101 @@ class _QuizView extends StatelessWidget {
     final quizCubit = context.read<_QuizCubit>();
     final textTheme = Theme.of(context).textTheme;
 
-    return Expanded(
-      child: BlocBuilder<_QuizCubit, _QuizState>(
-        builder: (context, state) {
-          final result = state.result;
-          final pos = state.pos;
+    return BlocBuilder<_QuizCubit, _QuizState>(
+      builder: (context, state) {
+        final result = state.result;
+        final pos = state.pos;
 
-          if (result != null) {
-            return Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                // color: Colors.lightBlue,
-                gradient: LinearGradient(
-                  colors: _Gradiants.green,
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+        if (result != null) {
+          return Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              // color: Colors.lightBlue,
+              gradient: LinearGradient(
+                colors: _Gradiants.green,
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  mainAxisAlignment: .center,
-                  children: [
-                    Text(
-                      result,
-                      style: textTheme.headlineSmall,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () => quizCubit.resetQuiz(),
-                      child: const Text('Play Again'),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }
-
-          return QuizWidget(
-            config: QuizConfig(
-              backgroundColor: Color(0xFF1E3A8A),
-              cornerRadius: 16,
-              padding: EdgeInsets.all(24),
-              allowBackwardNavigation: false,
-              autoNavigationDelay: Duration(milliseconds: 1000),
-              gradientColors: _Gradiants.gradiants[pos],
-              animationDuration: Duration(milliseconds: 300),
             ),
-            questions: _questions,
-            onQuizCompleted: (questions) => quizCubit.gradeQuiz(questions),
-            onAnswerChanged: (question, answer) {
-              late bool isCorrect;
-
-              switch (question.id) {
-                case 'q1':
-                  isCorrect = answer == _QuizAnswers.q1.value;
-                  break;
-                case 'q2':
-                  isCorrect = answer == _QuizAnswers.q2.value;
-                  break;
-                case 'q3':
-                  isCorrect = answer == _QuizAnswers.q3.value;
-                  break;
-                case 'q4':
-                  isCorrect = answer == _QuizAnswers.q4.value;
-                  break;
-                case 'q5':
-                  isCorrect = answer == _QuizAnswers.q5.value;
-                  break;
-                default:
-                  isCorrect = false;
-                  break;
-              }
-
-              quizCubit.incrementPos();
-
-              if (isCorrect) {
-                toastification.show(
-                  context: context,
-                  title: Text('Correct!'),
-                  type: ToastificationType.success,
-                  autoCloseDuration: Duration(seconds: 2),
-                  closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
-                );
-              } else {
-                toastification.show(
-                  context: context,
-                  title: Text('Sorry, incorrect.'),
-                  type: ToastificationType.error,
-                  autoCloseDuration: Duration(seconds: 2),
-                  closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
-                );
-              }
-            },
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisAlignment: .center,
+                children: [
+                  Text(
+                    result,
+                    style: textTheme.headlineSmall,
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () => quizCubit.resetQuiz(),
+                    child: const Text('Play Again'),
+                  ),
+                ],
+              ),
+            ),
           );
-        },
-      ),
+        }
+
+        return QuizWidget(
+          config: QuizConfig(
+            backgroundColor: Color(0xFF1E3A8A),
+            cornerRadius: 16,
+            padding: EdgeInsets.all(24),
+            allowBackwardNavigation: false,
+            autoNavigationDelay: Duration(milliseconds: 1000),
+            gradientColors: _Gradiants.gradiants[pos],
+            animationDuration: Duration(milliseconds: 300),
+          ),
+          questions: _questions,
+          onQuizCompleted: (questions) => quizCubit.gradeQuiz(questions),
+          onAnswerChanged: (question, answer) {
+            late bool isCorrect;
+
+            switch (question.id) {
+              case 'q1':
+                isCorrect = answer == _QuizAnswers.q1.value;
+                break;
+              case 'q2':
+                isCorrect = answer == _QuizAnswers.q2.value;
+                break;
+              case 'q3':
+                isCorrect = answer == _QuizAnswers.q3.value;
+                break;
+              case 'q4':
+                isCorrect = answer == _QuizAnswers.q4.value;
+                break;
+              case 'q5':
+                isCorrect = answer == _QuizAnswers.q5.value;
+                break;
+              default:
+                isCorrect = false;
+                break;
+            }
+
+            quizCubit.incrementPos();
+
+            if (isCorrect) {
+              toastification.show(
+                context: context,
+                title: Text('Correct!'),
+                type: ToastificationType.success,
+                autoCloseDuration: Duration(seconds: 2),
+                closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
+              );
+            } else {
+              toastification.show(
+                context: context,
+                title: Text('Sorry, incorrect.'),
+                type: ToastificationType.error,
+                autoCloseDuration: Duration(seconds: 2),
+                closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
+              );
+            }
+          },
+        );
+      },
     );
   }
 }
