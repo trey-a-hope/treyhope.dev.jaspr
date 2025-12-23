@@ -40,7 +40,7 @@ class Home extends StatelessComponent {
         to: '/about',
         child: button(
           classes: 'button',
-          [.text('More about NOTHING!')],
+          [.text('More about me')],
         ),
       ),
     ]);
