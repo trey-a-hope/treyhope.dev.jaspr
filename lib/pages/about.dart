@@ -2,7 +2,6 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/about_card.dart';
 import 'package:treyhope_dev/components/embedded_quiz_widget.dart';
-import 'package:treyhope_dev/components/footer.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/work_history_card.dart';
 import 'package:treyhope_dev/constants/globals.dart';
