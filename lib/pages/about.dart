@@ -52,18 +52,25 @@ class About extends StatelessComponent {
 class _Sentence extends StatelessComponent {
   const _Sentence();
 
-  static const String _href = 'https://pub.dev/packages/animated_quiz_widget';
+  static const String _dartHref = 'https://dart.dev';
+  static const String _flutterHref = 'https://flutter.dev';
 
   @override
   Component build(BuildContext context) => div(id: 'footer-sentence', classes: 'content', [
     p(classes: 'has-text-centered', [
       .text(
-        'The',
+        'One of the many reasons I love ',
       ),
-      a(target: Target.blank, href: _href, [
-        .text(' Animated Quiz Widget '),
+      a(target: Target.blank, href: _dartHref, [
+        .text('Dart'),
       ]),
-      .text(' is an actual Flutter widget, created by an unknown publisher.'),
+      .text(' and '),
+      a(target: Target.blank, href: _flutterHref, [
+        .text('Flutter'),
+      ]),
+      .text(
+        ', is the ability to embed a Flutter widget into a website. This site is HTML and CSS, but this widget is pure Flutter.',
+      ),
     ]),
   ]);
 }

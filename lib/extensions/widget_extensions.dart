@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:toastification/toastification.dart';
 
 extension WidgetExtensions on Widget {
-  ToastificationWrapper mApp() => ToastificationWrapper(
+  Widget materialApp() => ToastificationWrapper(
     child: MaterialApp(
       darkTheme: ThemeData(
         useMaterial3: true,
