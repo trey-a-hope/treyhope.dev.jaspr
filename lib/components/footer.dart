@@ -6,6 +6,7 @@ import 'package:treyhope_dev/components/spacer.dart';
 part 'social_button.dart';
 part 'footer_sentence.dart';
 
+/// Footer component displaying social links and framework badges
 class Footer extends StatelessComponent {
   static const String _jasprHref = 'https://jaspr.site/';
 
@@ -14,12 +15,31 @@ class Footer extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return footer(classes: 'footer has-text-centered', [
+      // Social media links
       SocialButtons(),
-      Spacer(.lg),
-      Link(target: Target.blank, to: _jasprHref, child: JasprBadge.lightTwoTone()),
+      Spacer(.md),
+      // Framework badges row
+      div(classes: 'button-row', [
+        Link(
+          target: Target.blank,
+          to: _jasprHref,
+          child: JasprBadge.lightTwoTone(),
+        ),
+        Spacer(.sm),
+        Link(
+          target: Target.blank,
+          to: 'https://bulma.io',
+          child: img(
+            src: 'https://bulma.io/assets/images/made-with-bulma.png',
+            alt: 'Made with Bulma',
+            attributes: {'width': '150'},
+          ),
+        ),
+      ]),
     ]);
   }
 
+  /// Styles for footer layout and appearance
   static List<StyleRule> get styles => [
     css('.button-row', [
       css('&').styles(

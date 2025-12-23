@@ -2,6 +2,8 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 
+/// Main navigation header component with responsive mobile menu.
+/// Uses Bulma's navbar system with hamburger menu toggle.
 @client
 class Header extends StatefulComponent {
   const Header({super.key});
@@ -11,8 +13,10 @@ class Header extends StatefulComponent {
 }
 
 class HeaderState extends State<Header> {
+  /// Tracks whether the mobile hamburger menu is open
   bool isMenuOpen = false;
 
+  /// Toggles the mobile menu open/closed state
   void _toggleMenu() => setState(() => isMenuOpen = !isMenuOpen);
 
   @override
@@ -60,8 +64,8 @@ class HeaderState extends State<Header> {
                 a(href: '/projects', classes: 'navbar-item', [
                   .text('Projects'),
                 ]),
-                a(href: '/code-flows', classes: 'navbar-item', [
-                  .text('Code Flows'),
+                a(href: '/music', classes: 'navbar-item', [
+                  .text('Music'),
                 ]),
                 a(href: '/blog', classes: 'navbar-item', [
                   .text('Blog'),
@@ -74,8 +78,10 @@ class HeaderState extends State<Header> {
     );
   }
 
+  /// Custom styles for the navbar component
   @css
   static List<StyleRule> get styles => [
+    // Hamburger button styling
     css('.navbar-burger').styles(
       border: Border.none,
       cursor: Cursor.pointer,
@@ -85,6 +91,7 @@ class HeaderState extends State<Header> {
       padding: Padding.all(1.rem),
       backgroundColor: Color('#333'),
     ),
+    // Prevent hover effects on hamburger spans
     css('.navbar-burger span').styles(
       raw: {'pointer-events': 'none'},
     ),

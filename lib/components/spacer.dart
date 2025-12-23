@@ -1,7 +1,8 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-enum SpacerHeight {
+/// Predefined spacing sizes in pixels
+enum SpacerDistance {
   xs(4),
   sm(8),
   md(16),
@@ -9,19 +10,26 @@ enum SpacerHeight {
   xl(32)
   ;
 
-  const SpacerHeight(this.value);
+  const SpacerDistance(this.value);
   final int value;
 }
 
+/// A flexible spacing component that can create vertical or horizontal gaps
 class Spacer extends StatelessComponent {
-  final SpacerHeight spacerHeight;
+  final SpacerDistance space;
+  final bool vertical;
 
-  const Spacer(this.spacerHeight);
+  const Spacer(this.space, {this.vertical = true});
 
   @override
-  Component build(BuildContext context) => div(
-    id: 'spacer',
-    styles: Styles(height: spacerHeight.value.px),
-    [],
-  );
+  Component build(BuildContext context) {
+    // Apply height for vertical spacing, width for horizontal
+    final style = vertical ? Styles(height: space.value.px) : Styles(width: space.value.px);
+
+    return div(
+      id: 'spacer',
+      styles: style,
+      [],
+    );
+  }
 }
