@@ -1,20 +1,13 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/spacer.dart';
+import 'package:treyhope_dev/dtos/work_history_data.dart';
 
 class WorkHistoryCard extends StatelessComponent {
-  final String imageUrl; // Add this
-  final String jobtTitle;
-  final String tenure;
-  final List<String> tasks;
-  final List<String> technologies;
+  final WorkHistoryData data;
 
   const WorkHistoryCard({
-    required this.imageUrl, // Add this
-    required this.jobtTitle,
-    required this.tenure,
-    required this.tasks,
-    required this.technologies,
+    required this.data,
     super.key,
   });
 
@@ -27,30 +20,30 @@ class WorkHistoryCard extends StatelessComponent {
             div(classes: 'media-left', [
               figure(classes: 'image is-48x48', [
                 img(
-                  src: imageUrl,
-                  alt: jobtTitle,
+                  src: data.imageUrl,
+                  alt: data.jobtTitle,
                 ),
               ]),
             ]),
             div(classes: 'media-content', [
               p(classes: 'title is-4', [
-                .text(jobtTitle),
+                .text(data.jobtTitle),
               ]),
               p(classes: 'subtitle is-6', [
-                .text(tenure),
+                .text(data.tenure),
               ]),
             ]),
           ]),
           hr(),
           ul([
-            for (final task in tasks)
+            for (final task in data.tasks)
               li([
                 .text(task),
               ]),
           ]),
           Spacer(.md),
           div(classes: 'work-history-card-technologies', [
-            for (final technology in technologies)
+            for (final technology in data.technologies)
               span(classes: 'tag is-link is-normal', [
                 .text(technology),
               ]),

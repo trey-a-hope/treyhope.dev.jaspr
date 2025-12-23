@@ -21,10 +21,8 @@ class AboutCard extends StatelessComponent {
       ]),
       div(classes: 'card-content', [
         div(classes: 'media', [
-          div(classes: 'media-content', [
-            p(classes: 'title is-4', [
-              .text('Trey Hope'),
-            ]),
+          p(classes: 'title is-4', [
+            .text('Trey Hope'),
           ]),
         ]),
         div(classes: 'content', [
