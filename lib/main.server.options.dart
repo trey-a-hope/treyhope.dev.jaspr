@@ -6,6 +6,8 @@
 
 import 'package:jaspr/server.dart';
 import 'package:treyhope_dev/components/header.dart' as _header;
+import 'package:treyhope_dev/components/work_history_card.dart'
+    as _work_history_card;
 import 'package:treyhope_dev/pages/about.dart' as _about;
 import 'package:treyhope_dev/pages/blog.dart' as _blog;
 import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
@@ -45,6 +47,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
   },
   styles: () => [
     ..._header.HeaderState.styles,
+    ..._work_history_card.WorkHistoryCard.styles,
     ..._about.About.styles,
     ..._blog.Blog.styles,
     ..._code_flows.CodeFlows.styles,
