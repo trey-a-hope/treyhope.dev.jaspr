@@ -48,7 +48,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
   styles: () => [
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
-    ..._about.About.styles,
     ..._blog.Blog.styles,
     ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,
