@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/components/embedded_lottie_widget.dart';
-import 'package:treyhope_dev/constants/lottie_type.dart';
+import 'package:treyhope_dev/components/bulma_hero.dart';
 
 @client
 class Blog extends StatelessComponent {
@@ -9,12 +8,9 @@ class Blog extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section(classes: 'container is-max-desktop section', [
-      h1(classes: 'title', [.text('Blog')]),
-      h4([
-        .text('Page currently under construction'),
-      ]),
-      EmbeddedLottieWidget(type: LottieType.underConstruction),
+    return div(classes: 'container is-max-desktop', [
+      BulmaHero(title: 'Blog', subtitle: 'Thoughts on code, culture, and everything in between."'),
+      section(classes: 'container is-max-desktop section', []),
     ]);
   }
 

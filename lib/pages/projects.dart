@@ -1,5 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/components/bulma_message_body.dart';
+import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/button_group.dart';
 import 'package:treyhope_dev/components/project_card.dart';
 import 'package:treyhope_dev/components/spacer.dart';
@@ -21,31 +23,50 @@ class _ProjectsState extends State<Projects> {
 
   @override
   Component build(BuildContext context) {
-    return section(classes: 'container is-max-desktop section', [
-      div(classes: 'block', [
-        h1(classes: 'title is-1', [.text('Projects')]),
+    return div(classes: 'container is-max-desktop', [
+      BulmaHero(title: 'Projects', subtitle: 'Where code meets creativity.'),
+
+      section(classes: 'container is-max-desktop section', [
+        div(classes: 'block', [
+          p([
+            .text(
+              'Each project represents a unique challenge and an opportunity to push my skills further. From web applications to creative experiments, I focus on building solutions that are both functional and meaningful.',
+            ),
+          ]),
+        ]),
+        div(classes: 'block', [
+          p([
+            .text(
+              'My work spans across various domains—full-stack development, mobile apps, educational tools, and creative experiments that blend technology with art. Every project teaches me something new and fuels my passion for creating impactful software.',
+            ),
+          ]),
+        ]),
+
+        ButtonGroup(
+          isAttached: true,
+          children: [
+            Button(
+              child: IconLabel(icon: 'mobile', label: 'Mobile'),
+              onPressed: () => setState(() => projectType = ProjectType.mobile),
+            ),
+            Button(
+              child: IconLabel(icon: 'window-maximize', label: 'Web'),
+              onPressed: () => setState(() => projectType = ProjectType.web),
+            ),
+            Button(
+              child: IconLabel(icon: 'desktop', label: 'Desktop'),
+              onPressed: () => setState(() => projectType = ProjectType.desktop),
+            ),
+          ],
+        ),
+        Spacer(.xl),
+        _TitleWithSubtitle(projectType: projectType),
+        _ProjectList(projectType: projectType),
+        BulmaMessageBody(
+          body:
+              'Want to collaborate or have a project idea? I\'m always open to connecting with fellow developers and creatives.',
+        ),
       ]),
-      // Filter buttons to switch between project types
-      ButtonGroup(
-        isAttached: true,
-        children: [
-          Button(
-            child: IconLabel(icon: 'mobile', label: 'Mobile'),
-            onPressed: () => setState(() => projectType = ProjectType.mobile),
-          ),
-          Button(
-            child: IconLabel(icon: 'window-maximize', label: 'Web'),
-            onPressed: () => setState(() => projectType = ProjectType.web),
-          ),
-          Button(
-            child: IconLabel(icon: 'desktop', label: 'Desktop'),
-            onPressed: () => setState(() => projectType = ProjectType.desktop),
-          ),
-        ],
-      ),
-      Spacer(.xl),
-      _TitleWithSubtitle(projectType: projectType),
-      _ProjectList(projectType: projectType),
     ]);
   }
 }
@@ -60,15 +81,15 @@ class _TitleWithSubtitle extends StatelessComponent {
   Component build(BuildContext context) {
     return switch (projectType) {
       ProjectType.mobile => div(classes: 'block', [
-        h3(classes: 'title is-3 has-text-centered', [.text('Mobile')]),
+        h4(classes: 'title is-4 has-text-centered', [.text('Mobile')]),
         p(classes: 'has-text-centered', [.text('Native experiences in your pocket')]),
       ]),
       ProjectType.web => div(classes: 'block', [
-        h3(classes: 'title is-3 has-text-centered', [.text('Web')]),
+        h4(classes: 'title is-4 has-text-centered', [.text('Web')]),
         p(classes: 'has-text-centered', [.text('Browser-based solutions, accessible anywhere')]),
       ]),
       ProjectType.desktop => div(classes: 'block', [
-        h3(classes: 'title is-3 has-text-centered', [.text('Desktop')]),
+        h4(classes: 'title is-4 has-text-centered', [.text('Desktop')]),
         p(classes: 'has-text-centered', [.text('Powerful native applications for productivity')]),
       ]),
     };

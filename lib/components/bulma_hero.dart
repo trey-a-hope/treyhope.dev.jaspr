@@ -15,8 +15,7 @@ class BulmaHero extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    // Renders a Bulma hero section with centered content
-    return section(classes: 'container is-max-desktop section hero is-link', [
+    return section(id: 'bulma-hero', classes: 'container is-small is-max-desktop section hero is-link', [
       div(classes: 'hero-body has-text-centered', [
         p(classes: 'title', [
           .text(title),

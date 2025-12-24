@@ -1,6 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/components/bulma_article.dart';
+import 'package:treyhope_dev/components/bulma_message_header.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/spotify_preview.dart';
 import 'package:treyhope_dev/constants/spotify_track.dart';
@@ -24,7 +24,7 @@ class CodeFlows extends StatelessComponent {
             ),
           ]),
         ]),
-        BulmaArticle(
+        BulmaMessageHeader(
           title: 'Purpose of Code Flows',
           body: '''
     I created this project to combine my two greatest passions—rapping and coding—in a way that's both educational and fun. By teaching programming concepts through rap, I can make complex topics more accessible and engaging for others. At the same time, I'm deepening my own understanding, since the best way to truly learn something is to teach it. This project also serves a broader purpose: it challenges the narrow focus on hip hop's negative aspects and showcases the genre's incredible versatility as a form of expression for diverse, meaningful topics.          ''',
