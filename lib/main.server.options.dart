@@ -51,7 +51,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._blog.Blog.styles,
     ..._music.Music.styles,
     ..._page_not_found.PageNotFound.styles,
-    ..._projects.Projects.styles,
     ..._app.App.styles,
   ],
 );
