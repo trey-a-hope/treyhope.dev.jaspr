@@ -69,7 +69,7 @@ class _Sentence extends StatelessComponent {
         .text('Flutter'),
       ]),
       .text(
-        ', is the ability to embed a Flutter widget into a website. This site is HTML and CSS, but this widget is pure Flutter.',
+        ', is the ability to embed Flutter widgets. This site is HTML and CSS, but this widget is pure Flutter.',
       ),
     ]),
   ]);

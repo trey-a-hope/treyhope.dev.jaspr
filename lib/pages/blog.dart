@@ -9,7 +9,7 @@ class Blog extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'container is-max-desktop', [
-      BulmaHero(title: 'Blog', subtitle: 'Thoughts on code, culture, and everything in between."'),
+      BulmaHero(title: 'Blog', subtitle: 'Thoughts on code, culture, and everything in between.'),
       section(classes: 'container is-max-desktop section', []),
     ]);
   }

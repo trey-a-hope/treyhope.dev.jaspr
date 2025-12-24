@@ -65,6 +65,7 @@ class _ProjectsState extends State<Projects> {
         BulmaMessageBody(
           body:
               'Want to collaborate or have a project idea? I\'m always open to connecting with fellow developers and creatives.',
+          color: 'is-warning',
         ),
       ]),
     ]);
