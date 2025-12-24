@@ -9,6 +9,7 @@ part 'footer_sentence.dart';
 /// Footer component displaying social links and framework badges
 class Footer extends StatelessComponent {
   static const String _jasprHref = 'https://jaspr.site/';
+  static const String _bulmaHref = 'https://bulma.io';
 
   const Footer({super.key});
 
@@ -28,7 +29,7 @@ class Footer extends StatelessComponent {
         Spacer(.sm),
         Link(
           target: Target.blank,
-          to: 'https://bulma.io',
+          to: _bulmaHref,
           child: img(
             src: 'https://bulma.io/assets/images/made-with-bulma.png',
             alt: 'Made with Bulma',
