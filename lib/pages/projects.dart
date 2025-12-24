@@ -18,8 +18,7 @@ class Projects extends StatefulComponent {
 }
 
 class _ProjectsState extends State<Projects> {
-  /// Currently selected project type filter (defaults to mobile)
-  var projectType = ProjectType.mobile;
+  var projectType = ProjectType.web;
 
   @override
   Component build(BuildContext context) {
