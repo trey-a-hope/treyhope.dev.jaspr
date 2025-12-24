@@ -14,7 +14,7 @@ class CodeFlows extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'has-text-centered container is-max-desktop', [
+    return div(classes: 'container is-max-desktop', [
       BulmaHero(title: 'Code Flows', subtitle: 'Learning code has never been easier.'),
       section(classes: 'container is-max-desktop section', [
         div(classes: 'block', [
@@ -62,7 +62,7 @@ class CodeFlows extends StatelessComponent {
             .text(
               'Want to learn more? Checkout out the full',
             ),
-            a(href: _youtubePlaylistHref, [.text(' YouTube playlist ')]),
+            a(href: _youtubePlaylistHref, target: Target.blank, [.text(' YouTube playlist ')]),
             .text(
               'to see video demonstrations for each track.',
             ),
