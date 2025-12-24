@@ -64,8 +64,8 @@ class HeaderState extends State<Header> {
                 a(href: '/projects', classes: 'navbar-item', [
                   .text('Projects'),
                 ]),
-                a(href: '/music', classes: 'navbar-item', [
-                  .text('Music'),
+                a(href: '/code-flows', classes: 'navbar-item', [
+                  .text('Code Flows'),
                 ]),
                 a(href: '/blog', classes: 'navbar-item', [
                   .text('Blog'),

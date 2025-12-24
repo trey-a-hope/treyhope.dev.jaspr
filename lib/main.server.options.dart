@@ -12,8 +12,8 @@ import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
 import 'package:treyhope_dev/pages/about.dart' as _about;
 import 'package:treyhope_dev/pages/blog.dart' as _blog;
+import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' as _home;
-import 'package:treyhope_dev/pages/music.dart' as _music;
 import 'package:treyhope_dev/pages/page_not_found.dart' as _page_not_found;
 import 'package:treyhope_dev/pages/projects.dart' as _projects;
 import 'package:treyhope_dev/app.dart' as _app;
@@ -45,8 +45,8 @@ ServerOptions get defaultServerOptions => ServerOptions(
         ),
     _about.About: ClientTarget<_about.About>('about'),
     _blog.Blog: ClientTarget<_blog.Blog>('blog'),
+    _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
     _home.Home: ClientTarget<_home.Home>('home'),
-    _music.Music: ClientTarget<_music.Music>('music'),
     _page_not_found.PageNotFound: ClientTarget<_page_not_found.PageNotFound>(
       'page_not_found',
     ),
@@ -56,7 +56,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
     ..._blog.Blog.styles,
-    ..._music.Music.styles,
+    ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,
     ..._app.App.styles,
   ],
