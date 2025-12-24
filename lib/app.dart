@@ -1,7 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
-import 'package:treyhope_dev/components/footer.dart';
+import 'package:treyhope_dev/components/footer/footer.dart';
 import 'package:treyhope_dev/pages/blog.dart';
 import 'package:treyhope_dev/pages/music.dart';
 import 'package:treyhope_dev/pages/page_not_found.dart';

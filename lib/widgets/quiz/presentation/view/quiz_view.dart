@@ -65,7 +65,7 @@ class _QuizView extends StatelessWidget {
 
             // Show feedback toast based on answer correctness
             if (isCorrect) {
-              toastification.show(
+              Toastification().show(
                 context: context,
                 title: Text('Correct!'),
                 type: ToastificationType.success,
@@ -73,7 +73,7 @@ class _QuizView extends StatelessWidget {
                 closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
               );
             } else {
-              toastification.show(
+              Toastification().show(
                 context: context,
                 title: Text('Sorry, incorrect.'),
                 type: ToastificationType.error,

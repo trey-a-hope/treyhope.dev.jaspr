@@ -1,5 +1,6 @@
 enum LottieType {
-  underConstruction('assets/loading_animation.json')
+  underConstruction('assets/under_construction_animation.json'),
+  loading('assets/loading_animation.json')
   ;
 
   const LottieType(this.path);
