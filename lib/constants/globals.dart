@@ -79,7 +79,7 @@ class Globals {
 
   static const projects = [
     ProjectData(
-      imageUrl: 'assets/images/screenshot_gift_grab.jpg',
+      imageUrl: 'assets/assets/images/screenshot_gift_grab.jpg',
       title: 'Gift Grab',
       description: 'Santa collects gifts in this festive Flutter Flame arcade game.',
       technologies: [
@@ -92,7 +92,7 @@ class Globals {
       type: ProjectType.web,
     ),
     ProjectData(
-      imageUrl: 'assets/images/screenshot_my_cool_game.jpg',
+      imageUrl: 'assets/assets/images/screenshot_my_cool_game.jpg',
       title: 'My Cool Game',
       description: 'A 2D side scrolling game that follows a Dwarf Warrior on this RPG style quest.',
       technologies: [
