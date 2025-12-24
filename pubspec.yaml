@@ -39,3 +39,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/loading_animation.json
+    - assets/images/

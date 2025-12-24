@@ -1,105 +1,101 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/components/embedded_lottie_widget.dart';
-import 'package:treyhope_dev/constants/lottie_type.dart';
+import 'package:treyhope_dev/components/button_group.dart';
+import 'package:treyhope_dev/components/project_card.dart';
+import 'package:treyhope_dev/components/spacer.dart';
+import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/dtos/project_data.dart';
 
+/// Projects page that displays a filterable portfolio of mobile, web, and desktop projects
 @client
-class Projects extends StatelessComponent {
+class Projects extends StatefulComponent {
   const Projects({super.key});
+
+  @override
+  State createState() => _ProjectsState();
+}
+
+class _ProjectsState extends State<Projects> {
+  /// Currently selected project type filter (defaults to mobile)
+  var projectType = ProjectType.mobile;
 
   @override
   Component build(BuildContext context) {
     return section(classes: 'container is-max-desktop section', [
-      h1(classes: 'title', [.text('Projects')]),
-      h4([
-        .text('Page currently under construction'),
+      div(classes: 'block', [
+        h1(classes: 'title is-1', [.text('Projects')]),
       ]),
-      // TODO (Trey) - Add buttons for web, mobile, and desktop
-      // ButtonGroup(
-      //   isAttached: true,
-      //   children: [
-      //     Button(
-      //       child: IconLabel(icon: 'align-left', label: 'Left'),
-      //       onPressed: () {},
-      //     ),
-      //     Button(
-      //       child: IconLabel(icon: 'align-center', label: 'Center'),
-      //       onPressed: () {},
-      //     ),
-      //     Button(
-      //       child: IconLabel(icon: 'align-right', label: 'Right'),
-      //       onPressed: () {},
-      //     ),
-      //   ],
-      // ),
-      EmbeddedLottieWidget(type: LottieType.underConstruction),
-    ]);
-  }
-
-  @css
-  static List<StyleRule> get styles => [];
-}
-
-/// Bulma Button Group Component
-class ButtonGroup extends StatelessComponent {
-  const ButtonGroup({required this.children, this.isAttached = false, super.key});
-
-  final List<Button> children;
-  final bool isAttached;
-
-  @override
-  Component build(BuildContext context) {
-    return div(classes: 'buttons ${isAttached ? ' has-addons' : ''} block', children);
-  }
-}
-
-class IconLabel extends StatelessComponent {
-  const IconLabel({required this.icon, required this.label, super.key});
-
-  final String icon;
-  final String label;
-
-  @override
-  Component build(BuildContext context) {
-    return .fragment([
-      span(classes: 'icon', [i(classes: 'fas fa-$icon', [])]),
-      span([.text(label)]),
+      // Filter buttons to switch between project types
+      ButtonGroup(
+        isAttached: true,
+        children: [
+          Button(
+            child: IconLabel(icon: 'mobile', label: 'Mobile'),
+            onPressed: () => setState(() => projectType = ProjectType.mobile),
+          ),
+          Button(
+            child: IconLabel(icon: 'window-maximize', label: 'Web'),
+            onPressed: () => setState(() => projectType = ProjectType.web),
+          ),
+          Button(
+            child: IconLabel(icon: 'desktop', label: 'Desktop'),
+            onPressed: () => setState(() => projectType = ProjectType.desktop),
+          ),
+        ],
+      ),
+      Spacer(.xl),
+      _TitleWithSubtitle(projectType: projectType),
+      _ProjectList(projectType: projectType),
     ]);
   }
 }
 
-class Button extends StatelessComponent {
-  const Button({
-    required this.child,
-    required this.onPressed,
-    this.color,
-    this.isOutlined = false,
-    this.isLoading = false,
-    this.isBlock = false,
-    this.isDisabled = false,
-    super.key,
-  });
+/// Displays the title and subtitle for the currently selected project type
+class _TitleWithSubtitle extends StatelessComponent {
+  final ProjectType projectType;
 
-  final Component child;
-  final VoidCallback onPressed;
-  final Color? color;
-  final bool isBlock;
-  final bool isOutlined;
-  final bool isLoading;
-  final bool isDisabled;
+  const _TitleWithSubtitle({required this.projectType});
 
   @override
   Component build(BuildContext context) {
-    return button(
-      classes:
-          'button'
-          // '${color != null ? ' is-${color!.name}' : ''}'
-          '${isOutlined ? ' is-outlined' : ''}'
-          '${isLoading ? ' is-loading' : ''}'
-          '${isBlock ? ' block' : ''}',
-      disabled: isDisabled,
-      onClick: onPressed,
-      [child],
-    );
+    return switch (projectType) {
+      ProjectType.mobile => div(classes: 'block', [
+        h3(classes: 'title is-3 has-text-centered', [.text('Mobile')]),
+        p(classes: 'has-text-centered', [.text('Native experiences in your pocket')]),
+      ]),
+      ProjectType.web => div(classes: 'block', [
+        h3(classes: 'title is-3 has-text-centered', [.text('Web')]),
+        p(classes: 'has-text-centered', [.text('Browser-based solutions, accessible anywhere')]),
+      ]),
+      ProjectType.desktop => div(classes: 'block', [
+        h3(classes: 'title is-3 has-text-centered', [.text('Desktop')]),
+        p(classes: 'has-text-centered', [.text('Powerful native applications for productivity')]),
+      ]),
+    };
+  }
+}
+
+/// Renders a grid of project cards filtered by the selected project type
+class _ProjectList extends StatelessComponent {
+  final ProjectType projectType;
+  final List<ProjectData> projects;
+
+  _ProjectList({required this.projectType}) : projects = Globals.projects.where((p) => p.type == projectType).toList();
+
+  @override
+  Component build(BuildContext context) {
+    return div(classes: 'columns is-multiline', [
+      // Display project cards in a responsive grid
+      for (final project in Globals.projects.where((p) => p.type == projectType))
+        div(classes: 'column is-one-third', [
+          ProjectCard(data: project),
+        ]),
+
+      // Show message when no projects match the filter
+      if (projects.isEmpty)
+        div(classes: 'block', [
+          p(classes: 'has-text-centered', [.text('No projects found')]),
+        ]),
+    ]);
   }
 }

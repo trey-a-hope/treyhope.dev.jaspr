@@ -4,13 +4,13 @@ import 'package:treyhope_dev/components/embedded_lottie_widget.dart';
 import 'package:treyhope_dev/constants/lottie_type.dart';
 
 @client
-class CodeFlows extends StatelessComponent {
-  const CodeFlows({super.key});
+class Music extends StatelessComponent {
+  const Music({super.key});
 
   @override
   Component build(BuildContext context) {
     return const section(classes: 'container is-max-desktop section', [
-      h1(classes: 'title', [.text('Code Flows')]),
+      h1(classes: 'title', [.text('Music')]),
       h4([
         .text('Page currently under construction'),
       ]),

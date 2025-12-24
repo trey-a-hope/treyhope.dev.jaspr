@@ -1,3 +1,4 @@
+import 'package:treyhope_dev/dtos/project_data.dart';
 import 'package:treyhope_dev/dtos/work_history_data.dart';
 
 class Globals {
@@ -73,6 +74,35 @@ class Globals {
             'information for the mobile app.',
       ],
       technologies: ['MongoDB', 'Dio', 'Javascript'],
+    ),
+  ];
+
+  static const projects = [
+    ProjectData(
+      imageUrl: 'assets/images/screenshot_gift_grab.jpg',
+      title: 'Gift Grab',
+      description: 'Santa collects gifts in this festive Flutter Flame arcade game.',
+      technologies: [
+        'Bloc',
+        'Nakama',
+        'Fluo',
+      ],
+      githubUrl: 'https://github.com/trey-a-hope/gift_grab_client',
+      demoUrl: 'https://giftgrab.codemagic.app',
+      type: ProjectType.web,
+    ),
+    ProjectData(
+      imageUrl: 'assets/images/screenshot_my_cool_game.jpg',
+      title: 'My Cool Game',
+      description: 'A 2D side scrolling game that follows a Dwarf Warrior on this RPG style quest.',
+      technologies: [
+        'Riverpod',
+        'Bonfire',
+        'Sprite Fusion',
+      ],
+      githubUrl: 'https://github.com/trey-a-hope/my-cool-game',
+      demoUrl: 'https://my-cool-game.codemagic.app/',
+      type: ProjectType.web,
     ),
   ];
 }

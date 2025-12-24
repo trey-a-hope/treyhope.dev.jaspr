@@ -1,7 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_flutter_embed/jaspr_flutter_embed.dart';
 
-@Import.onWeb('../widgets/quiz.dart', show: [#Quiz])
+@Import.onWeb('../widgets/quiz/quiz.dart', show: [#Quiz])
 import 'embedded_quiz_widget.imports.dart' deferred as _import;
 
 class EmbeddedQuizWidget extends StatelessComponent {
