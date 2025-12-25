@@ -5,6 +5,7 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
+import 'package:treyhope_dev/components/blog_card.dart' as _blog_card;
 import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
@@ -46,6 +47,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _projects.Projects: ClientTarget<_projects.Projects>('projects'),
   },
   styles: () => [
+    ..._blog_card.BlogCard.styles,
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
     ..._blog_page.BlogView.styles,

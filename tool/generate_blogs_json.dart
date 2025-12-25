@@ -24,3 +24,4 @@ void main() async {
 
 
 // run "dart run tool/generate_blogs_json.dart" to sync blogs.json with content/blogs/ dir
+// When determine slugs for blogs, grab the first 5 words in the title
