@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:treyhope_dev/constants/globals.dart';
-import 'package:treyhope_dev/dtos/blog.dart';
+import 'package:treyhope_dev/models/blog.dart';
 
 /// State model for the blog list, tracking current page and blogs
 class BlogListState extends Equatable {

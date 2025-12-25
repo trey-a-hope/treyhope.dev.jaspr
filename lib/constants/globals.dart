@@ -1,7 +1,7 @@
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/dtos/blog.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
 import 'package:treyhope_dev/dtos/work_history_data.dart';
+import 'package:treyhope_dev/models/blog.dart';
 
 /// Global constants and static data for the application
 class Globals {

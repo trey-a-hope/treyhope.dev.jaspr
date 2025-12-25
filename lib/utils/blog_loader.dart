@@ -1,7 +1,6 @@
 // lib/blog_loader.dart
 import 'dart:io';
-
-import 'package:treyhope_dev/dtos/blog.dart';
+import 'package:treyhope_dev/models/blog.dart';
 
 class BlogLoader {
   /// Loads all blog posts from the content/blogs directory

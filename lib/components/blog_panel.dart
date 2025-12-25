@@ -3,7 +3,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/bulma_panel.dart';
 import 'package:treyhope_dev/components/spacer.dart';
-import 'package:treyhope_dev/dtos/blog.dart';
+import 'package:treyhope_dev/models/blog.dart';
 
 class BlogPanel extends StatelessComponent {
   final Blog blog;
@@ -26,7 +26,7 @@ class BlogPanel extends StatelessComponent {
           ]),
         ]),
         div(classes: 'panel-block', [
-          button(onClick: () => print('Read more'), classes: 'button is-dark is-fullwidth', [
+          button(onClick: () => print('Read more about ${blog.title}'), classes: 'button is-dark is-fullwidth', [
             .text('Read more'),
           ]),
         ]),

@@ -9,7 +9,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:jaspr/client.dart';
 import 'package:treyhope_dev/constants/globals.dart';
-import 'package:treyhope_dev/dtos/blog.dart';
+import 'package:treyhope_dev/models/blog.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
 import 'main.client.options.dart';
