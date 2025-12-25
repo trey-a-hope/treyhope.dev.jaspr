@@ -2,7 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/footer/footer.dart';
-import 'package:treyhope_dev/pages/blog.dart';
+import 'package:treyhope_dev/pages/blog_page.dart';
 import 'package:treyhope_dev/pages/code_flows.dart';
 import 'package:treyhope_dev/pages/page_not_found.dart';
 import 'package:treyhope_dev/pages/projects.dart';
@@ -31,7 +31,7 @@ class App extends StatelessComponent {
           Route(path: '/about', title: 'About', builder: (context, state) => const About()),
           Route(path: '/projects', title: 'Projects', builder: (context, state) => const Projects()),
           Route(path: '/code-flows', title: 'Code Flows', builder: (context, state) => const CodeFlows()),
-          Route(path: '/blog', title: 'Blog', builder: (context, state) => const Blog()),
+          Route(path: '/blog', title: 'Blog', builder: (context, state) => const BlogPage()),
         ],
         errorBuilder: (context, state) => const PageNotFound(),
       ),

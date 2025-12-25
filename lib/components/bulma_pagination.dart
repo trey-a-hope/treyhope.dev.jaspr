@@ -1,30 +1,54 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_riverpod/jaspr_riverpod.dart';
+import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/riverpod/providers.dart';
 
+/// Bulma-styled pagination component for navigating through blog posts
 class BulmaPagination extends StatelessComponent {
   final int totalBlogCount;
-  final int batchCount;
   final int currentIndex;
   final int pages;
 
-  const BulmaPagination({super.key, required this.totalBlogCount, required this.batchCount, required this.currentIndex})
-    : pages = (totalBlogCount ~/ batchCount) + 1;
+  const BulmaPagination({
+    super.key,
+    required this.totalBlogCount,
+    required this.currentIndex,
+  }) : pages = (totalBlogCount ~/ Globals.blogPaginationCount) + 1; // Calculate total pages
 
   @override
   Component build(BuildContext context) {
+    final blogListNotifier = context.read(blogListProvider.notifier);
+
+    // Disable previous button on first page
+    final isPreviousDisabled = currentIndex == 0;
+    // Disable next button on last page
+    final isNextDisabled = (currentIndex + 1) * Globals.blogPaginationCount >= totalBlogCount;
+
     return nav(classes: 'pagination', [
-      a(classes: 'pagination-previous ${currentIndex == 0 ? 'is-disabled' : ''}', href: '#', [.text('Previous')]),
-      a(
-        classes: 'pagination-next ${(currentIndex + 1) * batchCount >= totalBlogCount ? 'is-disabled' : ''}',
-        href: '#',
+      // Previous button
+      button(
+        onClick: () => !isPreviousDisabled ? blogListNotifier.prevBatch() : null,
+        classes: 'pagination-previous ${isPreviousDisabled ? 'is-disabled' : ''}',
+        [.text('Previous')],
+      ),
+      // Next button
+      button(
+        onClick: () => !isNextDisabled ? blogListNotifier.nextBatch() : null,
+        classes: 'pagination-next ${isNextDisabled ? 'is-disabled' : ''}',
         [
           .text('Next'),
         ],
       ),
+      // Page number buttons
       ul(classes: 'pagination-list', [
         for (int i = 0; i < pages; i++)
           li([
-            a(classes: 'pagination-link ${currentIndex == i ? 'is-current' : ''}', href: '#', [.text('${i + 1}')]),
+            button(
+              onClick: () => blogListNotifier.goToPage(i),
+              classes: 'pagination-link ${currentIndex == i ? 'is-current' : ''}',
+              [.text('${i + 1}')],
+            ),
           ]),
       ]),
     ]);

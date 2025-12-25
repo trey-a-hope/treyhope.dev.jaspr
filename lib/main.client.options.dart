@@ -10,7 +10,7 @@ import 'package:treyhope_dev/components/header.dart' deferred as _header;
 import 'package:treyhope_dev/components/spotify_preview.dart'
     deferred as _spotify_preview;
 import 'package:treyhope_dev/pages/about.dart' deferred as _about;
-import 'package:treyhope_dev/pages/blog.dart' deferred as _blog;
+import 'package:treyhope_dev/pages/blog_page.dart' deferred as _blog_page;
 import 'package:treyhope_dev/pages/code_flows.dart' deferred as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' deferred as _home;
 import 'package:treyhope_dev/pages/page_not_found.dart'
@@ -51,7 +51,10 @@ ClientOptions get defaultClientOptions => ClientOptions(
       loader: _spotify_preview.loadLibrary,
     ),
     'about': ClientLoader((p) => _about.About(), loader: _about.loadLibrary),
-    'blog': ClientLoader((p) => _blog.Blog(), loader: _blog.loadLibrary),
+    'blog_page': ClientLoader(
+      (p) => _blog_page.BlogPage(),
+      loader: _blog_page.loadLibrary,
+    ),
     'code_flows': ClientLoader(
       (p) => _code_flows.CodeFlows(),
       loader: _code_flows.loadLibrary,
