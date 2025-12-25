@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/footer/footer.dart';
+import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/pages/blog_page.dart';
 import 'package:treyhope_dev/pages/blog_post_page.dart';
 import 'package:treyhope_dev/pages/code_flows.dart';
@@ -33,14 +34,22 @@ class App extends StatelessComponent {
           Route(path: '/projects', title: 'Projects', builder: (context, state) => const Projects()),
           Route(path: '/code-flows', title: 'Code Flows', builder: (context, state) => const CodeFlows()),
           Route(path: '/blog', title: 'Blog', builder: (context, state) => const BlogPage()),
-          Route(
-            path: '/blog/:slug',
-            title: 'Blog Post',
-            builder: (context, state) {
-              final slug = state.params['slug'] ?? '';
-              return BlogPostPage(slug: slug);
-            },
+          // Generate a static route for each blog post
+          ...Globals.allBlogs.map(
+            (blog) => Route(
+              path: '/blog/${blog.slug}',
+              title: blog.title,
+              builder: (context, state) => BlogPostPage(slug: blog.slug),
+            ),
           ),
+          // Route(
+          //   path: '/blog/:slug',
+          //   title: 'Blog Post',
+          //   builder: (context, state) {
+          //     final slug = state.params['slug'] ?? '';
+          //     return BlogPostPage(slug: slug);
+          //   },
+          // ),
         ],
         errorBuilder: (context, state) => const PageNotFound(),
       ),
