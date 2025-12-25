@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-import '../utils/blog_loader.dart';
+import '../lib/utils/blog_loader.dart';
 
 // Import your blog loader
 
@@ -21,3 +21,6 @@ void main() async {
 
   print('Generated blogs.json with ${blogs.length} blogs');
 }
+
+
+// run "dart run tool/generate_blogs_json.dart" to sync blogs.json with content/blogs/ dir
