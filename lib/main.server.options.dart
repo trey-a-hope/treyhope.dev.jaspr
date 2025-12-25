@@ -11,6 +11,7 @@ import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
 import 'package:treyhope_dev/pages/about.dart' as _about;
 import 'package:treyhope_dev/pages/blog_page.dart' as _blog_page;
+import 'package:treyhope_dev/pages/blog_post_page.dart' as _blog_post_page;
 import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' as _home;
 import 'package:treyhope_dev/pages/page_not_found.dart' as _page_not_found;
@@ -39,6 +40,10 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _header.Header: ClientTarget<_header.Header>('header'),
     _about.About: ClientTarget<_about.About>('about'),
     _blog_page.BlogPage: ClientTarget<_blog_page.BlogPage>('blog_page'),
+    _blog_post_page.BlogPostPage: ClientTarget<_blog_post_page.BlogPostPage>(
+      'blog_post_page',
+      params: __blog_post_pageBlogPostPage,
+    ),
     _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
     _home.Home: ClientTarget<_home.Home>('home'),
     _page_not_found.PageNotFound: ClientTarget<_page_not_found.PageNotFound>(
@@ -56,3 +61,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._app.App.styles,
   ],
 );
+
+Map<String, Object?> __blog_post_pageBlogPostPage(
+  _blog_post_page.BlogPostPage c,
+) => {'slug': c.slug};
