@@ -15,7 +15,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Generate blogs from markdown
 echo "Generating blogs into json"
-dart run tool/generate_blogs_json.dart
+dart run lib/tool/generate_blogs_json.dart
 
 # Build the app
 echo "Building Jaspr app..."
