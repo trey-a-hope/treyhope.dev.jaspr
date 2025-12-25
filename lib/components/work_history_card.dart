@@ -47,7 +47,7 @@ class WorkHistoryCard extends StatelessComponent {
             Spacer(.md),
             div(classes: 'work-history-card-technologies', [
               for (final technology in data.technologies)
-                span(classes: 'tag is-link is-normal', [
+                span(classes: 'tag is-warning is-normal', [
                   .text(technology),
                 ]),
             ]),

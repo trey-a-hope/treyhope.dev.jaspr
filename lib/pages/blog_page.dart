@@ -1,8 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr/server.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
-import 'package:treyhope_dev/components/blog_card.dart';
+import 'package:treyhope_dev/components/blog_panel.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/bulma_pagination.dart';
 import 'package:treyhope_dev/components/spacer.dart';
@@ -40,7 +39,7 @@ class BlogView extends StatelessComponent {
         // Render blog cards
         for (final blog in state.blogs)
           div(classes: 'column is-half', [
-            BlogCard(blog: blog),
+            BlogPanel(blog: blog),
           ]),
 
         // Pagination controls
