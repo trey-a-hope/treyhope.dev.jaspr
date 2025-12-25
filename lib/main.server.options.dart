@@ -5,13 +5,12 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
+import 'package:treyhope_dev/components/blog_card.dart' as _blog_card;
 import 'package:treyhope_dev/components/header.dart' as _header;
-import 'package:treyhope_dev/components/spotify_preview.dart'
-    as _spotify_preview;
 import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
 import 'package:treyhope_dev/pages/about.dart' as _about;
-import 'package:treyhope_dev/pages/blog.dart' as _blog;
+import 'package:treyhope_dev/pages/blog_page.dart' as _blog_page;
 import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' as _home;
 import 'package:treyhope_dev/pages/page_not_found.dart' as _page_not_found;
@@ -38,13 +37,8 @@ ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
     _header.Header: ClientTarget<_header.Header>('header'),
-    _spotify_preview.SpotifyPreview:
-        ClientTarget<_spotify_preview.SpotifyPreview>(
-          'spotify_preview',
-          params: __spotify_previewSpotifyPreview,
-        ),
     _about.About: ClientTarget<_about.About>('about'),
-    _blog.Blog: ClientTarget<_blog.Blog>('blog'),
+    _blog_page.BlogPage: ClientTarget<_blog_page.BlogPage>('blog_page'),
     _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
     _home.Home: ClientTarget<_home.Home>('home'),
     _page_not_found.PageNotFound: ClientTarget<_page_not_found.PageNotFound>(
@@ -53,15 +47,12 @@ ServerOptions get defaultServerOptions => ServerOptions(
     _projects.Projects: ClientTarget<_projects.Projects>('projects'),
   },
   styles: () => [
+    ..._blog_card.BlogCard.styles,
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
-    ..._blog.Blog.styles,
+    ..._blog_page.BlogView.styles,
     ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,
     ..._app.App.styles,
   ],
 );
-
-Map<String, Object?> __spotify_previewSpotifyPreview(
-  _spotify_preview.SpotifyPreview c,
-) => {'src': c.src};

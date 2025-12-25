@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-@client
 class SpotifyPreview extends StatelessComponent {
   final String src;
 

@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/about_card.dart';
+import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/embedded_quiz_widget.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/work_history_card.dart';
@@ -17,33 +18,32 @@ class About extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section(classes: 'container is-max-desktop section', [
-      div(classes: 'block', [
-        h1(classes: 'title is-1', [.text('About')]),
-      ]),
-
-      div(classes: 'columns', [
-        div(classes: 'column is-two-thirds', [
-          AboutCard(),
-        ]),
-        div(classes: 'column is-one-third', [
-          h3(classes: 'title is-3 has-text-centered', [.text('Take my quiz')]),
-          h5(classes: 'has-text-centered', [.text('It won\'t take long, I promise.')]),
-          Spacer(.md),
-          EmbeddedQuizWidget(),
-          Spacer(.md),
-          _Sentence(),
-        ]),
-      ]),
-      Spacer(.xl),
-      h3(classes: 'title is-3', [.text('Employment History')]),
-      h5([.text('Flutter development has been my focus since the beginning.')]),
-      Spacer(.xl),
-      div(classes: 'columns is-multiline', [
-        for (final workHistory in Globals.workHistories)
-          div(classes: 'column is-half', [
-            WorkHistoryCard(data: workHistory),
+    return div(classes: 'container is-max-desktop', [
+      BulmaHero(title: 'About', subtitle: 'Nice to meet you—let me tell you my story.'),
+      section(classes: 'container is-max-desktop section', [
+        div(classes: 'columns', [
+          div(classes: 'column is-two-thirds', [
+            AboutCard(),
           ]),
+          div(classes: 'column is-one-third', [
+            h4(classes: 'title is-4 has-text-centered', [.text('Take my quiz')]),
+            h5(classes: 'has-text-centered', [.text('It won\'t take long, I promise.')]),
+            Spacer(.md),
+            EmbeddedQuizWidget(),
+            Spacer(.md),
+            _Sentence(),
+          ]),
+        ]),
+        Spacer(.xl),
+        h4(classes: 'title is-4', [.text('Employment History')]),
+        h5([.text('Flutter development has been my focus since the beginning.')]),
+        Spacer(.xl),
+        div(classes: 'columns is-multiline', [
+          for (final workHistory in Globals.workHistories)
+            div(classes: 'column is-half', [
+              WorkHistoryCard(data: workHistory),
+            ]),
+        ]),
       ]),
     ]);
   }
@@ -69,7 +69,7 @@ class _Sentence extends StatelessComponent {
         .text('Flutter'),
       ]),
       .text(
-        ', is the ability to embed a Flutter widget into a website. This site is HTML and CSS, but this widget is pure Flutter.',
+        ', is the ability to embed Flutter widgets. This site is HTML and CSS, but this widget is pure Flutter.',
       ),
     ]),
   ]);

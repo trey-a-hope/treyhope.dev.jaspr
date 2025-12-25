@@ -1,12 +1,20 @@
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/dtos/blog.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
 import 'package:treyhope_dev/dtos/work_history_data.dart';
 
+/// Global constants and static data for the application
 class Globals {
-  Globals._();
+  Globals._(); // Private constructor to prevent instantiation
 
+  static late List<Blog> allBlogs;
+
+  // UI breakpoints and pagination
   static const desktopBreakpoint = 1024;
+  static const blogPaginationCount = 10;
+  static const totalBlogCount = 18; // Count docs in content/blogs/
 
+  // Work experience timeline
   static const workHistories = [
     WorkHistoryData(
       imageUrl:
@@ -78,6 +86,7 @@ class Globals {
     ),
   ];
 
+  // Portfolio projects showcase
   static const projects = [
     ProjectData(
       imageUrl: '${kReleaseMode ? 'assets/' : ''}assets/images/screenshot_gift_grab.jpg',
