@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../utils/blog_loader.dart';
+
 // Import your blog loader
-import 'package:treyhope_dev/utils/blog_loader.dart';
 
 void main() async {
   print('🔄 Generating blogs.json...');
