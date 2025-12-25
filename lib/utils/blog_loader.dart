@@ -14,13 +14,20 @@ class BlogLoader {
       return blogs;
     }
 
-    // List all markdown files
+    // List all subdirectories (each represents a blog post)
     await for (final entity in blogDir.list()) {
-      if (entity is File && entity.path.endsWith('.md')) {
+      if (entity is Directory) {
         try {
-          final content = await entity.readAsString();
-          final blog = _parseMarkdownFile(content, entity.path);
-          blogs.add(blog);
+          // Look for index.md in each directory
+          final indexFile = File('${entity.path}/index.md');
+
+          if (await indexFile.exists()) {
+            final content = await indexFile.readAsString();
+            final blog = _parseMarkdownFile(content, entity.path);
+            blogs.add(blog);
+          } else {
+            print('Warning: No index.md found in ${entity.path}');
+          }
         } catch (e) {
           print('Error loading ${entity.path}: $e');
         }
@@ -34,14 +41,14 @@ class BlogLoader {
   }
 
   /// Parses a markdown file with frontmatter
-  static Blog _parseMarkdownFile(String content, String filepath) {
+  static Blog _parseMarkdownFile(String content, String directoryPath) {
     final parts = _extractFrontmatter(content);
     final metadata = parts['frontmatter'] ?? {};
     final body = parts['body'] ?? '';
 
     return Blog(
       title: metadata['title'] ?? 'Untitled',
-      slug: metadata['slug'] ?? _slugFromPath(filepath),
+      slug: metadata['slug'] ?? _slugFromPath(directoryPath),
       date: DateTime.tryParse(metadata['date'] ?? '') ?? DateTime.now(),
       author: metadata['author'] ?? '',
       tags: (metadata['tags'] as String?)?.split(',').map((t) => t.trim()).toList() ?? [],
@@ -89,9 +96,10 @@ class BlogLoader {
     };
   }
 
-  /// Generates a slug from the filepath
+  /// Generates a slug from the directory path
   static String _slugFromPath(String path) {
-    final filename = path.split('/').last;
-    return filename.replaceAll('.md', '').replaceAll(RegExp(r'^\d{4}-\d{2}-\d{2}-'), ''); // Remove date prefix
+    final dirname = path.split('/').last;
+    // Remove date prefix (e.g., "2024-04-27-")
+    return dirname.replaceAll(RegExp(r'^\d{4}-\d{2}-\d{2}-'), '');
   }
 }

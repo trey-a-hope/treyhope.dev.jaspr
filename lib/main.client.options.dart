@@ -9,6 +9,8 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:treyhope_dev/components/header.dart' deferred as _header;
 import 'package:treyhope_dev/pages/about.dart' deferred as _about;
 import 'package:treyhope_dev/pages/blog_page.dart' deferred as _blog_page;
+import 'package:treyhope_dev/pages/blog_post_page.dart'
+    deferred as _blog_post_page;
 import 'package:treyhope_dev/pages/code_flows.dart' deferred as _code_flows;
 import 'package:treyhope_dev/pages/home.dart' deferred as _home;
 import 'package:treyhope_dev/pages/page_not_found.dart'
@@ -48,6 +50,10 @@ ClientOptions get defaultClientOptions => ClientOptions(
     'blog_page': ClientLoader(
       (p) => _blog_page.BlogPage(),
       loader: _blog_page.loadLibrary,
+    ),
+    'blog_post_page': ClientLoader(
+      (p) => _blog_post_page.BlogPostPage(slug: p['slug'] as String),
+      loader: _blog_post_page.loadLibrary,
     ),
     'code_flows': ClientLoader(
       (p) => _code_flows.CodeFlows(),

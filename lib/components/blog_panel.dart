@@ -25,10 +25,13 @@ class BlogPanel extends StatelessComponent {
             for (int i = 0; i < blog.tags.length; i++) a(href: '#', [.text('#${blog.tags[i]}')]),
           ]),
         ]),
+
         div(classes: 'panel-block', [
-          button(onClick: () => print('Read more about ${blog.title}'), classes: 'button is-dark is-fullwidth', [
-            .text('Read more'),
-          ]),
+          a(
+            href: '/blog/${blog.slug}',
+            classes: 'button is-dark is-fullwidth',
+            [.text('Read more')],
+          ),
         ]),
       ],
     );
