@@ -37,7 +37,7 @@ class BlogView extends StatelessComponent {
           // Render blog cards
           for (final blog in state.blogs) BlogCard(blog: blog),
           // Pagination controls
-          BulmaPagination(key: ValueKey(state.currentIndex), totalBlogCount: 89, currentIndex: state.currentIndex),
+          BulmaPagination(key: ValueKey(state.currentIndex), currentIndex: state.currentIndex),
         ]),
         loading: () => div(classes: 'block', [.text('loading')]),
         error: (error, stackTrace) => div(classes: 'block', [.text('$error')]),

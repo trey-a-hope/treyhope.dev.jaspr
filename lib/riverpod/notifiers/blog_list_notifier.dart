@@ -33,8 +33,9 @@ class BlogListNotifier extends AsyncNotifier<BlogListState> {
 
     final indexInList = currentIndex * Globals.blogPaginationCount;
 
-    for (int i = indexInList; i < indexInList + Globals.blogPaginationCount; i++) {
-      blogs.add(Blog(title: '$i'));
+    for (int i = indexInList; i < indexInList + Globals.blogPaginationCount && i < Globals.totalBlogCount; i++) {
+      // TODO (Trey) - Fetch blog at position i.
+      blogs.add(Blog(title: 'This is blog number ${i + 1}'));
     }
 
     return blogs;

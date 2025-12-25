@@ -9,6 +9,7 @@ class Globals {
   // UI breakpoints and pagination
   static const desktopBreakpoint = 1024;
   static const blogPaginationCount = 10;
+  static const totalBlogCount = 25;
 
   // Work experience timeline
   static const workHistories = [

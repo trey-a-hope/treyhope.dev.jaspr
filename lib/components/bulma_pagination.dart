@@ -6,15 +6,13 @@ import 'package:treyhope_dev/riverpod/providers.dart';
 
 /// Bulma-styled pagination component for navigating through blog posts
 class BulmaPagination extends StatelessComponent {
-  final int totalBlogCount;
   final int currentIndex;
   final int pages;
 
   const BulmaPagination({
     super.key,
-    required this.totalBlogCount,
     required this.currentIndex,
-  }) : pages = (totalBlogCount ~/ Globals.blogPaginationCount) + 1; // Calculate total pages
+  }) : pages = (Globals.totalBlogCount ~/ Globals.blogPaginationCount) + 1; // Calculate total pages
 
   @override
   Component build(BuildContext context) {
@@ -23,7 +21,7 @@ class BulmaPagination extends StatelessComponent {
     // Disable previous button on first page
     final isPreviousDisabled = currentIndex == 0;
     // Disable next button on last page
-    final isNextDisabled = (currentIndex + 1) * Globals.blogPaginationCount >= totalBlogCount;
+    final isNextDisabled = (currentIndex + 1) * Globals.blogPaginationCount >= Globals.totalBlogCount;
 
     return nav(classes: 'pagination', [
       // Previous button
