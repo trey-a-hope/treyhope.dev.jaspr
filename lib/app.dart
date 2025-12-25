@@ -42,14 +42,6 @@ class App extends StatelessComponent {
               builder: (context, state) => BlogPostPage(slug: blog.slug),
             ),
           ),
-          // Route(
-          //   path: '/blog/:slug',
-          //   title: 'Blog Post',
-          //   builder: (context, state) {
-          //     final slug = state.params['slug'] ?? '';
-          //     return BlogPostPage(slug: slug);
-          //   },
-          // ),
         ],
         errorBuilder: (context, state) => const PageNotFound(),
       ),
