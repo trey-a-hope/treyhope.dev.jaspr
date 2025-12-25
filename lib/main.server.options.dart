@@ -6,8 +6,6 @@
 
 import 'package:jaspr/server.dart';
 import 'package:treyhope_dev/components/header.dart' as _header;
-import 'package:treyhope_dev/components/spotify_preview.dart'
-    as _spotify_preview;
 import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
 import 'package:treyhope_dev/pages/about.dart' as _about;
@@ -38,11 +36,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
     _header.Header: ClientTarget<_header.Header>('header'),
-    _spotify_preview.SpotifyPreview:
-        ClientTarget<_spotify_preview.SpotifyPreview>(
-          'spotify_preview',
-          params: __spotify_previewSpotifyPreview,
-        ),
     _about.About: ClientTarget<_about.About>('about'),
     _blog_page.BlogPage: ClientTarget<_blog_page.BlogPage>('blog_page'),
     _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
@@ -61,7 +54,3 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._app.App.styles,
   ],
 );
-
-Map<String, Object?> __spotify_previewSpotifyPreview(
-  _spotify_preview.SpotifyPreview c,
-) => {'src': c.src};

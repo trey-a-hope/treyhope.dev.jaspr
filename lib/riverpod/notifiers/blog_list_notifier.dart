@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:equatable/equatable.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:treyhope_dev/constants/globals.dart';
@@ -20,71 +18,42 @@ class BlogListState extends Equatable {
 }
 
 /// Notifier for managing blog list state and pagination
-class BlogListNotifier extends AsyncNotifier<BlogListState> {
+class BlogListNotifier extends Notifier<BlogListState> {
   @override
-  FutureOr<BlogListState> build() async => BlogListState(
-    blogs: await _fetch(),
-  );
-
-  /// Fetches a paginated list of blogs based on current index
-  Future<List<Blog>> _fetch({int currentIndex = 0}) async {
-    print('currentIndex: $currentIndex');
-    final List<Blog> blogs = [];
-
-    final indexInList = currentIndex * Globals.blogPaginationCount;
-
-    for (int i = indexInList; i < indexInList + Globals.blogPaginationCount && i < Globals.totalBlogCount; i++) {
-      // TODO (Trey) - Fetch blog at position i.
-      blogs.add(Blog(title: 'This is blog number ${i + 1}'));
-    }
-
-    return blogs;
-  }
-
-  /// Navigate to the next page of blogs
-  void nextBatch() async {
-    state = AsyncValue.loading();
-
-    print('nextBatch called');
-    final currentIndex = state.value!.currentIndex;
-    final blogs = await _fetch(currentIndex: currentIndex + 1);
-
-    state = AsyncValue.data(
-      BlogListState(
-        currentIndex: currentIndex + 1,
-        blogs: blogs,
-      ),
+  BlogListState build() {
+    return BlogListState(
+      currentIndex: 0,
+      blogs: _getPage(0),
     );
   }
 
-  /// Navigate to the previous page of blogs
-  void prevBatch() async {
-    state = AsyncValue.loading();
+  List<Blog> _getPage(int pageIndex) {
+    if (Globals.allBlogs.isEmpty) return [];
 
-    print('prevBatch called');
-    final currentIndex = state.value!.currentIndex;
-    final blogs = await _fetch(currentIndex: currentIndex - 1);
+    final start = pageIndex * Globals.blogPaginationCount;
+    final end = (start + Globals.blogPaginationCount).clamp(0, Globals.allBlogs.length);
 
-    state = AsyncValue.data(
-      BlogListState(
-        currentIndex: currentIndex - 1,
-        blogs: blogs,
-      ),
+    return Globals.allBlogs.sublist(start, end);
+  }
+
+  void nextBatch() {
+    state = BlogListState(
+      currentIndex: state.currentIndex + 1,
+      blogs: _getPage(state.currentIndex + 1),
     );
   }
 
-  /// Jump to a specific page of blogs
-  void goToPage(int page) async {
-    state = AsyncValue.loading();
+  void prevBatch() {
+    state = BlogListState(
+      currentIndex: state.currentIndex - 1,
+      blogs: _getPage(state.currentIndex - 1),
+    );
+  }
 
-    print('goToPage called');
-    final currentIndex = page;
-
-    state = AsyncValue.data(
-      BlogListState(
-        currentIndex: currentIndex,
-        blogs: await _fetch(currentIndex: currentIndex),
-      ),
+  void goToPage(int page) {
+    state = BlogListState(
+      currentIndex: page,
+      blogs: _getPage(page),
     );
   }
 }

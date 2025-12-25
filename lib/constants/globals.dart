@@ -1,4 +1,5 @@
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/dtos/blog.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
 import 'package:treyhope_dev/dtos/work_history_data.dart';
 
@@ -6,10 +7,12 @@ import 'package:treyhope_dev/dtos/work_history_data.dart';
 class Globals {
   Globals._(); // Private constructor to prevent instantiation
 
+  static late List<Blog> allBlogs;
+
   // UI breakpoints and pagination
   static const desktopBreakpoint = 1024;
-  static const blogPaginationCount = 10;
-  static const totalBlogCount = 25;
+  static const blogPaginationCount = 5;
+  static const totalBlogCount = 18; // Count docs in content/blogs/
 
   // Work experience timeline
   static const workHistories = [

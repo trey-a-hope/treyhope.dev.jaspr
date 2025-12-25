@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr/server.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:treyhope_dev/components/blog_card.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
@@ -24,27 +25,21 @@ class BlogPage extends StatelessComponent {
 class BlogView extends StatelessComponent {
   const BlogView({super.key});
 
+  @css
+  static List<StyleRule> get styles => [];
+
   @override
   Component build(BuildContext context) {
-    final blogListState = context.watch(blogListProvider);
+    final state = context.watch(blogListProvider);
 
     return div(classes: 'container is-max-desktop', [
       BulmaHero(title: 'Blog', subtitle: 'Thoughts on code, culture, and everything in between.'),
-
-      // Handle async states: loading, error, and data
-      blogListState.when(
-        data: (state) => section(classes: 'container is-max-desktop section', [
-          // Render blog cards
-          for (final blog in state.blogs) BlogCard(blog: blog),
-          // Pagination controls
-          BulmaPagination(key: ValueKey(state.currentIndex), currentIndex: state.currentIndex),
-        ]),
-        loading: () => div(classes: 'block', [.text('loading')]),
-        error: (error, stackTrace) => div(classes: 'block', [.text('$error')]),
-      ),
+      section(classes: 'container is-max-desktop section', [
+        // Render blog cards
+        for (final blog in state.blogs) BlogCard(blog: blog),
+        // Pagination controls
+        BulmaPagination(key: ValueKey(state.currentIndex), currentIndex: state.currentIndex),
+      ]),
     ]);
   }
-
-  @css
-  static List<StyleRule> get styles => [];
 }

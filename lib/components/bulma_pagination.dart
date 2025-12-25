@@ -20,6 +20,7 @@ class BulmaPagination extends StatelessComponent {
 
     // Disable previous button on first page
     final isPreviousDisabled = currentIndex == 0;
+
     // Disable next button on last page
     final isNextDisabled = (currentIndex + 1) * Globals.blogPaginationCount >= Globals.totalBlogCount;
 

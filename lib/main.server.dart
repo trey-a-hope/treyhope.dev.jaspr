@@ -7,6 +7,8 @@ library;
 import 'package:jaspr/dom.dart';
 // Server-specific Jaspr import.
 import 'package:jaspr/server.dart';
+import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/utils/blog_loader.dart';
 
 // Imports the [App] component.
 import 'app.dart';
@@ -14,11 +16,13 @@ import 'app.dart';
 // This file is generated automatically by Jaspr, do not remove or edit.
 import 'main.server.options.dart';
 
-void main() {
+void main() async {
   // Initializes the server environment with the generated default options.
   Jaspr.initializeApp(
     options: defaultServerOptions,
   );
+
+  Globals.allBlogs = await BlogLoader.loadAllBlogs();
 
   // Starts the app.
   //
