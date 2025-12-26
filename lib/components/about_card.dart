@@ -52,6 +52,7 @@ class AboutCard extends StatelessComponent {
             ]),
             Link(
               to: _videoUrl,
+              target: Target.blank,
               child: button(
                 classes: 'button',
                 [.text('Watch video')],

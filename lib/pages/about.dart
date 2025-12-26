@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/about_card.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/embedded_quiz_widget.dart';
@@ -12,7 +13,6 @@ import 'package:treyhope_dev/constants/globals.dart';
 // - this file and any imported file must be compilable for both server and client environments.
 // - this component and any child components will be built once on the server during pre-rendering and then
 //   again on the client during normal rendering.
-@client
 class About extends StatelessComponent {
   const About({super.key});
 
@@ -61,16 +61,25 @@ class _Sentence extends StatelessComponent {
       .text(
         'One of the many reasons I love ',
       ),
-      a(target: Target.blank, href: _dartHref, [
-        .text('Dart'),
-      ]),
-      .text(' and '),
-      a(target: Target.blank, href: _flutterHref, [
-        .text('Flutter'),
-      ]),
-      .text(
-        ', is the ability to embed Flutter widgets. This site is HTML and CSS, but this widget is pure Flutter.',
+      Link(
+        target: Target.blank,
+        to: _dartHref,
+        children: [
+          .text('Dart'),
+        ],
       ),
+      .text(' and '),
+      Link(
+        target: Target.blank,
+        to: _flutterHref,
+        children: [
+          .text('Flutter'),
+        ],
+      ),
+      .text('Flutter'),
     ]),
+    .text(
+      ', is the ability to embed Flutter widgets. This site is HTML and CSS, but this widget is pure Flutter.',
+    ),
   ]);
 }

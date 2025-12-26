@@ -9,7 +9,6 @@ import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
 
 /// Projects page that displays a filterable portfolio of mobile, web, and desktop projects
-@client
 class Projects extends StatefulComponent {
   const Projects({super.key});
 

@@ -1,11 +1,12 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/models/blog.dart';
 import 'package:markdown/markdown.dart' as md;
 
-@client
 class BlogPage extends StatelessComponent {
   final String slug;
 
@@ -31,31 +32,40 @@ class BlogPage extends StatelessComponent {
 
     return div(classes: 'container is-max-desktop', [
       div(classes: 'section', [
-        a(
-          href: '/blog',
+        Link(
+          to: '/blog',
           classes: 'button is-light',
-          [
-            span(classes: 'icon', [
-              i(classes: 'fas fa-arrow-left', []),
-            ]),
-            span([.text('Back to Blog')]),
-          ],
+          child: p(
+            [
+              span(classes: 'icon', [
+                i(classes: 'fas fa-arrow-left', []),
+              ]),
+              span([.text('Back to Blog')]),
+            ],
+          ),
         ),
         Spacer(.lg),
         // Blog header
         h1(classes: 'title is-1', [.text(blog!.title)]),
-        div(classes: 'subtitle is-5', [
+        Spacer(.sm),
+        div(classes: 'subtitle', [
           .text('${blog!.excerpt}'),
         ]),
-        div([
-          .text('Posted ${_formatDate(blog!.date)} by ${blog!.author}'),
-        ]),
-        Spacer(.sm),
-        // Tags
+        Spacer(.xs),
+
+        span(
+          classes: 'is-flex is-align-items-center',
+          styles: Styles(gap: Gap(column: 0.5.rem)),
+          [
+            ClockIcon(),
+            .text('${_formatDate(blog!.date)} by ${blog!.author}'),
+          ],
+        ),
+
+        Spacer(.md),
         div(classes: 'tags', [
           for (final tag in blog!.tags) span(classes: 'tag is-link', [.text(tag)]),
         ]),
-        Spacer(.md),
         hr(),
         div(
           classes: 'content',
@@ -64,6 +74,14 @@ class BlogPage extends StatelessComponent {
       ]),
     ]);
   }
+
+  @css
+  static List<StyleRule> get styles => [
+    css('.content img').styles(
+      display: Display.block,
+      margin: Spacing.symmetric(horizontal: Unit.auto),
+    ),
+  ];
 
   String _formatDate(DateTime date) {
     final months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

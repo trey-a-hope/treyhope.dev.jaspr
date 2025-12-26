@@ -11,7 +11,6 @@ import 'package:treyhope_dev/components/spacer.dart';
 // - this file and any imported file must be compilable for both server and client environments.
 // - this component and any child components will be built once on the server during pre-rendering and then
 //   again on the client during normal rendering.
-@client
 class Home extends StatelessComponent {
   static const String _walkdownUrl = 'https://walkdown.codemagic.app/';
 
@@ -54,12 +53,16 @@ class _GameDetails extends StatelessComponent {
   @override
   Component build(BuildContext context) => p([
     .text('Game built with '),
-    a(target: Target.blank, href: _bonfireHref, [
-      .text('Bonfire'),
-    ]),
+    Link(
+      target: Target.blank,
+      to: _bonfireHref,
+      child: .text('Bonfire'),
+    ),
     .text('; view source code'),
-    a(target: Target.blank, href: _walkdownHref, [
-      .text(' here.'),
-    ]),
+    Link(
+      target: Target.blank,
+      to: _walkdownHref,
+      child: .text(' here.'),
+    ),
   ]);
 }

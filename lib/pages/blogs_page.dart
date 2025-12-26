@@ -8,22 +8,10 @@ import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/riverpod/providers.dart';
 
 /// Blog page entry point with Riverpod provider scope
-@client
-class BlogsPage extends StatelessComponent {
-  const BlogsPage({super.key});
-
-  @override
-  Component build(BuildContext context) {
-    return ProviderScope(
-      overrides: [blogListProvider],
-      child: BlogsView(),
-    );
-  }
-}
 
 /// Main blog view component that displays blog posts with pagination
-class BlogsView extends StatelessComponent {
-  const BlogsView({super.key});
+class BlogsPage extends StatelessComponent {
+  const BlogsPage({super.key});
 
   @css
   static List<StyleRule> get styles => [];
@@ -38,7 +26,7 @@ class BlogsView extends StatelessComponent {
       div(classes: 'container is-multiline columns', [
         // Render blog cards
         for (final blog in state.blogs)
-          div(classes: 'column is-half', [
+          div(classes: 'column is-one-third', [
             // Applying key to BlogPanel to prevent old blog posts from being re-rendered
             BlogPanel(key: ValueKey(blog.slug), blog: blog),
           ]),

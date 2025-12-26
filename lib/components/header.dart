@@ -1,10 +1,10 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 
 /// Main navigation header component with responsive mobile menu.
 /// Uses Bulma's navbar system with hamburger menu toggle.
-@client
 class Header extends StatefulComponent {
   const Header({super.key});
 
@@ -28,9 +28,11 @@ class HeaderState extends State<Header> {
         div(classes: 'navbar-container container is-max-desktop', [
           // Navbar hamburger (mobile)
           div(classes: 'navbar-brand', [
-            a(classes: 'navbar-item', href: '/', [
-              strong([.text('Trey Hope')]),
-            ]),
+            Link(
+              to: '/',
+              classes: 'navbar-item',
+              child: .text('Trey Hope'),
+            ),
             button(
               onClick: () {
                 print('Menu toggled! isMenuOpen: $isMenuOpen');
@@ -58,18 +60,26 @@ class HeaderState extends State<Header> {
             [
               div(classes: 'navbar-start', []),
               div(classes: 'navbar-end', [
-                a(href: '/about', classes: 'navbar-item', [
-                  .text('About'),
-                ]),
-                a(href: '/projects', classes: 'navbar-item', [
-                  .text('Projects'),
-                ]),
-                a(href: '/code-flows', classes: 'navbar-item', [
-                  .text('Code Flows'),
-                ]),
-                a(href: '/blog', classes: 'navbar-item', [
-                  .text('Blog'),
-                ]),
+                Link(
+                  to: '/about',
+                  classes: 'navbar-item',
+                  child: .text('About'),
+                ),
+                Link(
+                  to: '/projects',
+                  classes: 'navbar-item',
+                  child: .text('Projects'),
+                ),
+                Link(
+                  to: '/code-flows',
+                  classes: 'navbar-item',
+                  child: .text('Code Flows'),
+                ),
+                Link(
+                  to: '/blog',
+                  classes: 'navbar-item',
+                  child: .text('Blog'),
+                ),
               ]),
             ],
           ),

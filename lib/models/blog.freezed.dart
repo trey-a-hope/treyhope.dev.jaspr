@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Blog {
 
- String get title; String get slug; DateTime get date; String get author; List<String> get tags; String get excerpt; String get content;
+ String get author; String get content; dynamic get coverImage; DateTime get date; String get excerpt; String get slug; List<String> get tags; String get title;
 /// Create a copy of Blog
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $BlogCopyWith<Blog> get copyWith => _$BlogCopyWithImpl<Blog>(this as Blog, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Blog&&(identical(other.title, title) || other.title == title)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.date, date) || other.date == date)&&(identical(other.author, author) || other.author == author)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.excerpt, excerpt) || other.excerpt == excerpt)&&(identical(other.content, content) || other.content == content));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Blog&&(identical(other.author, author) || other.author == author)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.coverImage, coverImage)&&(identical(other.date, date) || other.date == date)&&(identical(other.excerpt, excerpt) || other.excerpt == excerpt)&&(identical(other.slug, slug) || other.slug == slug)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,slug,date,author,const DeepCollectionEquality().hash(tags),excerpt,content);
+int get hashCode => Object.hash(runtimeType,author,content,const DeepCollectionEquality().hash(coverImage),date,excerpt,slug,const DeepCollectionEquality().hash(tags),title);
 
 @override
 String toString() {
-  return 'Blog(title: $title, slug: $slug, date: $date, author: $author, tags: $tags, excerpt: $excerpt, content: $content)';
+  return 'Blog(author: $author, content: $content, coverImage: $coverImage, date: $date, excerpt: $excerpt, slug: $slug, tags: $tags, title: $title)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $BlogCopyWith<$Res>  {
   factory $BlogCopyWith(Blog value, $Res Function(Blog) _then) = _$BlogCopyWithImpl;
 @useResult
 $Res call({
- String title, String slug, DateTime date, String author, List<String> tags, String excerpt, String content
+ String author, String content, dynamic coverImage, DateTime date, String excerpt, String slug, List<String> tags, String title
 });
 
 
@@ -65,15 +65,16 @@ class _$BlogCopyWithImpl<$Res>
 
 /// Create a copy of Blog
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? title = null,Object? slug = null,Object? date = null,Object? author = null,Object? tags = null,Object? excerpt = null,Object? content = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? author = null,Object? content = null,Object? coverImage = freezed,Object? date = null,Object? excerpt = null,Object? slug = null,Object? tags = null,Object? title = null,}) {
   return _then(_self.copyWith(
-title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
-as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
-as String,tags: null == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>,excerpt: null == excerpt ? _self.excerpt : excerpt // ignore: cast_nullable_to_non_nullable
+author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as String,coverImage: freezed == coverImage ? _self.coverImage : coverImage // ignore: cast_nullable_to_non_nullable
+as dynamic,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as DateTime,excerpt: null == excerpt ? _self.excerpt : excerpt // ignore: cast_nullable_to_non_nullable
+as String,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
+as String,tags: null == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
+as List<String>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -156,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  String slug,  DateTime date,  String author,  List<String> tags,  String excerpt,  String content)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String author,  String content,  dynamic coverImage,  DateTime date,  String excerpt,  String slug,  List<String> tags,  String title)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Blog() when $default != null:
-return $default(_that.title,_that.slug,_that.date,_that.author,_that.tags,_that.excerpt,_that.content);case _:
+return $default(_that.author,_that.content,_that.coverImage,_that.date,_that.excerpt,_that.slug,_that.tags,_that.title);case _:
   return orElse();
 
 }
@@ -177,10 +178,10 @@ return $default(_that.title,_that.slug,_that.date,_that.author,_that.tags,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  String slug,  DateTime date,  String author,  List<String> tags,  String excerpt,  String content)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String author,  String content,  dynamic coverImage,  DateTime date,  String excerpt,  String slug,  List<String> tags,  String title)  $default,) {final _that = this;
 switch (_that) {
 case _Blog():
-return $default(_that.title,_that.slug,_that.date,_that.author,_that.tags,_that.excerpt,_that.content);}
+return $default(_that.author,_that.content,_that.coverImage,_that.date,_that.excerpt,_that.slug,_that.tags,_that.title);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -194,10 +195,10 @@ return $default(_that.title,_that.slug,_that.date,_that.author,_that.tags,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  String slug,  DateTime date,  String author,  List<String> tags,  String excerpt,  String content)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String author,  String content,  dynamic coverImage,  DateTime date,  String excerpt,  String slug,  List<String> tags,  String title)?  $default,) {final _that = this;
 switch (_that) {
 case _Blog() when $default != null:
-return $default(_that.title,_that.slug,_that.date,_that.author,_that.tags,_that.excerpt,_that.content);case _:
+return $default(_that.author,_that.content,_that.coverImage,_that.date,_that.excerpt,_that.slug,_that.tags,_that.title);case _:
   return null;
 
 }
@@ -209,13 +210,15 @@ return $default(_that.title,_that.slug,_that.date,_that.author,_that.tags,_that.
 @JsonSerializable()
 
 class _Blog implements Blog {
-  const _Blog({required this.title, required this.slug, required this.date, required this.author, required final  List<String> tags, required this.excerpt, required this.content}): _tags = tags;
+  const _Blog({required this.author, required this.content, required this.coverImage, required this.date, required this.excerpt, required this.slug, required final  List<String> tags, required this.title}): _tags = tags;
   factory _Blog.fromJson(Map<String, dynamic> json) => _$BlogFromJson(json);
 
-@override final  String title;
-@override final  String slug;
-@override final  DateTime date;
 @override final  String author;
+@override final  String content;
+@override final  dynamic coverImage;
+@override final  DateTime date;
+@override final  String excerpt;
+@override final  String slug;
  final  List<String> _tags;
 @override List<String> get tags {
   if (_tags is EqualUnmodifiableListView) return _tags;
@@ -223,8 +226,7 @@ class _Blog implements Blog {
   return EqualUnmodifiableListView(_tags);
 }
 
-@override final  String excerpt;
-@override final  String content;
+@override final  String title;
 
 /// Create a copy of Blog
 /// with the given fields replaced by the non-null parameter values.
@@ -239,16 +241,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Blog&&(identical(other.title, title) || other.title == title)&&(identical(other.slug, slug) || other.slug == slug)&&(identical(other.date, date) || other.date == date)&&(identical(other.author, author) || other.author == author)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.excerpt, excerpt) || other.excerpt == excerpt)&&(identical(other.content, content) || other.content == content));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Blog&&(identical(other.author, author) || other.author == author)&&(identical(other.content, content) || other.content == content)&&const DeepCollectionEquality().equals(other.coverImage, coverImage)&&(identical(other.date, date) || other.date == date)&&(identical(other.excerpt, excerpt) || other.excerpt == excerpt)&&(identical(other.slug, slug) || other.slug == slug)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.title, title) || other.title == title));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,title,slug,date,author,const DeepCollectionEquality().hash(_tags),excerpt,content);
+int get hashCode => Object.hash(runtimeType,author,content,const DeepCollectionEquality().hash(coverImage),date,excerpt,slug,const DeepCollectionEquality().hash(_tags),title);
 
 @override
 String toString() {
-  return 'Blog(title: $title, slug: $slug, date: $date, author: $author, tags: $tags, excerpt: $excerpt, content: $content)';
+  return 'Blog(author: $author, content: $content, coverImage: $coverImage, date: $date, excerpt: $excerpt, slug: $slug, tags: $tags, title: $title)';
 }
 
 
@@ -259,7 +261,7 @@ abstract mixin class _$BlogCopyWith<$Res> implements $BlogCopyWith<$Res> {
   factory _$BlogCopyWith(_Blog value, $Res Function(_Blog) _then) = __$BlogCopyWithImpl;
 @override @useResult
 $Res call({
- String title, String slug, DateTime date, String author, List<String> tags, String excerpt, String content
+ String author, String content, dynamic coverImage, DateTime date, String excerpt, String slug, List<String> tags, String title
 });
 
 
@@ -276,15 +278,16 @@ class __$BlogCopyWithImpl<$Res>
 
 /// Create a copy of Blog
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? title = null,Object? slug = null,Object? date = null,Object? author = null,Object? tags = null,Object? excerpt = null,Object? content = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? author = null,Object? content = null,Object? coverImage = freezed,Object? date = null,Object? excerpt = null,Object? slug = null,Object? tags = null,Object? title = null,}) {
   return _then(_Blog(
-title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
-as String,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
-as String,tags: null == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>,excerpt: null == excerpt ? _self.excerpt : excerpt // ignore: cast_nullable_to_non_nullable
+author: null == author ? _self.author : author // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as String,coverImage: freezed == coverImage ? _self.coverImage : coverImage // ignore: cast_nullable_to_non_nullable
+as dynamic,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as DateTime,excerpt: null == excerpt ? _self.excerpt : excerpt // ignore: cast_nullable_to_non_nullable
+as String,slug: null == slug ? _self.slug : slug // ignore: cast_nullable_to_non_nullable
+as String,tags: null == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
+as List<String>,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

@@ -1,11 +1,11 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/bulma_message_header.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/spotify_preview.dart';
 import 'package:treyhope_dev/constants/spotify_track.dart';
 
-@client
 class CodeFlows extends StatelessComponent {
   static const _youtubePlaylistHref =
       'https://youtube.com/playlist?list=PL6eNwCeOO4l7fAximdILxgQlZD4NIbozV&si=Nl1ICEpIRlx4HI4Y';
@@ -63,7 +63,11 @@ class CodeFlows extends StatelessComponent {
             .text(
               'Want to learn more? Checkout out the full',
             ),
-            a(href: _youtubePlaylistHref, target: Target.blank, [.text(' YouTube playlist ')]),
+            Link(
+              to: _youtubePlaylistHref,
+              target: Target.blank,
+              child: .text(' YouTube playlist '),
+            ),
             .text(
               'to see video demonstrations for each track.',
             ),

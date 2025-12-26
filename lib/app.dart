@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/scroll_to_top.dart';
 import 'package:treyhope_dev/components/footer/footer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/pages/blogs_page.dart';
@@ -15,31 +16,51 @@ import 'pages/home.dart';
 
 // The main component of your application.
 //
-// By using multi-page routing, this component will only be built on the server during pre-rendering and
-// **not** executed on the client. Instead only the nested [Home] and [About] components will be mounted on the client.
+// By adding @client, this component runs on both server (for SSR) and client (for navigation).
+// This enables client-side routing without full page reloads.
+@client
 class App extends StatelessComponent {
   const App({super.key});
 
   @override
   Component build(BuildContext context) {
-    // This method is rerun every time the component is rebuilt.
-
+    return // This method is rerun every time the component is rebuilt.
     // Renders a <div class="main"> html element with children.
-    return div(classes: 'main', [
+    div(classes: 'main', [
       const Header(),
       Router(
         routes: [
-          Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
-          Route(path: '/about', title: 'About', builder: (context, state) => const About()),
-          Route(path: '/projects', title: 'Projects', builder: (context, state) => const Projects()),
-          Route(path: '/code-flows', title: 'Code Flows', builder: (context, state) => const CodeFlows()),
-          Route(path: '/blog', title: 'Blog', builder: (context, state) => const BlogsPage()),
+          Route(
+            path: '/',
+            title: 'Home',
+            builder: (context, state) => ScrollToTop(child: Home()),
+          ),
+          Route(
+            path: '/about',
+            title: 'About',
+            builder: (context, state) => ScrollToTop(child: const About()),
+          ),
+          Route(
+            path: '/projects',
+            title: 'Projects',
+            builder: (context, state) => ScrollToTop(child: const Projects()),
+          ),
+          Route(
+            path: '/code-flows',
+            title: 'Code Flows',
+            builder: (context, state) => ScrollToTop(child: const CodeFlows()),
+          ),
+          Route(
+            path: '/blog',
+            title: 'Blog',
+            builder: (context, state) => ScrollToTop(child: const BlogsPage()),
+          ),
           // Generate a static route for each blog post
           ...Globals.allBlogs.map(
             (blog) => Route(
               path: '/blog/${blog.slug}',
               title: blog.title,
-              builder: (context, state) => BlogPage(slug: blog.slug),
+              builder: (context, state) => ScrollToTop(child: BlogPage(slug: blog.slug)),
             ),
           ),
         ],

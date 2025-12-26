@@ -8,6 +8,7 @@ library;
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:jaspr/client.dart';
+import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/models/blog.dart';
 
@@ -43,6 +44,8 @@ void main() async {
   // You can wrap this with additional [InheritedComponent]s to share state across multiple
   // @client components if needed.
   runApp(
-    const ClientApp(),
+    ProviderScope(
+      child: const ClientApp(),
+    ),
   );
 }

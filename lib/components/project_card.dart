@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/bulma_card.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
 
@@ -40,20 +41,20 @@ class ProjectCard extends StatelessComponent {
         footer(classes: 'card-footer', [
           div(classes: 'card-footer-item', [
             div(classes: 'buttons', [
-              a(
+              Link(
+                to: data.githubUrl,
+                target: Target.blank,
                 classes: 'button is-dark',
-                href: data.githubUrl,
-
-                [
+                children: [
                   span(classes: 'icon', [i(classes: 'fab fa-github', [])]),
                   span([.text('GitHub')]),
                 ],
               ),
-              a(
+              Link(
+                to: data.demoUrl,
+                target: Target.blank,
                 classes: 'button is-link',
-                href: data.demoUrl,
-
-                [
+                children: [
                   span(classes: 'icon', [i(classes: 'fas fa-external-link-alt', [])]),
                   span([.text('Demo')]),
                 ],

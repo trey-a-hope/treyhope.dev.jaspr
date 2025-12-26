@@ -1,7 +1,9 @@
 import 'package:intl/intl.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/bulma_panel.dart';
+import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/models/blog.dart';
 
@@ -12,26 +14,41 @@ class BlogPanel extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
+    final src = 'blogs/${DateFormat('yyyy-MM-dd').format(blog.date)}-${blog.slug}/${blog.coverImage}';
+
     return BulmaPanel(
       title: blog.title,
       children: [
+        div(classes: 'card-image', [
+          figure(classes: 'image', [
+            img(
+              src: src,
+              alt: blog.title,
+            ),
+          ]),
+        ]),
         div(styles: Styles(display: Display.block), classes: 'panel-block', [
           i([.text('"${blog.excerpt}"')]),
           Spacer(.lg),
-          p(classes: 'control has-icons-left', [
-            .text('Posted ${DateFormat('E - MMMM d, yyyy').format(blog.date)}'),
-          ]),
+          span(
+            classes: 'is-flex is-align-items-center',
+            styles: Styles(gap: Gap(column: 0.5.rem)),
+            [
+              ClockIcon(),
+              .text('${DateFormat('MMMM d, yyyy').format(blog.date)}'),
+            ],
+          ),
+          Spacer(.md),
           div(classes: 'blog-card-tags', [
-            for (int i = 0; i < blog.tags.length; i++) a(href: '#', [.text('#${blog.tags[i]}')]),
+            for (int i = 0; i < blog.tags.length; i++)
+              Link(
+                to: '#',
+                child: .text('#${blog.tags[i]}'),
+              ),
           ]),
         ]),
-
         div(classes: 'panel-block', [
-          a(
-            href: '/blog/${blog.slug}',
-            classes: 'button is-dark is-fullwidth',
-            [.text('Read more')],
-          ),
+          Link(to: '/blog/${blog.slug}', classes: 'button is-dark is-fullwidth', child: p([.text('Read more')])),
         ]),
       ],
     );
@@ -41,6 +58,7 @@ class BlogPanel extends StatelessComponent {
   static List<StyleRule> get styles => [
     css('.blog-card-tags').styles(
       display: Display.flex,
+      flexWrap: FlexWrap.wrap,
       gap: Gap(column: 0.5.rem),
     ),
   ];
