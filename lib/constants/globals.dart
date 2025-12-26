@@ -91,6 +91,7 @@ class Globals {
   // Portfolio projects showcase
   static const projects = [
     ProjectData(
+      // TODO (Trey) - Move assets to web directory
       imageUrl: '${kReleaseMode ? 'assets/' : ''}assets/images/screenshot_gift_grab.jpg',
       title: 'Gift Grab',
       description: 'Santa collects gifts in this festive Flutter Flame arcade game.',

@@ -23,7 +23,7 @@ void main() async {
 }
 
 
-// run "dart run tool/generate_blogs_json.dart" to sync blogs.json with content/blogs/ dir
+// run "dart run tool/generate_blogs_json.dart" to sync blogs.json with web/blogs/ dir
 // When determine slugs for blogs, grab the first 5 words in the title
 
 // For Claude to update images
@@ -32,6 +32,6 @@ void main() async {
 
   // You can just ask me something like:
   // - "Update images to local paths for the [directory-name] blog post"
-  // - "Convert Medium URLs to local images in content/blogs/2024-05-23-coffee-code-working-with-nakama/"
+  // - "Convert Medium URLs to local images in web/blogs/2024-05-23-coffee-code-working-with-nakama/"
 
   // And I'll do the same process.

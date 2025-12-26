@@ -1,52 +1,72 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_riverpod/jaspr_riverpod.dart';
-import 'package:treyhope_dev/components/blog_panel.dart';
-import 'package:treyhope_dev/components/bulma_hero.dart';
-import 'package:treyhope_dev/components/bulma_pagination.dart';
 import 'package:treyhope_dev/components/spacer.dart';
-import 'package:treyhope_dev/riverpod/providers.dart';
+import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/models/blog.dart';
+import 'package:markdown/markdown.dart' as md;
 
-/// Blog page entry point with Riverpod provider scope
 @client
 class BlogPage extends StatelessComponent {
-  const BlogPage({super.key});
+  final String slug;
+
+  late final Blog? blog;
+
+  BlogPage({required this.slug});
 
   @override
   Component build(BuildContext context) {
-    return ProviderScope(
-      overrides: [blogListProvider],
-      child: BlogView(),
+    blog = Globals.allBlogs.where((b) => b.slug == slug).firstOrNull;
+
+    if (blog == null) {
+      return div(classes: 'container section has-text-centered', [
+        .text('Blog post not found'),
+      ]);
+    }
+
+    // Convert markdown to HTML
+    final htmlContent = md.markdownToHtml(
+      blog!.content,
+      extensionSet: md.ExtensionSet.gitHubFlavored,
     );
-  }
-}
-
-/// Main blog view component that displays blog posts with pagination
-class BlogView extends StatelessComponent {
-  const BlogView({super.key});
-
-  @css
-  static List<StyleRule> get styles => [];
-
-  @override
-  Component build(BuildContext context) {
-    final state = context.watch(blogListProvider);
 
     return div(classes: 'container is-max-desktop', [
-      BulmaHero(title: 'Blog', subtitle: 'Thoughts on code, culture, and everything in between.'),
-      Spacer(.md),
-      div(classes: 'container is-multiline columns', [
-        // Render blog cards
-        for (final blog in state.blogs)
-          div(classes: 'column is-half', [
-            // Applying key to BlogPanel to prevent old blog posts from being re-rendered
-            BlogPanel(key: ValueKey(blog.slug), blog: blog),
-          ]),
-        // Pagination controls
-      ]),
-      div(classes: 'container section', [
-        BulmaPagination(key: ValueKey(state.currentIndex), currentIndex: state.currentIndex),
+      div(classes: 'section', [
+        a(
+          href: '/blog',
+          classes: 'button is-light',
+          [
+            span(classes: 'icon', [
+              i(classes: 'fas fa-arrow-left', []),
+            ]),
+            span([.text('Back to Blog')]),
+          ],
+        ),
+        Spacer(.lg),
+        // Blog header
+        h1(classes: 'title is-1', [.text(blog!.title)]),
+        div(classes: 'subtitle is-5', [
+          .text('${blog!.excerpt}'),
+        ]),
+        div([
+          .text('Posted ${_formatDate(blog!.date)} by ${blog!.author}'),
+        ]),
+        Spacer(.sm),
+        // Tags
+        div(classes: 'tags', [
+          for (final tag in blog!.tags) span(classes: 'tag is-link', [.text(tag)]),
+        ]),
+        Spacer(.md),
+        hr(),
+        div(
+          classes: 'content',
+          [RawText(htmlContent)], // Use raw() to render HTML
+        ),
       ]),
     ]);
+  }
+
+  String _formatDate(DateTime date) {
+    final months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return '${months[date.month - 1]} ${date.day}, ${date.year}';
   }
 }

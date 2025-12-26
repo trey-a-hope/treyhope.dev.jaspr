@@ -7,18 +7,11 @@ tags: firestore, toasts, flutter, riverpod, sorting
 excerpt: Using Riverpod to handle search queries is more helpful than I could have ever imagined.
 ---
 
-![Preview image](./1_YSmctWmz6H_DQRDafyqW5A.jpeg)
-
-# Coffee & Code — Sorting Firestore Data & Displaying Toast Messages in Flutter ☕💻
-
-## Using Riverpod to handle search queries is more helpful than I could have ever imagined.
-
-| [![Trey Hope](./1_vAqjfeI49DX9ekel4o6gIw.jpeg "Trey Hope")](https://medium.com/@treyhope) | [**Trey Hope**](https://medium.com/@treyhope) | 🕓 3 min read | 📅 Apr 21, 2024 |  
-|:--|:--|:--|:--|
+![Preview image](./1_YSmctWmz6H_DQRDafyqW5A.jpg)
 
 Back on the QuoteKeeper app per usual.
 
-![None](./1_qHzMtGyw5RzZ7p3VNjQU8w.jpeg)
+![None](./1_qHzMtGyw5RzZ7p3VNjQU8w.jpg)
 
 Some features I've been working on this sprint is the ability to sort the books and display toasts messages.
 

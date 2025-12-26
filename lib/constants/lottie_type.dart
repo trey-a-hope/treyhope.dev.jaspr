@@ -1,4 +1,5 @@
 enum LottieType {
+  // TODO (Trey) - Move assets to web directory
   underConstruction('assets/under_construction_animation.json'),
   loading('assets/loading_animation.json')
   ;
