@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/scroll_to_top.dart';
 import 'package:treyhope_dev/components/footer/footer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/pages/blogs_page.dart';
@@ -32,18 +33,34 @@ class App extends StatelessComponent {
           Route(
             path: '/',
             title: 'Home',
-            builder: (context, state) => Home(),
+            builder: (context, state) => ScrollToTop(child: Home()),
           ),
-          Route(path: '/about', title: 'About', builder: (context, state) => const About()),
-          Route(path: '/projects', title: 'Projects', builder: (context, state) => const Projects()),
-          Route(path: '/code-flows', title: 'Code Flows', builder: (context, state) => const CodeFlows()),
-          Route(path: '/blog', title: 'Blog', builder: (context, state) => const BlogsPage()),
+          Route(
+            path: '/about',
+            title: 'About',
+            builder: (context, state) => ScrollToTop(child: const About()),
+          ),
+          Route(
+            path: '/projects',
+            title: 'Projects',
+            builder: (context, state) => ScrollToTop(child: const Projects()),
+          ),
+          Route(
+            path: '/code-flows',
+            title: 'Code Flows',
+            builder: (context, state) => ScrollToTop(child: const CodeFlows()),
+          ),
+          Route(
+            path: '/blog',
+            title: 'Blog',
+            builder: (context, state) => ScrollToTop(child: const BlogsPage()),
+          ),
           // Generate a static route for each blog post
           ...Globals.allBlogs.map(
             (blog) => Route(
               path: '/blog/${blog.slug}',
               title: blog.title,
-              builder: (context, state) => BlogPage(slug: blog.slug),
+              builder: (context, state) => ScrollToTop(child: BlogPage(slug: blog.slug)),
             ),
           ),
         ],
