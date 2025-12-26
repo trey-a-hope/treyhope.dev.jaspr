@@ -9,6 +9,9 @@ excerpt: Using Riverpod to handle search queries is more helpful than I could ha
 
 ![Preview image](./1_YSmctWmz6H_DQRDafyqW5A.jpg)
 
+> Mocha Latte from [**Teapot Cafe Lounge**](https://teapotcafelounge.com/) in Dayton, OH.
+> 
+
 Back on the QuoteKeeper app per usual.
 
 ![None](./1_qHzMtGyw5RzZ7p3VNjQU8w.jpg)
