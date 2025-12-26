@@ -1,7 +1,5 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_flutter_embed/jaspr_flutter_embed.dart';
-import 'package:treyhope_dev/components/embedded_lottie_widget.dart';
-import 'package:treyhope_dev/constants/lottie_type.dart';
 
 @Import.onWeb('../widgets/quiz/quiz.dart', show: [#Quiz])
 import 'embedded_quiz_widget.imports.dart' deferred as _import;
@@ -18,7 +16,6 @@ class EmbeddedQuizWidget extends StatelessComponent {
       maxWidth: 300,
       maxHeight: 500,
     ),
-    loader: EmbeddedLottieWidget(type: LottieType.loading),
     loadLibrary: _import.loadLibrary(),
     builder: () => _import.Quiz(),
   );

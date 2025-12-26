@@ -21,7 +21,6 @@ dependencies:
   jaspr_flutter_embed: ^0.4.10
   jaspr_riverpod: ^0.4.2
   jaspr_router: ^0.8.1
-  lottie: ^3.1.0
   lucide_icons_flutter: ^3.1.8
   screenshot: ^3.0.0
   toastification: ^3.0.3
