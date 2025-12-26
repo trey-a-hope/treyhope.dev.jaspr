@@ -8,8 +8,6 @@
 
 dynamic CounterWidget;
 typedef CounterWidgetOrStubbed = dynamic;
-dynamic LottieWidget;
-typedef LottieWidgetOrStubbed = dynamic;
 dynamic Quiz;
 typedef QuizOrStubbed = dynamic;
 dynamic WebviewWidget;
