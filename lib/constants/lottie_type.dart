@@ -1,7 +1,6 @@
 enum LottieType {
-  // TODO (Trey) - Move assets to web directory
-  underConstruction('assets/under_construction_animation.json'),
-  loading('assets/loading_animation.json')
+  underConstruction('/animations/under_construction_animation.json'),
+  loading('/animations/loading_animation.json')
   ;
 
   const LottieType(this.path);

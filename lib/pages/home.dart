@@ -1,8 +1,10 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/embedded_lottie_widget.dart';
 import 'package:treyhope_dev/components/embedded_webview_widget.dart';
 import 'package:treyhope_dev/components/spacer.dart';
+import 'package:treyhope_dev/constants/lottie_type.dart';
 
 // import '../components/counter.dart';
 
@@ -20,29 +22,30 @@ class Home extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return section(classes: 'container is-max-desktop section', [
-      img(src: 'images/logo.svg', width: 80),
-      Spacer(.xl),
-      h1(classes: 'title', [.text('Hey, I\'m Trey')]),
-      Spacer(.sm),
-      div(classes: 'content has-text-centered', [
-        h4([
-          .text(
-            'I\'m a Flutter fanatic passionate about building websites, mobile apps, and desktop applications. Want to see what I\'m working on? Check out this 2D side scroller game I\'m creating with Flutter!',
-          ),
-        ]),
-      ]),
-      Spacer(.sm),
-      EmbeddedWebviewWidget(_walkdownUrl),
-      Spacer(.xl),
-      _GameDetails(),
-      Spacer(.xl),
-      Link(
-        to: '/about',
-        child: button(
-          classes: 'button',
-          [.text('More about me')],
-        ),
-      ),
+      EmbeddedLottieWidget(type: LottieType.underConstruction),
+      // img(src: 'images/logo.svg', width: 80),
+      // Spacer(.xl),
+      // h1(classes: 'title', [.text('Hey, I\'m Trey')]),
+      // Spacer(.sm),
+      // div(classes: 'content has-text-centered', [
+      //   h4([
+      //     .text(
+      //       'I\'m a Flutter fanatic passionate about building websites, mobile apps, and desktop applications. Want to see what I\'m working on? Check out this 2D side scroller game I\'m creating with Flutter!',
+      //     ),
+      //   ]),
+      // ]),
+      // Spacer(.sm),
+      // EmbeddedWebviewWidget(_walkdownUrl),
+      // Spacer(.xl),
+      // _GameDetails(),
+      // Spacer(.xl),
+      // Link(
+      //   to: '/about',
+      //   child: button(
+      //     classes: 'button',
+      //     [.text('More about me')],
+      //   ),
+      // ),
     ]);
   }
 }

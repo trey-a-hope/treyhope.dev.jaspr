@@ -1,4 +1,3 @@
-import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
 import 'package:treyhope_dev/dtos/work_history_data.dart';
 import 'package:treyhope_dev/models/blog.dart';
@@ -91,7 +90,6 @@ class Globals {
   // Portfolio projects showcase
   static const projects = [
     ProjectData(
-      // TODO (Trey) - Move assets to web directory
       imageUrl: '/images/screenshot_gift_grab.jpg',
       title: 'Gift Grab',
       description: 'Santa collects gifts in this festive Flutter Flame arcade game.',
