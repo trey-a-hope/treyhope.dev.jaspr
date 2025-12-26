@@ -7,6 +7,7 @@ library;
 import 'package:jaspr/dom.dart';
 // Server-specific Jaspr import.
 import 'package:jaspr/server.dart';
+import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/utils/blog_loader.dart';
 
@@ -55,7 +56,9 @@ void main() async {
         link(rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'),
         const script(src: "flutter_bootstrap.js", async: true),
       ],
-      body: const App(),
+      body: ProviderScope(
+        child: const App(),
+      ),
     ),
   );
 }

@@ -9,13 +9,10 @@ import 'package:treyhope_dev/components/blog_panel.dart' as _blog_panel;
 import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
-import 'package:treyhope_dev/pages/about.dart' as _about;
 import 'package:treyhope_dev/pages/blog_page.dart' as _blog_page;
 import 'package:treyhope_dev/pages/blogs_page.dart' as _blogs_page;
 import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
-import 'package:treyhope_dev/pages/home.dart' as _home;
 import 'package:treyhope_dev/pages/page_not_found.dart' as _page_not_found;
-import 'package:treyhope_dev/pages/projects.dart' as _projects;
 import 'package:treyhope_dev/app.dart' as _app;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -36,33 +33,15 @@ import 'package:treyhope_dev/app.dart' as _app;
 /// ```
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
-  clients: {
-    _header.Header: ClientTarget<_header.Header>('header'),
-    _about.About: ClientTarget<_about.About>('about'),
-    _blog_page.BlogPage: ClientTarget<_blog_page.BlogPage>(
-      'blog_page',
-      params: __blog_pageBlogPage,
-    ),
-    _blogs_page.BlogsPage: ClientTarget<_blogs_page.BlogsPage>('blogs_page'),
-    _code_flows.CodeFlows: ClientTarget<_code_flows.CodeFlows>('code_flows'),
-    _home.Home: ClientTarget<_home.Home>('home'),
-    _page_not_found.PageNotFound: ClientTarget<_page_not_found.PageNotFound>(
-      'page_not_found',
-    ),
-    _projects.Projects: ClientTarget<_projects.Projects>('projects'),
-  },
+  clients: {_app.App: ClientTarget<_app.App>('app')},
   styles: () => [
     ..._blog_panel.BlogPanel.styles,
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
     ..._blog_page.BlogPage.styles,
-    ..._blogs_page.BlogsView.styles,
+    ..._blogs_page.BlogsPage.styles,
     ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,
     ..._app.App.styles,
   ],
 );
-
-Map<String, Object?> __blog_pageBlogPage(_blog_page.BlogPage c) => {
-  'slug': c.slug,
-};

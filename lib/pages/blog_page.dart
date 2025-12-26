@@ -1,12 +1,12 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/models/blog.dart';
 import 'package:markdown/markdown.dart' as md;
 
-@client
 class BlogPage extends StatelessComponent {
   final String slug;
 
@@ -32,15 +32,17 @@ class BlogPage extends StatelessComponent {
 
     return div(classes: 'container is-max-desktop', [
       div(classes: 'section', [
-        a(
-          href: '/blog',
+        Link(
+          to: '/blog',
           classes: 'button is-light',
-          [
-            span(classes: 'icon', [
-              i(classes: 'fas fa-arrow-left', []),
-            ]),
-            span([.text('Back to Blog')]),
-          ],
+          child: p(
+            [
+              span(classes: 'icon', [
+                i(classes: 'fas fa-arrow-left', []),
+              ]),
+              span([.text('Back to Blog')]),
+            ],
+          ),
         ),
         Spacer(.lg),
         // Blog header

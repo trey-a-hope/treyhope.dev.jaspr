@@ -15,21 +15,25 @@ import 'pages/home.dart';
 
 // The main component of your application.
 //
-// By using multi-page routing, this component will only be built on the server during pre-rendering and
-// **not** executed on the client. Instead only the nested [Home] and [About] components will be mounted on the client.
+// By adding @client, this component runs on both server (for SSR) and client (for navigation).
+// This enables client-side routing without full page reloads.
+@client
 class App extends StatelessComponent {
   const App({super.key});
 
   @override
   Component build(BuildContext context) {
-    // This method is rerun every time the component is rebuilt.
-
+    return // This method is rerun every time the component is rebuilt.
     // Renders a <div class="main"> html element with children.
-    return div(classes: 'main', [
+    div(classes: 'main', [
       const Header(),
       Router(
         routes: [
-          Route(path: '/', title: 'Home', builder: (context, state) => const Home()),
+          Route(
+            path: '/',
+            title: 'Home',
+            builder: (context, state) => Home(),
+          ),
           Route(path: '/about', title: 'About', builder: (context, state) => const About()),
           Route(path: '/projects', title: 'Projects', builder: (context, state) => const Projects()),
           Route(path: '/code-flows', title: 'Code Flows', builder: (context, state) => const CodeFlows()),

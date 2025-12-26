@@ -6,15 +6,7 @@
 
 import 'package:jaspr/client.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:treyhope_dev/components/header.dart' deferred as _header;
-import 'package:treyhope_dev/pages/about.dart' deferred as _about;
-import 'package:treyhope_dev/pages/blog_page.dart' deferred as _blog_page;
-import 'package:treyhope_dev/pages/blogs_page.dart' deferred as _blogs_page;
-import 'package:treyhope_dev/pages/code_flows.dart' deferred as _code_flows;
-import 'package:treyhope_dev/pages/home.dart' deferred as _home;
-import 'package:treyhope_dev/pages/page_not_found.dart'
-    deferred as _page_not_found;
-import 'package:treyhope_dev/pages/projects.dart' deferred as _projects;
+import 'package:treyhope_dev/app.dart' deferred as _app;
 import 'package:webview_flutter_web/webview_flutter_web.dart'
     as _webview_flutter_web;
 
@@ -40,32 +32,5 @@ ClientOptions get defaultClientOptions => ClientOptions(
     _webview_flutter_web.WebWebViewPlatform.registerWith(registrar);
     registrar.registerMessageHandler();
   },
-  clients: {
-    'header': ClientLoader(
-      (p) => _header.Header(),
-      loader: _header.loadLibrary,
-    ),
-    'about': ClientLoader((p) => _about.About(), loader: _about.loadLibrary),
-    'blog_page': ClientLoader(
-      (p) => _blog_page.BlogPage(slug: p['slug'] as String),
-      loader: _blog_page.loadLibrary,
-    ),
-    'blogs_page': ClientLoader(
-      (p) => _blogs_page.BlogsPage(),
-      loader: _blogs_page.loadLibrary,
-    ),
-    'code_flows': ClientLoader(
-      (p) => _code_flows.CodeFlows(),
-      loader: _code_flows.loadLibrary,
-    ),
-    'home': ClientLoader((p) => _home.Home(), loader: _home.loadLibrary),
-    'page_not_found': ClientLoader(
-      (p) => _page_not_found.PageNotFound(),
-      loader: _page_not_found.loadLibrary,
-    ),
-    'projects': ClientLoader(
-      (p) => _projects.Projects(),
-      loader: _projects.loadLibrary,
-    ),
-  },
+  clients: {'app': ClientLoader((p) => _app.App(), loader: _app.loadLibrary)},
 );
