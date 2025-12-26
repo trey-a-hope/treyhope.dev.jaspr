@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:treyhope_dev/models/blog.dart';
 
 class BlogLoader {
-  /// Loads all blog posts from the content/blogs directory
+  /// Loads all blog posts from the web/blogs directory
   static Future<List<Blog>> loadAllBlogs() async {
     final blogs = <Blog>[];
-    final blogDir = Directory('content/blogs');
+    final blogDir = Directory('web/blogs');
 
     // Check if directory exists
     if (!await blogDir.exists()) {
@@ -46,6 +46,12 @@ class BlogLoader {
     final metadata = parts['frontmatter'] ?? {};
     final body = parts['body'] ?? '';
 
+    // Get the directory name for image path transformation
+    final dirName = directoryPath.split('/').last;
+
+    // Transform relative image paths to absolute paths
+    final transformedBody = _transformImagePaths(body, dirName);
+
     return Blog(
       title: metadata['title'] ?? 'Untitled',
       slug: metadata['slug'] ?? _slugFromPath(directoryPath),
@@ -53,7 +59,7 @@ class BlogLoader {
       author: metadata['author'] ?? '',
       tags: (metadata['tags'] as String?)?.split(',').map((t) => t.trim()).toList() ?? [],
       excerpt: metadata['excerpt'] ?? '',
-      content: body.trim(),
+      content: transformedBody.trim(),
     );
   }
 
@@ -101,5 +107,20 @@ class BlogLoader {
     final dirname = path.split('/').last;
     // Remove date prefix (e.g., "2024-04-27-")
     return dirname.replaceAll(RegExp(r'^\d{4}-\d{2}-\d{2}-'), '');
+  }
+
+  /// Transforms relative image paths to absolute paths
+  /// Converts: ![alt](./image.jpg) -> ![alt](/blogs/directory-name/image.jpg)
+  static String _transformImagePaths(String content, String dirName) {
+    // Match markdown image syntax: ![alt text](./path/to/image.ext)
+    final imageRegex = RegExp(r'!\[([^\]]*)\]\(\.\/([^)]+)\)');
+
+    return content.replaceAllMapped(imageRegex, (match) {
+      final altText = match.group(1) ?? '';
+      final imagePath = match.group(2) ?? '';
+
+      // Transform to absolute path
+      return '![$altText](/blogs/$dirName/$imagePath)';
+    });
   }
 }

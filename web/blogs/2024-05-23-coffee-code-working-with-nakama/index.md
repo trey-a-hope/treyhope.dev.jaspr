@@ -1,0 +1,133 @@
+---
+title: Coffee & Code — Working With Nakama, The Only Gaming Backend You Need
+date: 2024-05-23
+slug: coffee-code-working-with-nakama
+author: Trey Hope
+tags: nakama, coffee, flutter, game-development, gift-grab
+excerpt: During my previous usage of Nakama, I didn’t fully utilize sessions for proper user authentication.
+---
+
+
+![Preview image](https://miro.medium.com/v2/resize:fit:700/1*9sHLR6ZeA6kVSo3ATCQDWQ.jpeg)
+
+# Coffee & Code — Working With Nakama, The Only Gaming Backend You Need ☕💻
+
+## During my previous usage of Nakama, I didn't fully utilize sessions for proper user authentication.
+
+| [![Trey Hope](https://miro.medium.com/v2/resize:fill:64:64/1*vAqjfeI49DX9ekel4o6gIw.jpeg "Trey Hope")](https://medium.com/@treyhope) | [**Trey Hope**](https://medium.com/@treyhope) | 🕓 3 min read | 📅 May 23, 2024 |  
+|:--|:--|:--|:--|
+
+In one of my most recent applications, known as Gift Grab, the concept of a user's "session" was implemented in a rather simplistic way.
+
+![Nakama Website](https://miro.medium.com/v2/resize:fit:700/1*qIfEFVhRTBMRIDcsOmKOtQ.gif "Nakama Website")<br/>*Nakama Website*
+
+It was solely based on whether the user had signed into the app or not.
+
+![Nakama Sessions](https://miro.medium.com/v2/resize:fit:700/1*xbunxmCAmme08aC1jxIQzw.gif "Nakama Sessions")<br/>*Nakama Sessions*
+
+Unfortunately, this approach did not take into account the exact moment of sign-in or the duration of the user's interaction with the app.
+
+![Flutter UI with Sessions](https://miro.medium.com/v2/resize:fit:700/1*OaZSBSoKhhvfJsDJL2wf5Q.gif "Flutter UI with Sessions")<br/>*Flutter UI with Sessions*
+
+However, as I delved deeper into the comprehensive and detailed documentation provided by Nakama, a realization dawned on me.
+
+```dart
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nakama/nakama.dart';
+import 'package:nakama_ui/data/services/hive_session_service.dart';
+
+/// Provider used to check if the user is authenticated.
+class NakamaAuthProvider extends AsyncNotifier<bool> {
+  /// HiveSessionService instance.
+  final _hiveSessionService = HiveSessionService();
+
+  @override
+  FutureOr<bool> build() async {
+    // Initialize Nakama client.
+    getNakamaClient(
+      host: '127.0.0.1',
+      ssl: false,
+      serverKey: 'defaultkey',
+      httpPort: 7350,
+    );
+
+    // Fetch the current session.
+    final session = await _hiveSessionService.sessionActive();
+
+    return session != null;
+  }
+}
+```
+
+It became clear that I should be leveraging the concept of sessions to manage user interactions with the app in a much more effective and efficient way.
+
+![Nakama Leaderboards](https://miro.medium.com/v2/resize:fit:700/1*rKNEnfZl3q7P4FIFhq42-w.gif "Nakama Leaderboards")<br/>*Nakama Leaderboards*
+
+To provide a bit of context, broadly speaking, a "session" refers to a distinct period during which a user is authenticated with a particular system.
+
+![None](https://miro.medium.com/v2/resize:fit:700/1*xDdWr1yeJHsiK_imQ_FHDQ.gif)
+
+It represents an established connection between the user and the system, facilitating a secure and personalized interaction.
+
+```java
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:nakama/nakama.dart';
+import 'package:nakama_ui/data/services/hive_session_service.dart';
+
+/// Provider that handles listing/creating leaderboard records.
+class NakamaLeaderboardProvider extends AsyncNotifier<List<LeaderboardRecord>> {
+  /// Leaderboard name.
+  static const _leaderboardName = 'weekly_leaderboard';
+
+  /// HiveSessionService instance.
+  final _hiveSessionService = HiveSessionService();
+
+  @override
+  FutureOr<List<LeaderboardRecord>> build() async {
+    // Fetch the current session.
+    final session = await _hiveSessionService.sessionActive();
+
+    // If session is null, return empty list.
+    if (session == null) {
+      return [];
+    }
+
+    // Get leaderboard records.
+    final leaderboardRecordList =
+        await getNakamaClient().listLeaderboardRecords(
+      session: session,
+      leaderboardName: _leaderboardName,
+    );
+
+    // Return leaderboard records from list.
+    return leaderboardRecordList.records;
+  }
+}
+```
+
+In the context of Nakama, the session takes on an even more critical role. It is represented as a client-side object that authenticates the client when they are accessing server functions.
+
+![None](https://miro.medium.com/v2/resize:fit:700/1*gRzRDHeSPoa-FQac6ZMpqw.gif)
+
+This implementation provides a significantly more secure way for users to interact with server functions, thereby improving overall app security.
+
+```php
+// Decode the session token.
+final res = JwtDecoder.decode(session.token);
+
+// Return session data from decoded token.
+return SessionData(
+  uid: res['uid'],
+  username: res['usn'],
+  email: res['vrs']['email'],
+  expiresAt: DateTime.fromMillisecondsSinceEpoch(res['exp'] * 1000),
+);
+```
+
+There is more to come on this topic, so stay tuned for more insights and revelations in the near future.
+
+[#nakama](https://medium.com/tag/nakama "Nakama") [#game-development](https://medium.com/tag/game-development "Game Development") [#leaderboard](https://medium.com/tag/leaderboard "Leaderboard") [#coding](https://medium.com/tag/coding "Coding") [#coffee-culture](https://medium.com/tag/coffee-culture "Coffee Culture")
