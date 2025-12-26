@@ -38,7 +38,7 @@ class BlogsView extends StatelessComponent {
       div(classes: 'container is-multiline columns', [
         // Render blog cards
         for (final blog in state.blogs)
-          div(classes: 'column is-half', [
+          div(classes: 'column is-one-third', [
             // Applying key to BlogPanel to prevent old blog posts from being re-rendered
             BlogPanel(key: ValueKey(blog.slug), blog: blog),
           ]),

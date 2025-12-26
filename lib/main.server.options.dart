@@ -55,6 +55,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._blog_panel.BlogPanel.styles,
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
+    ..._blog_page.BlogPage.styles,
     ..._blogs_page.BlogsView.styles,
     ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,

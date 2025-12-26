@@ -6,13 +6,14 @@ part 'blog.g.dart';
 @freezed
 sealed class Blog with _$Blog {
   const factory Blog({
-    required String title,
-    required String slug,
-    required DateTime date,
     required String author,
-    required List<String> tags,
-    required String excerpt,
     required String content,
+    required coverImage,
+    required DateTime date,
+    required String excerpt,
+    required String slug,
+    required List<String> tags,
+    required String title,
   }) = _Blog;
 
   factory Blog.fromJson(Map<String, dynamic> data) => _$BlogFromJson(data);
