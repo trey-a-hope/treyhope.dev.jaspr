@@ -10,9 +10,8 @@ class ScrollToTop extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    // Only scroll on web platform
+    // Only execute on client-side
     if (kIsWeb) {
-      // Use microtask to scroll after current synchronous code completes
       Future.microtask(() {
         web.window.scroll(
           web.ScrollToOptions(
