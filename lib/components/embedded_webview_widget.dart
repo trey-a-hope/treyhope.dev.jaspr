@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_flutter_embed/jaspr_flutter_embed.dart';
 
@@ -11,9 +12,11 @@ class EmbeddedWebviewWidget extends StatelessComponent {
   @override
   Component build(BuildContext context) => FlutterEmbedView.deferred(
     id: 'webview_widget',
-    constraints: ViewConstraints(minWidth: 500, minHeight: 300, maxWidth: 1000, maxHeight: 750),
+    styles: Styles(
+      radius: BorderRadius.circular(120.px),
+      raw: {'width': '100%', 'height': '500px'},
+    ),
     loadLibrary: _import.loadLibrary(),
-
     builder: () => _import.WebviewWidget(url),
   );
 }

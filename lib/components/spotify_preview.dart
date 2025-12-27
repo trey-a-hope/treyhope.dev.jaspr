@@ -15,7 +15,7 @@ class SpotifyPreview extends StatelessComponent {
       allow: 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
       attributes: {
         'width': '100%',
-        'height': '100%',
+        'height': '352',
       },
       [],
     );

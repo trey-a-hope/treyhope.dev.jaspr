@@ -22,10 +22,10 @@ class About extends StatelessComponent {
       BulmaHero(title: 'About', subtitle: 'Nice to meet you—let me tell you my story.'),
       section(classes: 'container is-max-desktop section', [
         div(classes: 'columns', [
-          div(classes: 'column is-two-thirds', [
+          div(classes: 'column is-half', [
             AboutCard(),
           ]),
-          div(classes: 'column is-one-third', [
+          div(classes: 'column is-half', [
             h4(classes: 'title is-4 has-text-centered', [.text('Take my quiz')]),
             h5(classes: 'has-text-centered', [.text('It won\'t take long, I promise.')]),
             Spacer(.md),
@@ -56,8 +56,8 @@ class _Sentence extends StatelessComponent {
   static const String _flutterHref = 'https://flutter.dev';
 
   @override
-  Component build(BuildContext context) => div(id: 'footer-sentence', classes: 'content', [
-    p(classes: 'has-text-centered', [
+  Component build(BuildContext context) => div(id: 'footer-sentence', classes: 'content has-text-centered', [
+    p([
       .text(
         'One of the many reasons I love ',
       ),
@@ -74,10 +74,9 @@ class _Sentence extends StatelessComponent {
           .text('Flutter'),
         ],
       ),
-      .text('Flutter'),
     ]),
     .text(
-      ', is the ability to embed Flutter widgets. This site is HTML and CSS, but this widget is pure Flutter.',
+      ' is the ability to embed Flutter widgets. This site is HTML and CSS, but this widget is pure Flutter.',
     ),
   ]);
 }
