@@ -19,12 +19,14 @@ The site was quite basic and rough around the edges, but I loved being able to c
 
 However, I found the actual development process—working directly with **HTML** and **CSS**—to be somewhat cumbersome.
 
+I haven't dabbled much in web development since mobile development—especially Flutter—sparked my interest.
+
 ![ScrollCapture 2025-12-27 at 10.40.44.gif](./3.gif)
 
 > Jaspr website.
 > 
 
-That's where the beauty of [Jaspr](https://jaspr.site/) comes in; it addresses some of the challenges with web development and offers a better experience for developers.
+Luckily, that's where the beauty of [Jaspr](https://jaspr.site/) comes in; it addresses some of the challenges with web development and offers a better experience for developers.
 
 It's built using **Dart** and has a very similar feel to [Flutter](https://flutter.dev/), even though it targets an entirely different platform.
 
@@ -90,6 +92,6 @@ Jaspr offers several advantages that I've noticed:
 - *Better routing architecture (supports both single-page and multi-page routing using a server/client approach)*
 - *Faster load times (the app is significantly lighter than a typical Flutter web app)*
 
-If you're looking to learn a new framework, enjoy web development but prefer alternatives to conventional methods, and have been exposed to Flutter in some way, I highly recommend checking it out.
+If you're looking to learn a new framework, enjoy web development but prefer alternatives to conventional methods, or simply have been exposed to Flutter in some way, I highly recommend checking it out.
 
 Major kudos to the creators of both projects: [Kilian Schulte](https://x.com/schultek_dev) for Jaspr and [Jeremy Thomas](https://x.com/jgthms) for Bulma. Stay tuned for further progress.
