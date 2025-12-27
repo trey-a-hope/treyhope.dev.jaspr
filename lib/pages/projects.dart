@@ -104,10 +104,12 @@ class _ProjectList extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'columns is-multiline', [
+    return div(classes: 'columns is-multiline is-mobile', [
+      // Add is-mobile
       // Display project cards in a responsive grid
       for (final project in Globals.projects.where((p) => p.type == projectType))
-        div(classes: 'column is-one-third', [
+        div(classes: 'column is-12-mobile is-6-tablet is-4-desktop', [
+          // Responsive columns
           ProjectCard(data: project),
         ]),
 

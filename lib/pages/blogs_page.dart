@@ -35,10 +35,12 @@ class BlogsPage extends StatelessComponent {
           .text(_coffeeCodeDescription),
         ]),
       ]),
-      div(classes: 'container is-multiline columns', [
+      div(classes: 'container is-multiline columns is-mobile', [
+        // Add is-mobile
         // Render blog cards
         for (final blog in state.blogs)
-          div(classes: 'column is-one-third', [
+          div(classes: 'column is-12-mobile is-6-tablet is-4-desktop', [
+            // Responsive columns
             // Applying key to BlogPanel to prevent old blog posts from being re-rendered
             BlogPanel(key: ValueKey(blog.slug), blog: blog),
           ]),
