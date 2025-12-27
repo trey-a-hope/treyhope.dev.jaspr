@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:treyhope_dev/components/blog_panel.dart';
+import 'package:treyhope_dev/components/bulma_tabs.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/bulma_pagination.dart';
 import 'package:treyhope_dev/components/spacer.dart';
@@ -22,7 +23,8 @@ class BlogsPage extends StatelessComponent {
 
     return div(classes: 'container is-max-desktop', [
       BulmaHero(title: 'Blog', subtitle: 'Thoughts on code, culture, and everything in between.'),
-      Spacer(.md),
+      Spacer(.xl),
+      BulmaTabs(),
       div(classes: 'container is-multiline columns', [
         // Render blog cards
         for (final blog in state.blogs)

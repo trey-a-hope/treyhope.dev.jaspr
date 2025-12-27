@@ -1,6 +1,5 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
-import 'package:treyhope_dev/components/embedded_webview_widget.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 
@@ -12,6 +11,7 @@ import 'package:treyhope_dev/components/spacer.dart';
 // - this component and any child components will be built once on the server during pre-rendering and then
 //   again on the client during normal rendering.
 class Home extends StatelessComponent {
+  // TODO (Trey) - Add to project page
   static const String _walkdownUrl = 'https://walkdown.codemagic.app/';
 
   const Home({super.key});
@@ -19,23 +19,28 @@ class Home extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return section(classes: 'container is-max-desktop section', [
-      img(src: 'images/logo.svg', width: 80),
+      // img(src: 'images/logo.svg', width: 80),
       Spacer(.xl),
-      h1(classes: 'title', [.text('Hey, I\'m Trey')]),
+      h1(classes: 'title is-1', [.text('Hi, I\'m Trey Hope')]),
       Spacer(.sm),
       div(classes: 'content has-text-centered', [
-        h4([
+        h3(classes: 'subtitle is-3', [
           .text(
-            'I\'m a Flutter fanatic passionate about building websites, mobile apps, and desktop applications. Want to see what I\'m working on? Check out this 2D side scroller game I\'m creating with Flutter!',
+            'I\'m a Flutter fanatic passionate about building websites, mobile apps, and desktop applications.',
           ),
         ]),
       ]),
-      Spacer(.sm),
-      EmbeddedWebviewWidget(_walkdownUrl),
-      Spacer(.xl),
-      _GameDetails(),
-      Spacer(.xl),
-      SmartLink(href: '/about', classes: 'button', children: [.text('More about me')]),
+      div(classes: 'buttons', [
+        SmartLink(href: '/projects', classes: 'button is-warning', children: [.text('See my Work')]),
+
+        SmartLink(href: '/blog', classes: 'button is-warning is-outlined', children: [.text('Read my Blog')]),
+      ]),
+      // Spacer(.sm),
+      // EmbeddedWebviewWidget(_walkdownUrl),
+      // Spacer(.xl),
+      // _GameDetails(),
+      // Spacer(.xl),
+      // SmartLink(href: '/about', classes: 'button', children: [.text('More about me')]),
     ]);
   }
 }
