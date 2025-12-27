@@ -1,6 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 
 /// Main navigation header component with responsive mobile menu.
@@ -28,10 +28,10 @@ class HeaderState extends State<Header> {
         div(classes: 'navbar-container container is-max-desktop', [
           // Navbar hamburger (mobile)
           div(classes: 'navbar-brand', [
-            Link(
-              to: '/',
+            SmartLink(
+              href: '/',
               classes: 'navbar-item',
-              child: .text('Trey Hope'),
+              children: [.text('Trey Hope')],
             ),
             button(
               onClick: () {
@@ -60,25 +60,25 @@ class HeaderState extends State<Header> {
             [
               div(classes: 'navbar-start', []),
               div(classes: 'navbar-end', [
-                Link(
-                  to: '/about',
+                SmartLink(
+                  href: '/about',
                   classes: 'navbar-item',
-                  child: .text('About'),
+                  children: [.text('About')],
                 ),
-                Link(
-                  to: '/projects',
+                SmartLink(
+                  href: '/projects',
                   classes: 'navbar-item',
-                  child: .text('Projects'),
+                  children: [.text('Projects')],
                 ),
-                Link(
-                  to: '/code-flows',
+                SmartLink(
+                  href: '/code-flows',
                   classes: 'navbar-item',
-                  child: .text('Code Flows'),
+                  children: [.text('Code Flows')],
                 ),
-                Link(
-                  to: '/blog',
+                SmartLink(
+                  href: '/blog',
                   classes: 'navbar-item',
-                  child: .text('Blog'),
+                  children: [.text('Blog')],
                 ),
               ]),
             ],

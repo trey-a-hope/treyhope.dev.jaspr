@@ -1,9 +1,9 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/about_card.dart';
 import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/embedded_quiz_widget.dart';
+import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/work_history_card.dart';
 import 'package:treyhope_dev/constants/globals.dart';
@@ -61,17 +61,15 @@ class _Sentence extends StatelessComponent {
       .text(
         'One of the many reasons I love ',
       ),
-      Link(
-        target: Target.blank,
-        to: _dartHref,
+      SmartLink(
+        href: _dartHref,
         children: [
           .text('Dart'),
         ],
       ),
       .text(' and '),
-      Link(
-        target: Target.blank,
-        to: _flutterHref,
+      SmartLink(
+        href: _flutterHref,
         children: [
           .text('Flutter'),
         ],

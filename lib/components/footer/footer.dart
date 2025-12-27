@@ -1,6 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_router/jaspr_router.dart';
+import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 
 part 'social_button.dart';
@@ -21,20 +21,20 @@ class Footer extends StatelessComponent {
       Spacer(.md),
       // Framework badges row
       div(classes: 'button-row', [
-        Link(
-          target: Target.blank,
-          to: _jasprHref,
-          child: JasprBadge.lightTwoTone(),
+        SmartLink(
+          href: _jasprHref,
+          children: [JasprBadge.lightTwoTone()],
         ),
         Spacer(.sm),
-        Link(
-          target: Target.blank,
-          to: _bulmaHref,
-          child: img(
-            src: 'https://bulma.io/assets/images/made-with-bulma.png',
-            alt: 'Made with Bulma',
-            attributes: {'width': '150'},
-          ),
+        SmartLink(
+          href: _bulmaHref,
+          children: [
+            img(
+              src: 'https://bulma.io/assets/images/made-with-bulma.png',
+              alt: 'Made with Bulma',
+              attributes: {'width': '150'},
+            ),
+          ],
         ),
       ]),
     ]);

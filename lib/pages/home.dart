@@ -1,7 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
-import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/embedded_webview_widget.dart';
+import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 
 // import '../components/counter.dart';
@@ -35,13 +35,7 @@ class Home extends StatelessComponent {
       Spacer(.xl),
       _GameDetails(),
       Spacer(.xl),
-      Link(
-        to: '/about',
-        child: button(
-          classes: 'button',
-          [.text('More about me')],
-        ),
-      ),
+      SmartLink(href: '/about', classes: 'button', children: [.text('More about me')]),
     ]);
   }
 }
@@ -53,16 +47,18 @@ class _GameDetails extends StatelessComponent {
   @override
   Component build(BuildContext context) => p([
     .text('Game built with '),
-    Link(
-      target: Target.blank,
-      to: _bonfireHref,
-      child: .text('Bonfire'),
+    SmartLink(
+      href: _bonfireHref,
+      children: [
+        .text('Bonfire'),
+      ],
     ),
     .text('; view source code'),
-    Link(
-      target: Target.blank,
-      to: _walkdownHref,
-      child: .text(' here.'),
+    SmartLink(
+      href: _walkdownHref,
+      children: [
+        .text(' here.'),
+      ],
     ),
   ]);
 }

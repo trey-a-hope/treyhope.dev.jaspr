@@ -1,7 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/bulma_card.dart';
+import 'package:treyhope_dev/components/smart_link.dart';
 
 class AboutCard extends StatelessComponent {
   static const _imageUrl = 'https://i.ytimg.com/vi/mp5N0ENPuOw/maxresdefault.jpg';
@@ -50,13 +50,12 @@ class AboutCard extends StatelessComponent {
                 ),
               ]),
             ]),
-            Link(
-              to: _videoUrl,
-              target: Target.blank,
-              child: button(
-                classes: 'button',
-                [.text('Watch video')],
-              ),
+            SmartLink(
+              classes: 'button',
+              href: _videoUrl,
+              children: [
+                .text('Watch video'),
+              ],
             ),
           ]),
         ]),

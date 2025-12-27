@@ -10,6 +10,9 @@ title: Coffee & Code — Working With Nakama, The Only Gaming Backend You Need
 
 ![Preview image](./1_9sHLR6ZeA6kVSo3ATCQDWQ.jpg)
 
+> Mocha Latte from [**Teapot Cafe Lounge**](https://teapotcafelounge.com/) in Dayton, OH.
+> 
+
 In one of my most recent applications, known as Gift Grab, the concept of a user's "session" was implemented in a rather simplistic way.
 
 ![Nakama Website](./1_qIfEFVhRTBMRIDcsOmKOtQ.gif "Nakama Website")<br/>*Nakama Website*

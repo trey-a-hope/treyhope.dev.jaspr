@@ -10,9 +10,9 @@ class FooterSentence extends StatelessComponent {
   Component build(BuildContext context) => div(id: 'footer-sentence', classes: 'content', [
     p([
       .text('Styling built with '),
-      Link(target: Target.blank, to: _bulmaHref, child: .text('Bulma')),
+      SmartLink(href: _bulmaHref, children: [.text('Bulma')]),
       .text('; view source code'),
-      Link(target: Target.blank, to: _githubHref, child: .text(' here.')),
+      SmartLink(href: _githubHref, children: [.text(' here.')]),
     ]),
   ]);
 }

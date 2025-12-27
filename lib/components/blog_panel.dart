@@ -1,9 +1,9 @@
 import 'package:intl/intl.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_router/jaspr_router.dart';
 import 'package:treyhope_dev/components/bulma_panel.dart';
 import 'package:treyhope_dev/components/clock_icon.dart';
+import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/models/blog.dart';
 
@@ -41,14 +41,20 @@ class BlogPanel extends StatelessComponent {
           Spacer(.md),
           div(classes: 'blog-card-tags', [
             for (int i = 0; i < blog.tags.length; i++)
-              Link(
-                to: '#',
-                child: .text('#${blog.tags[i]}'),
+              SmartLink(
+                href: '#',
+                children: [.text('#${blog.tags[i]}')],
               ),
           ]),
         ]),
         div(classes: 'panel-block', [
-          Link(to: '/blog/${blog.slug}', classes: 'button is-dark is-fullwidth', child: p([.text('Read more')])),
+          SmartLink(
+            href: '/blog/${blog.slug}',
+            classes: 'button is-dark is-fullwidth',
+            children: [
+              p([.text('Read more')]),
+            ],
+          ),
         ]),
       ],
     );

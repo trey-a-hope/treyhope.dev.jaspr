@@ -20,13 +20,13 @@ class _SocialButton extends StatelessComponent {
   final String icon;
 
   @override
-  Component build(BuildContext context) => Link(
-    target: Target.blank,
-    to: url,
-    child: button(id: 'social-button', classes: 'button is-dark', [
+  Component build(BuildContext context) => SmartLink(
+    href: url,
+    classes: 'button is-dark',
+    children: [
       span(classes: 'icon', [
         i(classes: 'fab fa-$icon', []),
       ]),
-    ]),
+    ],
   );
 }
