@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_flutter_embed/jaspr_flutter_embed.dart';
 
@@ -10,12 +11,7 @@ class EmbeddedCounterWidget extends StatelessComponent {
   @override
   Component build(BuildContext context) => FlutterEmbedView.deferred(
     id: 'counter_widget',
-    constraints: ViewConstraints(
-      minWidth: 500,
-      minHeight: 300,
-      maxWidth: double.infinity,
-      maxHeight: double.infinity,
-    ),
+    styles: Styles(raw: {'width': '100%', 'height': '300px'}),
     loadLibrary: _import.loadLibrary(),
     builder: () => _import.CounterWidget(),
   );

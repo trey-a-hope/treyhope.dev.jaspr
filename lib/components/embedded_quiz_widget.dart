@@ -1,3 +1,4 @@
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_flutter_embed/jaspr_flutter_embed.dart';
 
@@ -10,12 +11,7 @@ class EmbeddedQuizWidget extends StatelessComponent {
   @override
   Component build(BuildContext context) => FlutterEmbedView.deferred(
     id: 'quiz_widget',
-    constraints: ViewConstraints(
-      minWidth: 300,
-      minHeight: 300,
-      maxWidth: 300,
-      maxHeight: 500,
-    ),
+    styles: Styles(padding: Spacing.all(8.px), raw: {'width': '100%', 'height': '400px'}),
     loadLibrary: _import.loadLibrary(),
     builder: () => _import.Quiz(),
   );

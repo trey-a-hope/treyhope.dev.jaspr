@@ -31,13 +31,6 @@ class CodeFlows extends StatelessComponent {
           color: 'is-warning',
         ),
         div(classes: 'block', [
-          p([
-            .text(
-              'Whether you\'re a beginner trying to grasp the basics or an experienced developer looking for a fresh perspective, Code Flows offers a unique learning experience. The combination of music and education taps into different parts of your brain, helping concepts click in ways traditional tutorials can\'t.',
-            ),
-          ]),
-        ]),
-        div(classes: 'block', [
           h4(classes: 'title is-4', [.text('Listen to some example code flows via Spotify')]),
         ]),
         div(classes: 'block', [
@@ -48,10 +41,11 @@ class CodeFlows extends StatelessComponent {
           ]),
         ]),
         div(
-          classes: 'columns is-multiline',
+          classes: 'columns is-multiline is-mobile', // Add is-mobile
           [
             for (int i = 0; i < SpotifyTrack.values.length; i++)
-              div(classes: 'column is-half', [
+              div(classes: 'column is-12-mobile is-6-tablet', [
+                // Changed to is-12-mobile and is-6-tablet
                 SpotifyPreview(
                   src: SpotifyTrack.values[i].src,
                 ),
@@ -59,7 +53,7 @@ class CodeFlows extends StatelessComponent {
           ],
         ),
         div(classes: 'block', [
-          p([
+          p(classes: 'has-text-centered', [
             .text(
               'Want to learn more? Checkout out the full',
             ),
@@ -79,12 +73,5 @@ class CodeFlows extends StatelessComponent {
   }
 
   @css
-  static List<StyleRule> get styles => [
-    //     // Apply larger padding on desktop (screens wider than 768px)
-    // css.media(MediaQuery.screen(minWidth: Globals.desktopBreakpoint.px), [
-    //   css('.navbar-container').styles(
-    //     padding: Padding.symmetric(horizontal: 3.5.rem),
-    //   ),
-    // ]),
-  ];
+  static List<StyleRule> get styles => [];
 }
