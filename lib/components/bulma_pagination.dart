@@ -9,7 +9,7 @@ import 'package:treyhope_dev/riverpod/providers.dart';
 class BulmaPagination extends StatelessComponent {
   final int currentIndex;
 
-  BulmaPagination({
+  const BulmaPagination({
     super.key,
     required this.currentIndex,
   });

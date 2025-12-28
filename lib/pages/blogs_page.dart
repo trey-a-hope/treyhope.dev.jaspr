@@ -42,7 +42,7 @@ class BlogsPage extends StatelessComponent {
       ]),
       div(classes: 'container section', [
         BulmaPagination(
-          key: ValueKey('${blogList.currentIndex}-${currentCategory.name}'), // Add category to key
+          key: ValueKey('${blogList.currentIndex}-${currentCategory.name}'),
           currentIndex: blogList.currentIndex,
         ),
       ]),
