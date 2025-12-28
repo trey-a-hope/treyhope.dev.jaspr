@@ -1,5 +1,6 @@
 ---
 author: Trey Hope
+category: coffee-code
 coverImage: 1.jpg
 date: 2025-12-27
 excerpt: From my college days using Dreamweaver for web development to now, web development has made some amazing strides.

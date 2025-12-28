@@ -13,7 +13,6 @@ class Globals {
   static const blogPaginationCount = 3;
 
   // Count docs in content/blogs
-  static const totalBlogCount = 5;
 
   // Work experience timeline
   static const workHistories = [

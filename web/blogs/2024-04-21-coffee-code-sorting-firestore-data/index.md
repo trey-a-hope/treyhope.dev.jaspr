@@ -1,5 +1,6 @@
 ---
 author: Trey Hope
+category: coffee-code
 coverImage: 1_YSmctWmz6H_DQRDafyqW5A.jpg
 date: 2024-04-21
 excerpt: Using Riverpod to handle search queries is more helpful than I could have ever imagined.

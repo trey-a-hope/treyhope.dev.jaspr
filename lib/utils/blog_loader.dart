@@ -61,6 +61,7 @@ class BlogLoader {
       tags: (metadata['tags'] as String?)?.split(',').map((t) => t.trim()).toList() ?? [],
       excerpt: metadata['excerpt'] ?? '',
       content: transformedBody.trim(),
+      category: metadata['category'] ?? '', // Added category property
     );
   }
 

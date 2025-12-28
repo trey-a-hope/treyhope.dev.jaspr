@@ -1,5 +1,6 @@
 ---
 author: Trey Hope
+category: coffee-code
 coverImage: 1_MexwE6ydgdh5NrPUIS5eLQ.jpg
 date: 2024-04-19
 excerpt: In Japanese, nakama (仲間) means colleague, compatriot, friend or comrade.
