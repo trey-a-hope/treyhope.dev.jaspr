@@ -1,6 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr/dom.dart';
 import 'package:treyhope_dev/components/embedded_webview_widget.dart';
+import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 
@@ -12,46 +13,41 @@ import 'package:treyhope_dev/components/spacer.dart';
 // - this component and any child components will be built once on the server during pre-rendering and then
 //   again on the client during normal rendering.
 class Home extends StatelessComponent {
-  // TODO (Trey) - Add to project page
   static const String _walkdownUrl = 'https://walkdown.codemagic.app/';
 
   const Home({super.key});
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'container is-max-desktop', [
-      // TODO (Trey) - Make Bulma Hero more flexible
-      section(id: 'bulma-hero', classes: 'container is-max-desktop section hero is-small is-warning', [
-        div(classes: 'hero-body has-text-centered', [
-          h1(classes: 'title is-1', [.text('Hi, I\'m Trey Hope')]),
-          Spacer(.md),
-          h3(classes: 'subtitle is-3', [
-            .text(
-              'I\'m a Flutter fanatic, passionate about building websites, mobile apps, and desktop applications.',
-            ),
+    return Scaffold(
+      title: 'Hi, I\'m Trey Hope',
+      subtitle: 'I\'m a Flutter fanatic, passionate about building websites, mobile apps, and desktop applications.',
+      heroSize: 'is-medium',
+      sections: [
+        section(classes: 'section has-background-dark', [
+          div(classes: 'container', [
+            h5(classes: 'title is-5 has-text-centered', [
+              .text('How passionate am I? Checkout this platform RPG I am working on in Flutter.'),
+            ]),
+            EmbeddedWebviewWidget(_walkdownUrl),
+            Spacer(.lg),
+            _GameDetails(),
           ]),
         ]),
-      ]),
 
-      section(classes: 'section', [
-        div(classes: 'block', [
-          h5(classes: 'title is-5 has-text-centered', [
-            .text('How passionate am I? Checkout this platform RPG I am working on in Flutter.'),
+        section(classes: 'section', [
+          div(classes: 'container', [
+            h5(classes: 'title is-5 has-text-centered', [
+              .text('If that sparked your interest...'),
+            ]),
+            div(classes: 'buttons is-centered', [
+              SmartLink(href: '/about', classes: 'button is-link', children: [.text('Learn about me')]),
+              SmartLink(href: '/projects', classes: 'button is-link is-outlined', children: [.text('See my Work')]),
+            ]),
           ]),
         ]),
-        EmbeddedWebviewWidget(_walkdownUrl),
-      ]),
-
-      section(classes: 'section', [
-        _GameDetails(),
-      ]),
-      section(classes: 'section', [
-        div(classes: 'buttons', [
-          SmartLink(href: '/projects', classes: 'button is-link', children: [.text('See my Work')]),
-          SmartLink(href: '/blog', classes: 'button is-link is-outlined', children: [.text('Read my Blog')]),
-        ]),
-      ]),
-    ]);
+      ],
+    );
   }
 }
 

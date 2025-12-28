@@ -50,7 +50,7 @@ class BlogPanel extends StatelessComponent {
         div(classes: 'panel-block', [
           SmartLink(
             href: '/blog/${blog.slug}',
-            classes: 'button is-dark is-fullwidth',
+            classes: 'button is-link is-fullwidth',
             children: [
               p([.text('Read more')]),
             ],

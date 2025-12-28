@@ -1,9 +1,9 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/bulma_message_body.dart';
-import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/button_group.dart';
 import 'package:treyhope_dev/components/project_card.dart';
+import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/dtos/project_data.dart';
@@ -21,52 +21,65 @@ class _ProjectsState extends State<Projects> {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'container is-max-desktop', [
-      BulmaHero(title: 'Projects', subtitle: 'Where code meets creativity.'),
-
-      section(classes: 'container is-max-desktop section', [
-        div(classes: 'block', [
-          p([
-            .text(
-              'Each project represents a unique challenge and an opportunity to push my skills further. From web applications to creative experiments, I focus on building solutions that are both functional and meaningful.',
+    return Scaffold(
+      title: 'Projects',
+      subtitle: 'Where code meets creativity.',
+      sections: [
+        section(classes: 'section has-background-dark', [
+          div(classes: 'container', [
+            div(classes: 'block', [
+              p([
+                .text(
+                  'Each project represents a unique challenge and an opportunity to push my skills further. From web applications to creative experiments, I focus on building solutions that are both functional and meaningful.',
+                ),
+              ]),
+            ]),
+            div(classes: 'block', [
+              p([
+                .text(
+                  'My work spans across various domains—full-stack development, mobile apps, educational tools, and creative experiments that blend technology with art. Every project teaches me something new and fuels my passion for creating impactful software.',
+                ),
+              ]),
+            ]),
+          ]),
+        ]),
+        section(classes: 'section has-background-link-dark has-text-centered', [
+          div(classes: 'container', [
+            div(classes: 'is-flex is-justify-content-center', [
+              ButtonGroup(
+                isAttached: true,
+                children: [
+                  Button(
+                    child: IconLabel(icon: 'mobile', label: 'Mobile'),
+                    onPressed: () => setState(() => projectType = ProjectType.mobile),
+                  ),
+                  Button(
+                    child: IconLabel(icon: 'window-maximize', label: 'Web'),
+                    onPressed: () => setState(() => projectType = ProjectType.web),
+                  ),
+                  Button(
+                    child: IconLabel(icon: 'desktop', label: 'Desktop'),
+                    onPressed: () => setState(() => projectType = ProjectType.desktop),
+                  ),
+                ],
+              ),
+            ]),
+            Spacer(.xl),
+            _TitleWithSubtitle(projectType: projectType),
+            _ProjectList(projectType: projectType),
+          ]),
+        ]),
+        section(classes: 'section has-text-centered has-background-dark', [
+          div(classes: 'container', [
+            BulmaMessageBody(
+              body:
+                  'Want to collaborate or have a project idea? I\'m always open to connecting with fellow developers and creatives.',
+              color: 'is-warning',
             ),
           ]),
         ]),
-        div(classes: 'block', [
-          p([
-            .text(
-              'My work spans across various domains—full-stack development, mobile apps, educational tools, and creative experiments that blend technology with art. Every project teaches me something new and fuels my passion for creating impactful software.',
-            ),
-          ]),
-        ]),
-
-        ButtonGroup(
-          isAttached: true,
-          children: [
-            Button(
-              child: IconLabel(icon: 'mobile', label: 'Mobile'),
-              onPressed: () => setState(() => projectType = ProjectType.mobile),
-            ),
-            Button(
-              child: IconLabel(icon: 'window-maximize', label: 'Web'),
-              onPressed: () => setState(() => projectType = ProjectType.web),
-            ),
-            Button(
-              child: IconLabel(icon: 'desktop', label: 'Desktop'),
-              onPressed: () => setState(() => projectType = ProjectType.desktop),
-            ),
-          ],
-        ),
-        Spacer(.xl),
-        _TitleWithSubtitle(projectType: projectType),
-        _ProjectList(projectType: projectType),
-        BulmaMessageBody(
-          body:
-              'Want to collaborate or have a project idea? I\'m always open to connecting with fellow developers and creatives.',
-          color: 'is-warning',
-        ),
-      ]),
-    ]);
+      ],
+    );
   }
 }
 

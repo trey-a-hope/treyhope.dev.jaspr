@@ -30,55 +30,57 @@ class BlogPage extends StatelessComponent {
       extensionSet: md.ExtensionSet.gitHubFlavored,
     );
 
-    return div(classes: 'container is-max-desktop', [
-      div(classes: 'section', [
-        SmartLink(
-          href: '/blog',
-          classes: 'button is-light',
-          children: [
-            span(classes: 'icon', [
-              i(classes: 'fas fa-arrow-left', []),
-            ]),
-            span([.text('Back to Blog')]),
-          ],
-        ),
-        Spacer(.lg),
-        // Blog header
-        h1(classes: 'title is-1', [.text(blog!.title)]),
-        Spacer(.sm),
-        div(classes: 'subtitle', [
-          .text('${blog!.excerpt}'),
-        ]),
-        Spacer(.xs),
-
-        span(
-          classes: 'is-flex is-align-items-center',
-          styles: Styles(gap: Gap(column: 0.5.rem)),
-          [
-            ClockIcon(),
-            .text('${_formatDate(blog!.date)} by ${blog!.author}'),
-          ],
-        ),
-
-        Spacer(.md),
-        div(classes: 'tags', [
-          for (final tag in blog!.tags) span(classes: 'tag is-link', [.text(tag)]),
-        ]),
-        hr(),
-        div(
-          classes: 'content',
-          [RawText(htmlContent)], // Use raw() to render HTML
-        ),
-        hr(),
-        div(classes: 'is-flex is-align-items-center', [
+    return div([
+      section(classes: 'section has-background-dark', [
+        div(classes: 'container', [
           SmartLink(
-            href: _getShareLink(blog!),
-            classes: 'button is-dark',
+            href: '/blog',
+            classes: 'button is-light',
             children: [
-              span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
-              span([.text('Share')]),
+              span(classes: 'icon', [
+                i(classes: 'fas fa-arrow-left', []),
+              ]),
+              span([.text('Back to Blog')]),
             ],
           ),
+          Spacer(.lg),
+          // Blog header
+          h1(classes: 'title is-1', [.text(blog!.title)]),
+          Spacer(.sm),
+          div(classes: 'subtitle', [
+            .text('${blog!.excerpt}'),
+          ]),
+          Spacer(.xs),
+
+          span(
+            classes: 'is-flex is-align-items-center',
+            styles: Styles(gap: Gap(column: 0.5.rem)),
+            [
+              ClockIcon(),
+              .text('${_formatDate(blog!.date)} by ${blog!.author}'),
+            ],
+          ),
+
+          Spacer(.md),
+          div(classes: 'tags', [
+            for (final tag in blog!.tags) span(classes: 'tag is-link', [.text(tag)]),
+          ]),
+          hr(),
+          div(
+            classes: 'content',
+            [RawText(htmlContent)], // Use raw() to render HTML
+          ),
+          hr(),
+          div(classes: 'is-flex is-align-items-center', [
+            SmartLink(
+              href: _getShareLink(blog!),
+              classes: 'button is-dark',
+              children: [
+                span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
+                span([.text('Share')]),
+              ],
+            ),
+          ]),
         ]),
       ]),
     ]);
