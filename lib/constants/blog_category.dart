@@ -1,5 +1,5 @@
 enum BlogCategory {
-  all('All', description: 'Every blog post'),
+  all('All', label: 'all', description: 'Every blog post'),
   coffeeCode(
     'Coffee & Code',
     description:
@@ -14,9 +14,9 @@ enum BlogCategory {
   )
   ;
 
-  const BlogCategory(this.name, {required this.description, this.label});
+  const BlogCategory(this.name, {required this.description, required this.label});
 
   final String name;
   final String description;
-  final String? label;
+  final String label;
 }

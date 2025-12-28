@@ -20,10 +20,8 @@ class BlogCategorySelector extends StatelessComponent {
             selections: selections,
           ),
           [
-            // Category options
-            option(attributes: {'value': 'all'}, [.text('All')]),
-            option(attributes: {'value': 'coffee-code'}, [.text('Coffee & Code')]),
-            option(attributes: {'value': 'crash-course'}, [.text('Crash Courses')]),
+            for (int i = 0; i < BlogCategory.values.length; i++)
+              option(attributes: {'value': BlogCategory.values[i].label}, [.text(BlogCategory.values[i].name)]),
           ],
         ),
       ]),
