@@ -7,6 +7,7 @@ part 'blog.g.dart';
 sealed class Blog with _$Blog {
   const factory Blog({
     required String author,
+    required String category,
     required String content,
     required coverImage,
     required DateTime date,

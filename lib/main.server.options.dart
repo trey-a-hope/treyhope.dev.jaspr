@@ -10,7 +10,6 @@ import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
 import 'package:treyhope_dev/pages/blog_page.dart' as _blog_page;
-import 'package:treyhope_dev/pages/blogs_page.dart' as _blogs_page;
 import 'package:treyhope_dev/pages/code_flows.dart' as _code_flows;
 import 'package:treyhope_dev/pages/page_not_found.dart' as _page_not_found;
 import 'package:treyhope_dev/app.dart' as _app;
@@ -39,7 +38,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
     ..._blog_page.BlogPage.styles,
-    ..._blogs_page.BlogsPage.styles,
     ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,
     ..._app.App.styles,

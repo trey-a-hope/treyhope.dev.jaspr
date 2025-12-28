@@ -8,6 +8,7 @@ part of 'blog.dart';
 
 _Blog _$BlogFromJson(Map<String, dynamic> json) => _Blog(
   author: json['author'] as String,
+  category: json['category'] as String,
   content: json['content'] as String,
   coverImage: json['coverImage'],
   date: DateTime.parse(json['date'] as String),
@@ -19,6 +20,7 @@ _Blog _$BlogFromJson(Map<String, dynamic> json) => _Blog(
 
 Map<String, dynamic> _$BlogToJson(_Blog instance) => <String, dynamic>{
   'author': instance.author,
+  'category': instance.category,
   'content': instance.content,
   'coverImage': instance.coverImage,
   'date': instance.date.toIso8601String(),

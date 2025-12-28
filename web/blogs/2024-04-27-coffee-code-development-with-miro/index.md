@@ -1,5 +1,6 @@
 ---
 author: Trey Hope
+category: coffee-code
 coverImage: 1_nUheo1oNL-JDeI5CFJKWbA.jpg
 date: 2024-04-27
 excerpt: I decided to try out Miro because of it's simplicity and recommendation from other developers.

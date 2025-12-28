@@ -1,5 +1,6 @@
 ---
 author: Trey Hope
+category: coffee-code
 coverImage: 1_9sHLR6ZeA6kVSo3ATCQDWQ.jpg
 date: 2024-05-23
 excerpt: During my previous usage of Nakama, I didn't fully utilize sessions for proper user authentication.
