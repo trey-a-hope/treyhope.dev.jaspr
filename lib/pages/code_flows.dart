@@ -1,8 +1,9 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/bulma_message_header.dart';
-import 'package:treyhope_dev/components/bulma_hero.dart';
+import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
+import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/spotify_preview.dart';
 import 'package:treyhope_dev/constants/spotify_track.dart';
 
@@ -14,62 +15,82 @@ class CodeFlows extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'container is-max-desktop', [
-      BulmaHero(title: 'Code Flows', subtitle: 'Learning code has never been easier.'),
-      section(classes: 'container is-max-desktop section', [
-        div(classes: 'block', [
-          p([
-            .text(
-              'Code Flows transforms programming tutorials into catchy, memorable rap songs. Each track breaks down a specific coding concept—from variables and loops to algorithms and design patterns—using rhythm, wordplay, and storytelling to make learning stick.',
-            ),
-          ]),
-        ]),
-        BulmaMessageHeader(
-          title: 'Purpose of Code Flows',
-          body: '''
-    I created this project to combine my two greatest passions—rapping and coding—in a way that's both educational and fun. By teaching programming concepts through rap, I can make complex topics more accessible and engaging for others. At the same time, I'm deepening my own understanding, since the best way to truly learn something is to teach it. This project also serves a broader purpose: it challenges the narrow focus on hip hop's negative aspects and showcases the genre's incredible versatility as a form of expression for diverse, meaningful topics.          ''',
-          color: 'is-warning',
-        ),
-        div(classes: 'block', [
-          h4(classes: 'title is-4', [.text('Listen to some example code flows via Spotify')]),
-        ]),
-        div(classes: 'block', [
-          p([
-            .text(
-              'Each track is carefully crafted to be both technically accurate and musically engaging. You\'ll find yourself replaying songs not just because they\'re catchy, but because they genuinely help you understand and remember important programming concepts.',
-            ),
-          ]),
-        ]),
-        div(
-          classes: 'columns is-multiline is-mobile', // Add is-mobile
+    return Scaffold(
+      title: 'Code Flows',
+      subtitle: 'Learning code has never been easier',
+      sections: [
+        section(
+          classes: 'section has-background-dark',
           [
-            for (int i = 0; i < SpotifyTrack.values.length; i++)
-              div(classes: 'column is-12-mobile is-6-tablet', [
-                // Changed to is-12-mobile and is-6-tablet
-                SpotifyPreview(
-                  src: SpotifyTrack.values[i].src,
+            div(
+              classes: 'container',
+              [
+                div(classes: 'block', [
+                  p([
+                    .text(
+                      'Code Flows transforms programming tutorials into catchy, memorable rap songs. Each track breaks down a specific coding concept—from variables and loops to algorithms and design patterns—using rhythm, wordplay, and storytelling to make learning stick.',
+                    ),
+                  ]),
+                ]),
+                BulmaMessageHeader(
+                  title: 'Purpose of Code Flows',
+                  body: '''
+    I created this project to combine my two greatest passions—rapping and coding—in a way that's both educational and fun. By teaching programming concepts through rap, I can make complex topics more accessible and engaging for others. At the same time, I'm deepening my own understanding, since the best way to truly learn something is to teach it. This project also serves a broader purpose: it challenges the narrow focus on hip hop's negative aspects and showcases the genre's incredible versatility as a form of expression for diverse, meaningful topics.          ''',
+                  color: 'is-warning',
                 ),
-              ]),
-          ],
-        ),
-        div(classes: 'block', [
-          p(classes: 'has-text-centered', [
-            .text(
-              'Want to learn more? Checkout out the full',
-            ),
-            SmartLink(
-              href: _youtubePlaylistHref,
-              children: [
-                .text(' YouTube playlist '),
               ],
             ),
-            .text(
-              'to see video demonstrations for each track.',
+          ],
+        ),
+        section(
+          classes: 'section has-background-link-dark',
+          [
+            div(
+              classes: 'container',
+              [
+                div(classes: 'has-text-centered', [
+                  h3(classes: 'title is-3', [.text('Listen to some example code flows via Spotify')]),
+                  h5(classes: 'subtitle is-5', [
+                    .text(
+                      'Each track is carefully crafted to be both technically accurate and musically engaging.',
+                    ),
+                  ]),
+                ]),
+                Spacer(.xl),
+                div(
+                  classes: 'columns is-multiline is-mobile', // Add is-mobile
+                  [
+                    for (int i = 0; i < SpotifyTrack.values.length; i++)
+                      div(classes: 'column is-12-mobile is-6-tablet', [
+                        // Changed to is-12-mobile and is-6-tablet
+                        SpotifyPreview(
+                          src: SpotifyTrack.values[i].src,
+                        ),
+                      ]),
+                  ],
+                ),
+                div(classes: 'block', [
+                  p(classes: 'has-text-centered', [
+                    .text(
+                      'Want to learn more? Checkout out the full',
+                    ),
+                    SmartLink(
+                      href: _youtubePlaylistHref,
+                      children: [
+                        .text(' YouTube playlist '),
+                      ],
+                    ),
+                    .text(
+                      'to see video demonstrations for each track.',
+                    ),
+                  ]),
+                ]),
+              ],
             ),
-          ]),
-        ]),
-      ]),
-    ]);
+          ],
+        ),
+      ],
+    );
   }
 
   @css

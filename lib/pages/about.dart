@@ -1,8 +1,8 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/about_card.dart';
-import 'package:treyhope_dev/components/bulma_hero.dart';
 import 'package:treyhope_dev/components/embedded_quiz_widget.dart';
+import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/work_history_card.dart';
@@ -18,34 +18,48 @@ class About extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return div(classes: 'container is-max-desktop', [
-      BulmaHero(title: 'About', subtitle: 'Nice to meet you—let me tell you my story.'),
-      section(classes: 'container is-max-desktop section', [
-        div(classes: 'columns', [
-          div(classes: 'column is-half', [
-            AboutCard(),
-          ]),
-          div(classes: 'column is-half', [
-            h4(classes: 'title is-4 has-text-centered', [.text('Take my quiz')]),
-            h5(classes: 'has-text-centered', [.text('It won\'t take long, I promise.')]),
-            Spacer(.md),
-            EmbeddedQuizWidget(),
-            Spacer(.md),
-            _Sentence(),
-          ]),
-        ]),
-        Spacer(.xl),
-        h4(classes: 'title is-4', [.text('Employment History')]),
-        h5([.text('Flutter development has been my focus since the beginning.')]),
-        Spacer(.xl),
-        div(classes: 'columns is-multiline', [
-          for (final workHistory in Globals.workHistories)
-            div(classes: 'column is-half', [
-              WorkHistoryCard(data: workHistory),
+    return Scaffold(
+      title: 'About',
+      subtitle: 'Nice to meet you—let me tell you my story.',
+      sections: [
+        section(classes: 'section has-background-dark', [
+          div(classes: 'container', [
+            div(classes: 'columns', [
+              div(classes: 'column is-half', [
+                AboutCard(),
+              ]),
+              div(classes: 'column is-half', [
+                div(classes: 'has-text-centered', [
+                  h4(classes: 'title is-4 ', [.text('Take my quiz')]),
+                  h5(classes: '', [.text('It won\'t take long, I promise.')]),
+                ]),
+                Spacer(.md),
+                EmbeddedQuizWidget(),
+                Spacer(.md),
+                _Sentence(),
+              ]),
             ]),
+          ]),
         ]),
-      ]),
-    ]);
+        section(classes: 'section has-background-link-dark', [
+          div(classes: 'container', [
+            div(classes: 'has-text-centered', [
+              h3(classes: 'title is-3', [.text('Employment History')]),
+              h5(classes: 'subtitle is-5', [.text('Flutter development has been my focus since the beginning.')]),
+            ]),
+            Spacer(.xl),
+            div(classes: 'columns', [
+              div(classes: 'columns is-multiline', [
+                for (final workHistory in Globals.workHistories)
+                  div(classes: 'column is-half', [
+                    WorkHistoryCard(data: workHistory),
+                  ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ],
+    );
   }
 }
 

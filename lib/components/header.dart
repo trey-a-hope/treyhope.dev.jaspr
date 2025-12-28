@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
-import 'package:treyhope_dev/constants/globals.dart';
 
 /// Main navigation header component with responsive mobile menu.
 /// Uses Bulma's navbar system with hamburger menu toggle.
@@ -25,7 +24,7 @@ class HeaderState extends State<Header> {
       classes: 'navbar',
       attributes: {'role': 'navigation', 'aria-label': 'main navigation'},
       [
-        div(classes: 'navbar-container container is-max-desktop', [
+        div(classes: 'container', [
           // Navbar hamburger (mobile)
           div(classes: 'navbar-brand', [
             SmartLink(
@@ -98,18 +97,13 @@ class HeaderState extends State<Header> {
       backgroundColor: Colors.transparent,
     ),
     css('.navbar').styles(
-      padding: Padding.all(1.rem),
+      // Remove the padding: Padding.all(1.rem) or adjust it
+      padding: Padding.symmetric(vertical: 1.rem), // Only vertical padding on the navbar itself
       backgroundColor: Color('#333'),
     ),
     // Prevent hover effects on hamburger spans
     css('.navbar-burger span').styles(
       raw: {'pointer-events': 'none'},
     ),
-    // Apply larger padding on desktop (screens wider than 768px)
-    css.media(MediaQuery.screen(minWidth: Globals.desktopBreakpoint.px), [
-      css('.navbar-container').styles(
-        padding: Padding.symmetric(horizontal: 3.5.rem),
-      ),
-    ]),
   ];
 }
