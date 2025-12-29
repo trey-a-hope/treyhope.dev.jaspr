@@ -56,11 +56,24 @@ class App extends StatelessComponent {
             title: 'Blog',
             builder: (context, state) => ScrollToTop(child: const BlogsPage()),
           ),
+
           Route(
             path: '/blog/tags/:tag',
             title: 'Blog',
             builder: (context, state) => ScrollToTop(child: BlogsTagPage(tag: state.params['tag']!)),
           ),
+
+          ...Globals.allBlogs
+              .expand((blog) => blog.tags)
+              .toSet() // Remove duplicates
+              .map(
+                (tag) => Route(
+                  path: '/blog/tags/$tag',
+                  title: tag,
+                  builder: (context, state) => ScrollToTop(child: BlogsTagPage(tag: tag)),
+                ),
+              ),
+
           // Generate a static route for each blog post
           ...Globals.allBlogs.map(
             (blog) => Route(
