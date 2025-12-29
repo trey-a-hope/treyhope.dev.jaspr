@@ -1,7 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
-import 'package:treyhope_dev/components/blog_category_selector.dart';
 import 'package:treyhope_dev/components/blog_panel.dart';
 import 'package:treyhope_dev/components/bulma_pagination.dart';
 import 'package:treyhope_dev/components/scaffold.dart';
@@ -21,8 +20,8 @@ class BlogsTagPage extends StatelessComponent {
     final blogList = context.watch(blogListProvider('tags'));
 
     return Scaffold(
-      title: 'Posts Tagged with "#${tag}"',
-      subtitle: '',
+      title: '"#${tag}"',
+      subtitle: 'Found ${blogList.blogs.length} blogs with tag.',
       sections: [
         section(classes: 'section has-background-dark', [
           Spacer(.xl),
