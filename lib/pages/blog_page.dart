@@ -4,6 +4,7 @@ import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/extensions/blog_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
 import 'package:markdown/markdown.dart' as md;
 
@@ -31,6 +32,10 @@ class BlogPage extends StatelessComponent {
     );
 
     return div([
+      Document.head(
+        title: '${blog!.title} | Trey Hope',
+        meta: blog!.meta,
+      ),
       section(classes: 'section has-background-dark', [
         div(classes: 'container', [
           SmartLink(
