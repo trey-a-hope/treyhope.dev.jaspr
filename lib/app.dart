@@ -57,12 +57,6 @@ class App extends StatelessComponent {
             builder: (context, state) => ScrollToTop(child: const BlogsPage()),
           ),
 
-          Route(
-            path: '/blog/tags/:tag',
-            title: 'Blog',
-            builder: (context, state) => ScrollToTop(child: BlogsTagPage(tag: state.params['tag']!)),
-          ),
-
           ...Globals.allBlogs
               .expand((blog) => blog.tags)
               .toSet() // Remove duplicates
