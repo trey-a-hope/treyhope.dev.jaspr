@@ -8,15 +8,17 @@ import 'package:treyhope_dev/riverpod/providers.dart';
 /// Bulma-styled pagination component for navigating through blog posts
 class BulmaPagination extends StatelessComponent {
   final int currentIndex;
+  final String type;
 
   const BulmaPagination({
     super.key,
     required this.currentIndex,
+    required this.type,
   });
 
   @override
   Component build(BuildContext context) {
-    final blogListNotifier = context.read(blogListProvider.notifier);
+    final blogListNotifier = context.read(blogListProvider(type).notifier);
     final currentCategory = context.watch(blogCategoryProvider);
 
     // Calculate total blog count directly based on current category

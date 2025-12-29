@@ -6,6 +6,7 @@ import 'package:treyhope_dev/components/footer/footer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/pages/blogs_page.dart';
 import 'package:treyhope_dev/pages/blog_page.dart';
+import 'package:treyhope_dev/pages/blogs_tag_page.dart';
 import 'package:treyhope_dev/pages/code_flows.dart';
 import 'package:treyhope_dev/pages/page_not_found.dart';
 import 'package:treyhope_dev/pages/projects.dart';
@@ -54,6 +55,11 @@ class App extends StatelessComponent {
             path: '/blog',
             title: 'Blog',
             builder: (context, state) => ScrollToTop(child: const BlogsPage()),
+          ),
+          Route(
+            path: '/blog/tags/:tag',
+            title: 'Blog',
+            builder: (context, state) => ScrollToTop(child: BlogsTagPage(tag: state.params['tag']!)),
           ),
           // Generate a static route for each blog post
           ...Globals.allBlogs.map(

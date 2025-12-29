@@ -10,7 +10,7 @@ part 'blog_list_state.dart';
 /// Notifier for managing blog list state and pagination
 class BlogListNotifier extends Notifier<BlogListState> {
   @override
-  BlogListState build() {
+  BlogListState build([String? type]) {
     // Keep state alive across page navigations
     ref.keepAlive();
 

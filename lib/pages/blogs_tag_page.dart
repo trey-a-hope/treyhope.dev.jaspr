@@ -11,26 +11,20 @@ import 'package:treyhope_dev/riverpod/providers.dart';
 /// Blog page entry point with Riverpod provider scope
 
 /// Main blog view component that displays blog posts with pagination
-class BlogsPage extends StatelessComponent {
-  const BlogsPage({super.key});
+class BlogsTagPage extends StatelessComponent {
+  final String tag;
+
+  const BlogsTagPage({required this.tag, super.key});
 
   @override
   Component build(BuildContext context) {
-    final currentCategory = context.watch(blogCategoryProvider);
-    final blogList = context.watch(blogListProvider('default'));
+    final blogList = context.watch(blogListProvider('tags'));
 
     return Scaffold(
-      title: 'Blog',
-      subtitle: 'Thoughts on code, culture, and everything in between.',
+      title: 'Posts Tagged with "#${tag}"',
+      subtitle: '',
       sections: [
         section(classes: 'section has-background-dark', [
-          div(classes: 'container', [
-            BlogCategorySelector(),
-            Spacer(.xl),
-            p(classes: 'has-text-centered', [
-              .text(currentCategory.description),
-            ]),
-          ]),
           Spacer(.xl),
           div(classes: 'container', [
             div(classes: 'is-multiline columns', [
@@ -48,9 +42,9 @@ class BlogsPage extends StatelessComponent {
           Spacer(.xl),
           div(classes: 'container', [
             BulmaPagination(
-              key: ValueKey('${blogList.currentIndex}-${currentCategory.name}'),
+              key: ValueKey('${blogList.currentIndex}'),
               currentIndex: blogList.currentIndex,
-              type: 'default',
+              type: 'tags',
             ),
           ]),
         ]),
