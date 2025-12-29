@@ -9,8 +9,10 @@ class SmartLink extends StatelessComponent {
   final String href;
   final List<Component> children;
   final String? classes;
+  // This only works if href is external
+  final VoidCallback? onClick;
 
-  SmartLink({required this.href, required this.children, this.classes});
+  SmartLink({required this.href, required this.children, this.classes, this.onClick});
 
   @override
   Component build(BuildContext context) {
@@ -20,6 +22,7 @@ class SmartLink extends StatelessComponent {
     if (isExternal) {
       // External links open in new tab with security attributes
       return a(
+        onClick: onClick,
         href: href,
         classes: classes,
         target: Target.blank,

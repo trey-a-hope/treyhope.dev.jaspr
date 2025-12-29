@@ -9,30 +9,45 @@ part 'blog_list_state.dart';
 
 /// Notifier for managing blog list state and pagination
 class BlogListNotifier extends Notifier<BlogListState> {
-  @override
-  BlogListState build([String? type]) {
-    // Keep state alive across page navigations
-    ref.keepAlive();
+  BlogListNotifier(this.tag);
+  final String tag;
 
+  @override
+  BlogListState build() {
     // Watch category changes to trigger rebuild when filter changes
-    ref.watch(blogCategoryProvider);
+    ref.watch(blogCategoryProvider); // maybe need to remove this for the tag filter
+
+    final blogs = _getBlogs();
 
     // Initialize with first page of blogs
     return BlogListState(
       currentIndex: 0,
-      blogs: _getPage(0),
+      paginatedBlogs: _getPaginatedBlogs(
+        pageIndex: 0,
+        blogs: blogs,
+      ),
+      totalBlogCount: blogs.length,
     );
   }
 
-  /// Retrieves a page of blogs filtered by the current category.
-  List<Blog> _getPage(int pageIndex) {
+  List<Blog> _getBlogs() {
     final blogCategory = ref.read(blogCategoryProvider);
 
-    // Filter blogs by category or show all
-    final blogs = blogCategory == BlogCategory.all
-        ? Globals.allBlogs
-        : Globals.allBlogs.where((blog) => blog.category == blogCategory.label).toList();
+    List<Blog> blogs = [];
+    if (tag == 'default') {
+      // Filter blogs by category or show all
+      blogs = blogCategory == BlogCategory.all
+          ? Globals.allBlogs
+          : Globals.allBlogs.where((blog) => blog.category == blogCategory.label).toList();
+    } else {
+      blogs = Globals.allBlogs.where((blog) => blog.tags.contains(tag)).toList();
+    }
 
+    return blogs;
+  }
+
+  /// Retrieves a page of blogs filtered by the current category.
+  List<Blog> _getPaginatedBlogs({required int pageIndex, required List<Blog> blogs}) {
     if (blogs.isEmpty) return [];
 
     // Calculate pagination range
@@ -44,25 +59,40 @@ class BlogListNotifier extends Notifier<BlogListState> {
 
   /// Navigates to the next page of blogs.
   void nextBatch() {
-    state = BlogListState(
+    final blogs = _getBlogs();
+
+    state = state.copyWith(
       currentIndex: state.currentIndex + 1,
-      blogs: _getPage(state.currentIndex + 1),
+      paginatedBlogs: _getPaginatedBlogs(
+        pageIndex: state.currentIndex + 1,
+        blogs: blogs,
+      ),
     );
   }
 
   /// Navigates to the previous page of blogs.
   void prevBatch() {
-    state = BlogListState(
+    final blogs = _getBlogs();
+
+    state = state.copyWith(
       currentIndex: state.currentIndex - 1,
-      blogs: _getPage(state.currentIndex - 1),
+      paginatedBlogs: _getPaginatedBlogs(
+        pageIndex: state.currentIndex - 1,
+        blogs: blogs,
+      ),
     );
   }
 
   /// Navigates to a specific page of blogs.
   void goToPage(int page) {
-    state = BlogListState(
+    final blogs = _getBlogs();
+
+    state = state.copyWith(
       currentIndex: page,
-      blogs: _getPage(page),
+      paginatedBlogs: _getPaginatedBlogs(
+        pageIndex: page,
+        blogs: blogs,
+      ),
     );
   }
 }

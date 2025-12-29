@@ -34,7 +34,7 @@ class BlogsPage extends StatelessComponent {
           Spacer(.xl),
           div(classes: 'container', [
             div(classes: 'is-multiline columns', [
-              for (final blog in blogList.blogs)
+              for (final blog in blogList.paginatedBlogs)
                 div(
                   classes: 'column is-12-mobile is-6-tablet is-4-desktop',
                   [
@@ -50,7 +50,7 @@ class BlogsPage extends StatelessComponent {
             BulmaPagination(
               key: ValueKey('${blogList.currentIndex}-${currentCategory.name}'),
               currentIndex: blogList.currentIndex,
-              type: 'default',
+              tag: 'default',
             ),
           ]),
         ]),

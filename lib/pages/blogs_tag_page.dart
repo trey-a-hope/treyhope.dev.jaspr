@@ -17,17 +17,21 @@ class BlogsTagPage extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    final blogList = context.watch(blogListProvider('tags'));
+    final state = context.watch(blogListProvider(tag));
+
+    final paginatedBlogs = state.paginatedBlogs;
+    final totalBlogCount = state.totalBlogCount;
+    final currentIndex = state.currentIndex;
 
     return Scaffold(
       title: '"#${tag}"',
-      subtitle: 'Found ${blogList.blogs.length} blogs with tag.',
+      subtitle: 'Found ${totalBlogCount} blogs with tag.',
       sections: [
         section(classes: 'section has-background-dark', [
           Spacer(.xl),
           div(classes: 'container', [
             div(classes: 'is-multiline columns', [
-              for (final blog in blogList.blogs)
+              for (final blog in paginatedBlogs)
                 div(
                   classes: 'column is-12-mobile is-6-tablet is-4-desktop',
                   [
@@ -41,9 +45,9 @@ class BlogsTagPage extends StatelessComponent {
           Spacer(.xl),
           div(classes: 'container', [
             BulmaPagination(
-              key: ValueKey('${blogList.currentIndex}'),
-              currentIndex: blogList.currentIndex,
-              type: 'tags',
+              key: ValueKey('${currentIndex}-${tag}'),
+              currentIndex: currentIndex,
+              tag: tag,
             ),
           ]),
         ]),

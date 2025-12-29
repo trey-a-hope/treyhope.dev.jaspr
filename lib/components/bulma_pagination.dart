@@ -8,27 +8,32 @@ import 'package:treyhope_dev/riverpod/providers.dart';
 /// Bulma-styled pagination component for navigating through blog posts
 class BulmaPagination extends StatelessComponent {
   final int currentIndex;
-  final String type;
+  final String tag;
 
   const BulmaPagination({
     super.key,
     required this.currentIndex,
-    required this.type,
+    required this.tag,
   });
 
   @override
   Component build(BuildContext context) {
-    final blogListNotifier = context.read(blogListProvider(type).notifier);
+    final blogListNotifier = context.read(blogListProvider(tag).notifier);
     final currentCategory = context.watch(blogCategoryProvider);
 
+    late int totalBlogCount;
     // Calculate total blog count directly based on current category
-    final totalBlogCount = switch (currentCategory) {
-      BlogCategory.all => Globals.allBlogs.length,
-      BlogCategory.coffeeCode =>
-        Globals.allBlogs.where((blog) => blog.category == BlogCategory.coffeeCode.label).length,
-      BlogCategory.crashCourse =>
-        Globals.allBlogs.where((blog) => blog.category == BlogCategory.crashCourse.label).length,
-    };
+    if (tag == 'default') {
+      totalBlogCount = switch (currentCategory) {
+        BlogCategory.all => Globals.allBlogs.length,
+        BlogCategory.coffeeCode =>
+          Globals.allBlogs.where((blog) => blog.category == BlogCategory.coffeeCode.label).length,
+        BlogCategory.crashCourse =>
+          Globals.allBlogs.where((blog) => blog.category == BlogCategory.crashCourse.label).length,
+      };
+    } else {
+      totalBlogCount = Globals.allBlogs.where((blog) => blog.tags.contains(tag)).length;
+    }
 
     final pages = (totalBlogCount / Globals.blogPaginationCount).ceil();
 
