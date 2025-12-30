@@ -104,7 +104,7 @@ class BlogPage extends StatelessComponent {
   String _getShareLink(Blog blog) {
     final url = 'https://treyhope.dev/blog/${blog.slug}';
     return 'https://twitter.com/intent/tweet?text=' +
-        Uri.encodeComponent('New blog post!\n${blog.title}') +
+        Uri.encodeComponent('New blog post!\n\n${blog.title}\n\n') +
         '&url=' +
         Uri.encodeComponent(url);
   }
