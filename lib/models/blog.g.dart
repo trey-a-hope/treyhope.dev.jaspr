@@ -10,7 +10,7 @@ _Blog _$BlogFromJson(Map<String, dynamic> json) => _Blog(
   author: json['author'] as String,
   category: json['category'] as String,
   content: json['content'] as String,
-  coverImage: json['coverImage'],
+  coverImage: json['coverImage'] as String,
   date: DateTime.parse(json['date'] as String),
   excerpt: json['excerpt'] as String,
   slug: json['slug'] as String,

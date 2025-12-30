@@ -5,6 +5,7 @@ import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/extensions/blog_extensions.dart';
+import 'package:treyhope_dev/extensions/datetime_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
 import 'package:markdown/markdown.dart' as md;
 
@@ -71,7 +72,7 @@ class BlogPage extends StatelessComponent {
             styles: Styles(gap: Gap(column: 0.5.rem)),
             [
               ClockIcon(),
-              .text('${_formatDate(blog!.date)} by ${blog!.author}'),
+              .text('${(blog!.date).formatDate} by ${blog!.author}'),
             ],
           ),
 
@@ -115,9 +116,4 @@ class BlogPage extends StatelessComponent {
       margin: Spacing.symmetric(horizontal: Unit.auto),
     ),
   ];
-
-  String _formatDate(DateTime date) {
-    final months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return '${months[date.month - 1]} ${date.day}, ${date.year}';
-  }
 }

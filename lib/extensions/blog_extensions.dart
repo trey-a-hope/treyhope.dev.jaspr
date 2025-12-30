@@ -1,3 +1,4 @@
+import 'package:treyhope_dev/extensions/datetime_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
 
 /// Extension methods for the Blog model
@@ -13,12 +14,12 @@ extension BlogExtensions on Blog {
     'og:description': excerpt,
     'og:type': 'article',
     'og:url': 'https://treyhope.dev/blog/$slug',
-    'og:image': 'https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg', // TODO (Trey) - Update
+    'og:image': 'https://treyhope.dev/blogs/${date.formatDate}-${slug}/${coverImage}',
 
     // Twitter Card meta tags
     'twitter:card': 'summary_large_image',
     'twitter:title': title,
     'twitter:description': excerpt,
-    'twitter:image': 'https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg', // TODO (Trey) - Update
+    'twitter:image': 'https://treyhope.dev/blogs/${date.formatDate}-${slug}/${coverImage}',
   };
 }
