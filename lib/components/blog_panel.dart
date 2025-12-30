@@ -28,7 +28,7 @@ class BlogPanel extends StatelessComponent {
           ]),
         ]),
         div(styles: Styles(display: Display.block), classes: 'panel-block', [
-          i([.text('"${blog.excerpt}"')]),
+          i([.text('"${blog.description}"')]),
           Spacer(.lg),
           span(
             classes: 'is-flex is-align-items-center',

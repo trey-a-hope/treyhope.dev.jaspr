@@ -14,6 +14,9 @@ class BlogListNotifier extends Notifier<BlogListState> {
 
   @override
   BlogListState build() {
+    // Keep provider alive to preserve state when navigating away and back
+    ref.keepAlive();
+
     // Watch category changes to trigger rebuild when filter changes
     ref.watch(blogCategoryProvider); // maybe need to remove this for the tag filter
 

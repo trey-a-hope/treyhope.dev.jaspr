@@ -59,7 +59,7 @@ class BlogLoader {
       author: metadata['author'] ?? '',
       coverImage: metadata['coverImage'],
       tags: (metadata['tags'] as String?)?.split(',').map((t) => t.trim()).toList() ?? [],
-      excerpt: metadata['excerpt'] ?? '',
+      description: metadata['description'] ?? '',
       content: transformedBody.trim(),
       category: metadata['category'] ?? '', // Added category property
     );

@@ -1,30 +1,35 @@
+import 'package:jaspr/dom.dart';
+import 'package:jaspr/jaspr.dart';
 import 'package:treyhope_dev/extensions/datetime_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
 
 /// Extension methods for the Blog model
 extension BlogExtensions on Blog {
   /// Generates meta tags for SEO and social media sharing
-  Map<String, String> get meta {
+  List<Component> get metaTags {
     final image = 'https://treyhope.dev/blogs/${date.formatDateString}-${slug}/${coverImage}';
+    final url = 'https://treyhope.dev/blog/$slug';
 
-    return {
+    return [
       // Basic SEO meta tags
-      'description': excerpt,
-      'keywords': tags.join(', '),
+      meta(name: 'description', content: description),
+      meta(name: 'keywords', content: tags.join(', ')),
 
-      // Open Graph meta tags for social sharing
-      'og:title': title,
-      'og:description': excerpt,
-      'og:type': 'article',
-      'og:url': 'https://treyhope.dev/blog/$slug',
-      'og:image': image,
+      // Open Graph meta tags (use 'property')
+      meta(attributes: {'property': 'og:title', 'content': title}),
+      meta(attributes: {'property': 'og:description', 'content': description}),
+      meta(attributes: {'property': 'og:type', 'content': 'article'}),
+      meta(attributes: {'property': 'og:url', 'content': url}),
+      meta(attributes: {'property': 'og:image', 'content': image}),
 
       // Twitter Card meta tags
-      'twitter:card': 'summary_large_image',
-      'twitter:title': title,
-      'twitter:description': excerpt,
-      'twitter:image': image,
-    };
+      meta(name: 'twitter:card', content: 'summary_large_image'),
+      meta(attributes: {'property': 'twitter:domain', 'content': 'treyhope.dev'}),
+      meta(attributes: {'property': 'twitter:url', 'content': url}),
+      meta(name: 'twitter:title', content: title),
+      meta(name: 'twitter:description', content: description),
+      meta(name: 'twitter:image', content: image),
+    ];
   }
 
   String get getShareLink {

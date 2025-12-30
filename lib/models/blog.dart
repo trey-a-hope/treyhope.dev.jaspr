@@ -11,7 +11,7 @@ sealed class Blog with _$Blog {
     required String content,
     required String coverImage,
     required DateTime date,
-    required String excerpt,
+    required String description,
     required String slug,
     required List<String> tags,
     required String title,
