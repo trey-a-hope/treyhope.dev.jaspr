@@ -88,7 +88,7 @@ class BlogPage extends StatelessComponent {
           hr(),
           div(classes: 'is-flex is-align-items-center', [
             SmartLink(
-              href: _getShareLink(blog!),
+              href: blog!.getShareLink,
               classes: 'button is-dark',
               children: [
                 span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
@@ -99,14 +99,6 @@ class BlogPage extends StatelessComponent {
         ]),
       ]),
     ]);
-  }
-
-  String _getShareLink(Blog blog) {
-    final url = 'https://treyhope.dev/blog/${blog.slug}';
-    return 'https://twitter.com/intent/tweet?text=' +
-        Uri.encodeComponent('New blog post!\n\n${blog.title}\n') +
-        '&url=' +
-        Uri.encodeComponent(url);
   }
 
   @css
