@@ -14,12 +14,12 @@ extension BlogExtensions on Blog {
     'og:description': excerpt,
     'og:type': 'article',
     'og:url': 'https://treyhope.dev/blog/$slug',
-    'og:image': 'https://treyhope.dev/blogs/${date.formatDate}-${slug}/${coverImage}',
+    'og:image': 'https://treyhope.dev/blogs/${date.formatDateString}-${slug}/${coverImage}',
 
     // Twitter Card meta tags
     'twitter:card': 'summary_large_image',
     'twitter:title': title,
     'twitter:description': excerpt,
-    'twitter:image': 'https://treyhope.dev/blogs/${date.formatDate}-${slug}/${coverImage}',
+    'twitter:image': 'https://treyhope.dev/blogs/${date.formatDateString}-${slug}/${coverImage}',
   };
 }
