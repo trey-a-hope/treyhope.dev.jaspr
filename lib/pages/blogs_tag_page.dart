@@ -1,45 +1,43 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
-import 'package:treyhope_dev/components/blog_category_selector.dart';
 import 'package:treyhope_dev/components/blog_panel.dart';
 import 'package:treyhope_dev/components/bulma_pagination.dart';
 import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/riverpod/providers.dart';
 
-/// Blog page entry point with Riverpod provider scope
+/// Page component that displays blog posts filtered by a specific tag
+class BlogsTagPage extends StatelessComponent {
+  /// The tag to filter blogs by
+  final String tag;
 
-/// Main blog view component that displays blog posts with pagination
-class BlogsPage extends StatelessComponent {
-  const BlogsPage({super.key});
+  const BlogsTagPage({required this.tag, super.key});
 
   @override
   Component build(BuildContext context) {
-    final currentCategory = context.watch(blogCategoryProvider);
-    final blogList = context.watch(blogListProvider('default'));
+    // Watch the blog list provider for the given tag
+    final state = context.watch(blogListProvider(tag));
+
+    // Extract state values for current page
+    final paginatedBlogs = state.paginatedBlogs;
+    final totalBlogCount = state.totalBlogCount;
+    final currentIndex = state.currentIndex;
 
     return Scaffold(
-      title: 'Blog',
-      subtitle: 'Thoughts on code, culture, and everything in between.',
+      title: '"#${tag}"',
+      subtitle: 'Found ${totalBlogCount} blogs with tag.',
       sections: [
         section(classes: 'section has-background-dark', [
-          div(classes: 'container', [
-            BlogCategorySelector(),
-            Spacer(.xl),
-            p(classes: 'has-text-centered', [
-              .text(currentCategory.description),
-            ]),
-          ]),
           Spacer(.xl),
           div(classes: 'container', [
+            // Responsive grid: full width on mobile, 2 columns on tablet, 3 on desktop
             div(classes: 'is-multiline columns', [
-              for (final blog in blogList.paginatedBlogs)
+              for (final blog in paginatedBlogs)
                 div(
                   classes: 'column is-12-mobile is-6-tablet is-4-desktop',
                   [
-                    // Responsive columns
-                    // Applying key to BlogPanel to prevent old blog posts from being re-rendered
+                    // Use blog slug as key for efficient re-rendering
                     BlogPanel(key: ValueKey(blog.slug), blog: blog),
                   ],
                 ),
@@ -47,10 +45,11 @@ class BlogsPage extends StatelessComponent {
           ]),
           Spacer(.xl),
           div(classes: 'container', [
+            // Key combines index and tag to ensure proper updates when either changes
             BulmaPagination(
-              key: ValueKey('${blogList.currentIndex}-${currentCategory.name}'),
-              currentIndex: blogList.currentIndex,
-              tag: 'default',
+              key: ValueKey('${currentIndex}-${tag}'),
+              currentIndex: currentIndex,
+              tag: tag,
             ),
           ]),
         ]),

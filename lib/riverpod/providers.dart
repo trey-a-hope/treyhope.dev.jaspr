@@ -4,7 +4,7 @@ import 'package:treyhope_dev/riverpod/notifiers/blog_category.dart/blog_category
 import 'package:treyhope_dev/riverpod/notifiers/blog_list/blog_list_notifier.dart';
 
 /// Manages the blog list state including pagination and filtering.
-final blogListProvider = NotifierProvider.autoDispose<BlogListNotifier, BlogListState>(
+final blogListProvider = NotifierProvider.autoDispose.family<BlogListNotifier, BlogListState, String>(
   BlogListNotifier.new,
 );
 

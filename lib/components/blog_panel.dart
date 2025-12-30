@@ -42,7 +42,7 @@ class BlogPanel extends StatelessComponent {
           div(classes: 'blog-card-tags', [
             for (int i = 0; i < blog.tags.length; i++)
               SmartLink(
-                href: '#',
+                href: '/blog/tags/${blog.tags[i]}',
                 children: [.text('#${blog.tags[i]}')],
               ),
           ]),

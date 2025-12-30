@@ -4,6 +4,8 @@ import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/extensions/blog_extensions.dart';
+import 'package:treyhope_dev/extensions/datetime_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
 import 'package:markdown/markdown.dart' as md;
 
@@ -31,6 +33,19 @@ class BlogPage extends StatelessComponent {
     );
 
     return div([
+      Document.head(
+        title: '${blog!.title} | Trey Hope',
+        children: [
+          // Manually create meta tags with correct attributes
+          for (var entry in blog!.meta.entries)
+            if (entry.key.startsWith('og:'))
+              meta(attributes: {'property': entry.key, 'content': entry.value})
+            else if (entry.key.startsWith('twitter:'))
+              meta(name: entry.key, content: entry.value)
+            else
+              meta(name: entry.key, content: entry.value),
+        ],
+      ),
       section(classes: 'section has-background-dark', [
         div(classes: 'container', [
           SmartLink(
@@ -57,7 +72,7 @@ class BlogPage extends StatelessComponent {
             styles: Styles(gap: Gap(column: 0.5.rem)),
             [
               ClockIcon(),
-              .text('${_formatDate(blog!.date)} by ${blog!.author}'),
+              .text('${(blog!.date).formatDate} by ${blog!.author}'),
             ],
           ),
 
@@ -73,7 +88,7 @@ class BlogPage extends StatelessComponent {
           hr(),
           div(classes: 'is-flex is-align-items-center', [
             SmartLink(
-              href: _getShareLink(blog!),
+              href: blog!.getShareLink,
               classes: 'button is-dark',
               children: [
                 span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
@@ -86,14 +101,6 @@ class BlogPage extends StatelessComponent {
     ]);
   }
 
-  String _getShareLink(Blog blog) {
-    final url = 'https://treyhope.dev/blog/${blog.slug}';
-    return 'https://twitter.com/intent/tweet?text=' +
-        Uri.encodeComponent('New blog post!\n${blog.title}') +
-        '&url=' +
-        Uri.encodeComponent(url);
-  }
-
   @css
   static List<StyleRule> get styles => [
     css('.content img').styles(
@@ -101,9 +108,4 @@ class BlogPage extends StatelessComponent {
       margin: Spacing.symmetric(horizontal: Unit.auto),
     ),
   ];
-
-  String _formatDate(DateTime date) {
-    final months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    return '${months[date.month - 1]} ${date.day}, ${date.year}';
-  }
 }

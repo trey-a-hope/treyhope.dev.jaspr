@@ -6,6 +6,7 @@ import 'package:treyhope_dev/components/footer/footer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
 import 'package:treyhope_dev/pages/blogs_page.dart';
 import 'package:treyhope_dev/pages/blog_page.dart';
+import 'package:treyhope_dev/pages/blogs_tag_page.dart';
 import 'package:treyhope_dev/pages/code_flows.dart';
 import 'package:treyhope_dev/pages/page_not_found.dart';
 import 'package:treyhope_dev/pages/projects.dart';
@@ -24,12 +25,11 @@ class App extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return // This method is rerun every time the component is rebuilt.
-    // Renders a <div class="main"> html element with children.
-    div(classes: 'main', [
+    return div(classes: 'main', [
       const Header(),
       Router(
         routes: [
+          // Static routes
           Route(
             path: '/',
             title: 'Home',
@@ -55,7 +55,20 @@ class App extends StatelessComponent {
             title: 'Blog',
             builder: (context, state) => ScrollToTop(child: const BlogsPage()),
           ),
-          // Generate a static route for each blog post
+
+          // Dynamically generate routes for each unique blog tag
+          ...Globals.allBlogs
+              .expand((blog) => blog.tags)
+              .toSet() // Remove duplicates
+              .map(
+                (tag) => Route(
+                  path: '/blog/tags/$tag',
+                  title: tag,
+                  builder: (context, state) => ScrollToTop(child: BlogsTagPage(tag: tag)),
+                ),
+              ),
+
+          // Dynamically generate a route for each blog post
           ...Globals.allBlogs.map(
             (blog) => Route(
               path: '/blog/${blog.slug}',
@@ -64,25 +77,24 @@ class App extends StatelessComponent {
             ),
           ),
         ],
+        // Handle 404s and routing errors
         errorBuilder: (context, state) => const PageNotFound(),
       ),
       const Footer(),
     ]);
   }
 
-  // Defines the css styles for elements of this component.
-  //
-  // By using the @css annotation, these will be rendered automatically to css inside the <head> of your page.
-  // Must be a variable or getter of type [List<StyleRule>].
+  // Component styles - automatically rendered to <head> via @css annotation
   @css
   static List<StyleRule> get styles => [
     css('.main', [
-      // The '&' refers to the parent selector of a nested style rules.
+      // Main container styles
       css('&').styles(
         display: .contents,
         minHeight: 100.vh,
         flexDirection: .column,
       ),
+      // Center section content vertically and horizontally
       css('section').styles(
         display: .flex,
         flexDirection: .column,
