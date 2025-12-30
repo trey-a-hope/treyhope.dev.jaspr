@@ -34,7 +34,17 @@ class BlogPage extends StatelessComponent {
     return div([
       Document.head(
         title: '${blog!.title} | Trey Hope',
-        meta: blog!.meta,
+        // meta: blog!.meta,
+        children: [
+          // Manually create meta tags with correct attributes
+          for (var entry in blog!.meta.entries)
+            if (entry.key.startsWith('og:'))
+              meta(attributes: {'property': entry.key, 'content': entry.value})
+            else if (entry.key.startsWith('twitter:'))
+              meta(name: entry.key, content: entry.value)
+            else
+              meta(name: entry.key, content: entry.value),
+        ],
       ),
       section(classes: 'section has-background-dark', [
         div(classes: 'container', [
