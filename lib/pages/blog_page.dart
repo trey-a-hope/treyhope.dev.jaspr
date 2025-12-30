@@ -34,7 +34,6 @@ class BlogPage extends StatelessComponent {
     return div([
       Document.head(
         title: '${blog!.title} | Trey Hope',
-        // meta: blog!.meta,
         children: [
           // Manually create meta tags with correct attributes
           for (var entry in blog!.meta.entries)
@@ -104,7 +103,7 @@ class BlogPage extends StatelessComponent {
   String _getShareLink(Blog blog) {
     final url = 'https://treyhope.dev/blog/${blog.slug}';
     return 'https://twitter.com/intent/tweet?text=' +
-        Uri.encodeComponent('New blog post!\n\n${blog.title}\n\n') +
+        Uri.encodeComponent('New blog post!\n\n${blog.title}\n') +
         '&url=' +
         Uri.encodeComponent(url);
   }

@@ -7,7 +7,10 @@ import 'package:treyhope_dev/riverpod/providers.dart';
 
 /// Bulma-styled pagination component for navigating through blog posts
 class BulmaPagination extends StatelessComponent {
+  /// Current page index (0-based)
   final int currentIndex;
+
+  /// Tag filter - use 'default' for category-based filtering
   final String tag;
 
   const BulmaPagination({
@@ -22,8 +25,9 @@ class BulmaPagination extends StatelessComponent {
     final currentCategory = context.watch(blogCategoryProvider);
 
     late int totalBlogCount;
-    // Calculate total blog count directly based on current category
+    // Calculate total blog count based on category filter or specific tag
     if (tag == 'default') {
+      // Category-based filtering
       totalBlogCount = switch (currentCategory) {
         BlogCategory.all => Globals.allBlogs.length,
         BlogCategory.coffeeCode =>
@@ -32,9 +36,11 @@ class BulmaPagination extends StatelessComponent {
           Globals.allBlogs.where((blog) => blog.category == BlogCategory.crashCourse.label).length,
       };
     } else {
+      // Tag-based filtering
       totalBlogCount = Globals.allBlogs.where((blog) => blog.tags.contains(tag)).length;
     }
 
+    // Calculate total number of pages needed
     final pages = (totalBlogCount / Globals.blogPaginationCount).ceil();
 
     // Disable previous button on first page
@@ -48,6 +54,7 @@ class BulmaPagination extends StatelessComponent {
       button(
         onClick: () {
           if (!isPreviousDisabled) {
+            // Use microtask to defer state update
             Future.microtask(() => blogListNotifier.prevBatch());
           }
           print('previous clicked');
@@ -59,6 +66,7 @@ class BulmaPagination extends StatelessComponent {
       button(
         onClick: () {
           if (!isNextDisabled) {
+            // Use microtask to defer state update
             Future.microtask(() => blogListNotifier.nextBatch());
           }
         },
