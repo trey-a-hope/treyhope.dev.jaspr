@@ -54,6 +54,7 @@ jaspr:
     - /blog/coffee-code-firestore-sorting-toasts
     - /blog/coffee-code-nakama-backend-servers
     - /blog/coffee-code-flutter-flame-mario
+    - /blog/coffee-code-questionz-flutter-app
     - /blog/tags/jaspr
     - /blog/tags/dart
     - /blog/tags/webdev
@@ -77,6 +78,10 @@ jaspr:
     - /blog/tags/flame
     - /blog/tags/tiled
     - /blog/tags/mobile
+    - /blog/tags/graphql
+    - /blog/tags/mongodb
+    - /blog/tags/mobileapp
+    - /blog/tags/appdevelopment
 
 flutter:
   uses-material-design: true

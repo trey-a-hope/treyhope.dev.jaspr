@@ -5,6 +5,7 @@ import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/constants/share_platform.dart';
 import 'package:treyhope_dev/extensions/blog_extensions.dart';
 import 'package:treyhope_dev/extensions/datetime_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
@@ -78,10 +79,19 @@ class BlogPage extends StatelessComponent {
           hr(),
           div(classes: 'is-flex is-align-items-center', [
             SmartLink(
-              href: blog!.getShareLink,
-              classes: 'button is-dark',
+              href: blog!.getShareLink(SharePlatform.x),
+              classes: 'button is-warning',
               children: [
                 span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
+                span([.text('Share')]),
+              ],
+            ),
+            Spacer(.md, vertical: false),
+            SmartLink(
+              href: blog!.getShareLink(SharePlatform.linkedIn),
+              classes: 'button is-warning',
+              children: [
+                span(classes: 'icon', [i(classes: 'fab fa-linkedin', [])]),
                 span([.text('Share')]),
               ],
             ),

@@ -1,0 +1,1 @@
+enum SharePlatform { x, linkedIn }

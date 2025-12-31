@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/constants/share_platform.dart';
 import 'package:treyhope_dev/extensions/datetime_extensions.dart';
 import 'package:treyhope_dev/models/blog.dart';
 
@@ -32,8 +33,14 @@ extension BlogExtensions on Blog {
     ];
   }
 
-  String get getShareLink {
+  String getShareLink(SharePlatform platform) {
     final url = 'https://treyhope.dev/blog/$slug';
-    return 'https://twitter.com/intent/tweet?text=${Uri.encodeComponent('New blog post!\n$title\n')}&url=${Uri.encodeComponent(url)}';
+
+    switch (platform) {
+      case SharePlatform.x:
+        return 'https://twitter.com/intent/tweet?text=${Uri.encodeComponent('New blog post!\n$title\n')}&url=${Uri.encodeComponent(url)}';
+      case SharePlatform.linkedIn:
+        return 'https://www.linkedin.com/sharing/share-offsite/?url=${Uri.encodeComponent(url)}';
+    }
   }
 }
