@@ -37,62 +37,83 @@ class BlogPage extends StatelessComponent {
     return div([
       Document.head(
         title: '${blog!.title} | Trey Hope',
-        children: blog!.metaTags,
+        children: [
+          ...blog!.metaTags,
+          link(
+            rel: 'stylesheet',
+            href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css',
+          ),
+          script(
+            src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js',
+          ),
+          script(
+            src: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dart.min.js',
+          ),
+          RawText('<script>hljs.highlightAll();</script>'),
+        ],
       ),
       section(classes: 'section has-background-dark', [
         div(classes: 'container', [
-          SmartLink(
-            href: '/blog',
-            classes: 'button is-light',
-            children: [
-              span(classes: 'icon', [
-                i(classes: 'fas fa-arrow-left', []),
-              ]),
-              span([.text('Back to Blog')]),
-            ],
-          ),
-          Spacer(.lg),
-          // Blog header
-          h1(classes: 'title is-1', [.text(blog!.title)]),
-          Spacer(.sm),
-          div(classes: 'subtitle', [
-            .text('${blog!.description}'),
-          ]),
-          Spacer(.xs),
-
-          span(
-            classes: 'is-flex is-align-items-center',
-            styles: Styles(gap: Gap(column: 0.5.rem)),
-            [
-              ClockIcon(),
-              .text('${(blog!.date).formatDate} by ${blog!.author}'),
-            ],
-          ),
-
-          Spacer(.md),
-          BlogTags(blog: blog!),
-          hr(),
-          div(
-            classes: 'content',
-            [RawText(htmlContent)], // Use raw() to render HTML
-          ),
-          hr(),
-          div(classes: 'is-flex is-align-items-center', [
+          div(classes: 'blog-content-wrapper', [
             SmartLink(
-              href: blog!.getShareLink(SharePlatform.x),
-              classes: 'button is-warning',
+              href: '/blog',
+              classes: 'button is-light',
               children: [
-                span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
-                span([.text('Share')]),
+                span(classes: 'icon', [
+                  i(classes: 'fas fa-arrow-left', []),
+                ]),
+                span([.text('Back to Blog')]),
               ],
             ),
-            Spacer(.md, vertical: false),
-            SmartLink(
-              href: blog!.getShareLink(SharePlatform.linkedIn),
-              classes: 'button is-warning',
-              children: [
-                span(classes: 'icon', [i(classes: 'fab fa-linkedin', [])]),
-                span([.text('Share')]),
+            Spacer(.lg),
+            // Blog header
+            h1(classes: 'title is-1', [.text(blog!.title)]),
+            Spacer(.sm),
+            div(classes: 'subtitle', [
+              .text('${blog!.description}'),
+            ]),
+            Spacer(.xs),
+
+            span(
+              classes: 'is-flex is-align-items-center',
+              styles: Styles(gap: Gap(column: 0.5.rem)),
+              [
+                ClockIcon(),
+                .text('${(blog!.date).formatDate} by ${blog!.author}'),
+              ],
+            ),
+
+            Spacer(.md),
+            BlogTags(blog: blog!),
+            hr(),
+            div(
+              classes: 'content',
+              [RawText(htmlContent)],
+            ),
+            hr(),
+            div(
+              classes: 'is-flex is-align-items-center',
+              styles: Styles(
+                justifyContent: JustifyContent.end,
+              ),
+              [
+                SmartLink(
+                  href: blog!.getShareLink(SharePlatform.x),
+                  classes: 'button is-warning',
+                  children: [
+                    span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
+                    span([.text('Share')]),
+                  ],
+                ),
+                Spacer(.md, vertical: false),
+                SmartLink(
+                  href: blog!.getShareLink(SharePlatform.linkedIn),
+                  classes: 'button is-warning',
+                  children: [
+                    span(classes: 'icon', [i(classes: 'fab fa-linkedin', [])]),
+                    span([.text('Share')]),
+                  ],
+                ),
               ],
             ),
           ]),
@@ -103,9 +124,18 @@ class BlogPage extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
+    // Constrain content width for better readability
+    css('.blog-content-wrapper').styles(
+      maxWidth: 680.px,
+      padding: Spacing.symmetric(horizontal: 20.px),
+      margin: Spacing.symmetric(horizontal: Unit.auto),
+    ),
+    // Make images fill the full width of the content area
     css('.content img').styles(
       display: Display.block,
-      margin: Spacing.symmetric(horizontal: Unit.auto),
+      width: 100.percent,
+      height: Unit.auto,
+      maxWidth: 100.percent,
     ),
   ];
 }
