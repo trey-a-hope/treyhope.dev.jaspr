@@ -57,7 +57,6 @@ class BlogLoader {
       slug: metadata['slug'] ?? _slugFromPath(directoryPath),
       date: DateTime.tryParse(metadata['date'] ?? '') ?? DateTime.now(),
       author: metadata['author'] ?? '',
-      coverImage: metadata['coverImage'],
       tags: (metadata['tags'] as String?)?.split(',').map((t) => t.trim()).toList() ?? [],
       description: metadata['description'] ?? '',
       content: transformedBody.trim(),

@@ -15,7 +15,7 @@ class BlogPanel extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    final src = 'blogs/${DateFormat('yyyy-MM-dd').format(blog.date)}-${blog.slug}/${blog.coverImage}';
+    final src = 'blogs/${DateFormat('yyyy-MM-dd').format(blog.date)}-${blog.slug}/cover.jpg';
 
     return BulmaPanel(
       title: blog.title,

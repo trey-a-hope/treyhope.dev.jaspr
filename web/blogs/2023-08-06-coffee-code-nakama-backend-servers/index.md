@@ -1,7 +1,6 @@
 ---
 author: Trey Hope
 category: coffee-code
-coverImage: 1_MexwE6ydgdh5NrPUIS5eLQ.jpg
 date: 2023-08-06
 description: Explore Nakama, the open-source framework for building scalable multiplayer gaming backends with Docker and Flutter.
 slug: coffee-code-nakama-backend-servers

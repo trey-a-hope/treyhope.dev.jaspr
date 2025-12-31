@@ -1,7 +1,6 @@
 ---
 author: Trey Hope
 category: coffee-code
-coverImage: 1_9sHLR6ZeA6kVSo3ATCQDWQ.jpg
 date: 2024-05-17
 description: Master Nakama's session system for secure user authentication in game backends with practical Flutter examples.
 slug: coffee-code-nakama-secure-sessions

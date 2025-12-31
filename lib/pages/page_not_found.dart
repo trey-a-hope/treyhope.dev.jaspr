@@ -11,11 +11,10 @@ class PageNotFound extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return const section(classes: 'container is-max-desktop', [
-      div(classes: 'block', [
+    return section(classes: 'section has-background-dark', [
+      div(classes: 'container has-text-centered', [
         h1(classes: 'title', [.text('Page not found')]),
-      ]),
-      div(classes: 'block', [
+
         p([
           .text(
             'The request resource is not available.',

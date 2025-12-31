@@ -1,7 +1,6 @@
 ---
 author: Trey Hope
 category: coffee-code
-coverImage: 327917646_5665749500204244_4876429384120141659_n.jpg
 date: 2023-02-03
 description: Building Questionz, a Flutter app for asking loved ones three daily questions. Built with MongoDB, GraphQL, and Apollo Server.
 slug: coffee-code-questionz-flutter-app

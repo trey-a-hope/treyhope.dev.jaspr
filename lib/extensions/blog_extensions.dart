@@ -8,7 +8,7 @@ import 'package:treyhope_dev/models/blog.dart';
 extension BlogExtensions on Blog {
   /// Generates meta tags for SEO and social media sharing
   List<Component> get metaTags {
-    final image = 'https://treyhope.dev/blogs/${date.formatDateString}-${slug}/${coverImage}';
+    final image = 'https://treyhope.dev/blogs/${date.formatDateString}-${slug}/cover.jpg';
     final url = 'https://treyhope.dev/blog/$slug';
 
     return [

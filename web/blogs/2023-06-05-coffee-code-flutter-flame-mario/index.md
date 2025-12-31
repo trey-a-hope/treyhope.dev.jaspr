@@ -1,7 +1,6 @@
 ---
 author: Trey Hope
 category: coffee-code
-coverImage: 1_il7mjj87h_QthWASkV-Y6g.jpg
 date: 2023-06-05
 description: Building a Super Mario Bros.-inspired game using Flutter, Flame game engine, and Tiled maps for level design.
 slug: coffee-code-flutter-flame-mario

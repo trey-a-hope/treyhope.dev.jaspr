@@ -1,7 +1,6 @@
 ---
 author: Trey Hope
 category: coffee-code
-coverImage: 1_nUheo1oNL-JDeI5CFJKWbA.jpg
 date: 2024-04-27
 description: Discover how to create effective user flows with Miro for better UX planning and smoother development processes.
 slug: coffee-code-miro-user-flows

@@ -1,7 +1,6 @@
 ---
 author: Trey Hope
 category: coffee-code
-coverImage: 1.jpg
 date: 2025-12-27
 description: Build modern websites with Jaspr and Bulma CSS. Enjoy improved SEO, better routing, and faster load times than Flutter Web.
 slug: coffee-code-jaspr-web-framework
