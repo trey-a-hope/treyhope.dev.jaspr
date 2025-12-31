@@ -14,10 +14,10 @@ class BlogTags extends StatelessComponent {
   Component build(BuildContext context) {
     return div(classes: 'blog-card-tags', [
       // Render each tag as a clickable link with hashtag prefix
-      for (int i = 0; i < blog.tags.length; i++)
+      for (final tag in blog.tags)
         SmartLink(
-          href: '/blog/tags/${blog.tags[i]}',
-          children: [.text('#${blog.tags[i]}')],
+          href: '/blog/tags/${tag}',
+          children: [.text('#$tag')],
         ),
     ]);
   }
