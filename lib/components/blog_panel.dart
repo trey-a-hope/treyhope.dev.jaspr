@@ -20,7 +20,7 @@ class BlogPanel extends StatelessComponent {
       title: blog.title,
       children: [
         div(classes: 'card-image', [
-          figure(classes: 'image', [
+          figure(classes: 'image is-16by9', [
             img(
               src: src,
               alt: blog.title,
