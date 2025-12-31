@@ -2,11 +2,11 @@
 author: Trey Hope
 category: coffee-code
 coverImage: 1_MexwE6ydgdh5NrPUIS5eLQ.jpg
-date: 2024-04-19
-description: In Japanese, nakama (仲間) means colleague, compatriot, friend or comrade.
-slug: coffee-code-nakama-gaming-servers
-tags: nakama, coffee, flutter, game-development, docker
-title: Coffee & Code — Nakama, an Open-Source Framework For Building Gaming Servers
+date: 2023-08-06
+description: Explore Nakama, the open-source framework for building scalable multiplayer gaming backends with Docker and Flutter.
+slug: coffee-code-nakama-backend-servers
+tags: gamedev, nakama, flutter, docker, backend
+title: Coffee & Code - Building Games with Nakama Backend
 ---
 
 ![Preview image](./1_MexwE6ydgdh5NrPUIS5eLQ.jpg)
@@ -58,7 +58,3 @@ For now, the Gift-Grab game is going to be the test dummy for this new applicati
 ![New user ready for online gaming.](./1_aVeJj1Umk8vuJNY-2ncnOg.jpg "New user ready for online gaming.")<br/>*New user ready for online gaming.*
 
 To install Nakama, I'm using Docker to build the **container** where the project will live.
-
-What project are you currently focused on? Drop a comment and let me know please.
-
-[#game-development](https://medium.com/tag/game-development "Game Development") [#nakama](https://medium.com/tag/nakama "Nakama") [#backend-development](https://medium.com/tag/backend-development "Backend Development") [#game-dev-update](https://medium.com/tag/game-dev-update "Game Dev Update") [#mobile-application](https://medium.com/tag/mobile-application "Mobile Application")

@@ -5,7 +5,9 @@ import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/spotify_preview.dart';
+import 'package:treyhope_dev/components/youtube_video.dart';
 import 'package:treyhope_dev/constants/spotify_track.dart';
+import 'package:treyhope_dev/constants/youtube_short.dart';
 
 class CodeFlows extends StatelessComponent {
   static const _youtubePlaylistHref =
@@ -45,6 +47,49 @@ class CodeFlows extends StatelessComponent {
         section(
           classes: 'section has-background-link-dark',
           [
+            div(classes: 'container', [
+              div(classes: 'has-text-centered', [
+                h3(classes: 'title is-3', [.text('Watch some example code flows via YouTube')]),
+                h5(classes: 'subtitle is-5', [
+                  .text(
+                    'Step by step instructions for each track.',
+                  ),
+                ]),
+              ]),
+              Spacer(.xl),
+              div(
+                classes: 'columns is-multiline is-mobile',
+                [
+                  for (int i = 0; i < YoutubeShort.values.length; i++)
+                    div(classes: 'column is-12-mobile is-4-tablet', [
+                      YoutubeVideo(
+                        short: YoutubeShort.values[i],
+                      ),
+                    ]),
+                ],
+              ),
+              div(classes: 'block', [
+                p(classes: 'has-text-centered', [
+                  .text(
+                    'Want to learn more? Checkout out the full',
+                  ),
+                  SmartLink(
+                    href: _youtubePlaylistHref,
+                    children: [
+                      .text(' YouTube playlist '),
+                    ],
+                  ),
+                  .text(
+                    'to see video demonstrations for each track.',
+                  ),
+                ]),
+              ]),
+            ]),
+          ],
+        ),
+        section(
+          classes: 'section has-background-dark',
+          [
             div(
               classes: 'container',
               [
@@ -58,7 +103,7 @@ class CodeFlows extends StatelessComponent {
                 ]),
                 Spacer(.xl),
                 div(
-                  classes: 'columns is-multiline is-mobile', // Add is-mobile
+                  classes: 'columns is-multiline is-mobile',
                   [
                     for (int i = 0; i < SpotifyTrack.values.length; i++)
                       div(classes: 'column is-12-mobile is-6-tablet', [
@@ -72,16 +117,24 @@ class CodeFlows extends StatelessComponent {
                 div(classes: 'block', [
                   p(classes: 'has-text-centered', [
                     .text(
-                      'Want to learn more? Checkout out the full',
+                      'Available also on',
                     ),
                     SmartLink(
-                      href: _youtubePlaylistHref,
+                      href: 'https://music.apple.com/us/artist/travisty/1469723679',
                       children: [
-                        .text(' YouTube playlist '),
+                        .text(' Apple Music'),
                       ],
                     ),
+                    .text(','),
+                    SmartLink(
+                      href: 'https://www.youtube.com/channel/UCx01WT9gGrPCzuuzzc8NDlA',
+                      children: [
+                        .text(' YouTube Music'),
+                      ],
+                    ),
+
                     .text(
-                      'to see video demonstrations for each track.',
+                      ', and all other streaming platforms.',
                     ),
                   ]),
                 ]),

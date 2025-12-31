@@ -2,11 +2,11 @@
 author: Trey Hope
 category: coffee-code
 coverImage: 1_YSmctWmz6H_DQRDafyqW5A.jpg
-date: 2024-04-21
-description: Using Riverpod to handle search queries is more helpful than I could have ever imagined.
-slug: coffee-code-sorting-firestore-data
-tags: firestore, toasts, flutter, riverpod, sorting
-title: Coffee & Code — Sorting Firestore Data & Displaying Toast Messages in Flutter
+date: 2024-04-01
+description: Learn to sort Firestore data with Riverpod and display toast messages in Flutter using the Toastification package.
+slug: coffee-code-firestore-sorting-toasts
+tags: flutter, firestore, riverpod, toastmessages, mobiledev
+title: Coffee & Code - Firestore Sorting & Toast Messages
 ---
 
 ![Preview image](./1_YSmctWmz6H_DQRDafyqW5A.jpg)
@@ -169,7 +169,3 @@ enum ToastType {
 ```
 
 Version 1.7.0 now available for [iOS](https://apps.apple.com/us/app/quote-keeper-save-book-quotes/id6471941046) and [Android](https://play.google.com/store/apps/details?id=com.io.book_quotes&hl=en_US&gl=US).
-
-That's all for right now, what are you working on? Leave a comment, I'd love to hear about it.
-
-[#flutter](https://medium.com/tag/flutter "Flutter") [#firebase](https://medium.com/tag/firebase "Firebase") [#firestore](https://medium.com/tag/firestore "Firestore") [#galaxy-z-fold-3](https://medium.com/tag/galaxy-z-fold-3 "Galaxy Z Fold 3") [#coffee-culture](https://medium.com/tag/coffee-culture "Coffee Culture")
