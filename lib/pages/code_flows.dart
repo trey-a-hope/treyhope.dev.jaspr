@@ -1,11 +1,13 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/components/bulma_message_body.dart';
 import 'package:treyhope_dev/components/bulma_message_header.dart';
 import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/spotify_preview.dart';
 import 'package:treyhope_dev/constants/spotify_track.dart';
+import 'package:treyhope_dev/constants/youtube_short.dart';
 
 class CodeFlows extends StatelessComponent {
   static const _youtubePlaylistHref =
@@ -45,6 +47,49 @@ class CodeFlows extends StatelessComponent {
         section(
           classes: 'section has-background-link-dark',
           [
+            div(classes: 'container', [
+              div(classes: 'has-text-centered', [
+                h3(classes: 'title is-3', [.text('Watch some example code flows via YouTube')]),
+                h5(classes: 'subtitle is-5', [
+                  .text(
+                    'Step by step instructions for each track.',
+                  ),
+                ]),
+              ]),
+              Spacer(.xl),
+              div(
+                classes: 'columns is-multiline is-mobile',
+                [
+                  for (int i = 0; i < YoutubeShort.values.length; i++)
+                    div(classes: 'column is-12-mobile is-4-tablet', [
+                      YoutubeVideo(
+                        short: YoutubeShort.values[i],
+                      ),
+                    ]),
+                ],
+              ),
+              div(classes: 'block', [
+                p(classes: 'has-text-centered', [
+                  .text(
+                    'Want to learn more? Checkout out the full',
+                  ),
+                  SmartLink(
+                    href: _youtubePlaylistHref,
+                    children: [
+                      .text(' YouTube playlist '),
+                    ],
+                  ),
+                  .text(
+                    'to see video demonstrations for each track.',
+                  ),
+                ]),
+              ]),
+            ]),
+          ],
+        ),
+        section(
+          classes: 'section has-background-dark',
+          [
             div(
               classes: 'container',
               [
@@ -58,7 +103,7 @@ class CodeFlows extends StatelessComponent {
                 ]),
                 Spacer(.xl),
                 div(
-                  classes: 'columns is-multiline is-mobile', // Add is-mobile
+                  classes: 'columns is-multiline is-mobile',
                   [
                     for (int i = 0; i < SpotifyTrack.values.length; i++)
                       div(classes: 'column is-12-mobile is-6-tablet', [
@@ -69,22 +114,6 @@ class CodeFlows extends StatelessComponent {
                       ]),
                   ],
                 ),
-                div(classes: 'block', [
-                  p(classes: 'has-text-centered', [
-                    .text(
-                      'Want to learn more? Checkout out the full',
-                    ),
-                    SmartLink(
-                      href: _youtubePlaylistHref,
-                      children: [
-                        .text(' YouTube playlist '),
-                      ],
-                    ),
-                    .text(
-                      'to see video demonstrations for each track.',
-                    ),
-                  ]),
-                ]),
               ],
             ),
           ],
@@ -95,4 +124,33 @@ class CodeFlows extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [];
+}
+
+class YoutubeVideo extends StatelessComponent {
+  final YoutubeShort short;
+
+  const YoutubeVideo({required this.short});
+
+  @override
+  Component build(BuildContext context) {
+    return div([
+      iframe(
+        src: short.src,
+        allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+        referrerPolicy: ReferrerPolicy.strictOriginWhenCrossOrigin,
+        attributes: {
+          'width': '100%',
+          'height': '352',
+          'title': 'YouTube video player',
+          'frameborder': '0',
+          'allowfullscreen': '',
+        },
+        [],
+      ),
+      BulmaMessageBody(
+        body: short.description,
+        color: 'is-warning',
+      ),
+    ]);
+  }
 }
