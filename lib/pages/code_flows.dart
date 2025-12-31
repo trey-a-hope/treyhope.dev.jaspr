@@ -1,11 +1,11 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/components/bulma_message_body.dart';
 import 'package:treyhope_dev/components/bulma_message_header.dart';
 import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
 import 'package:treyhope_dev/components/spotify_preview.dart';
+import 'package:treyhope_dev/components/youtube_video.dart';
 import 'package:treyhope_dev/constants/spotify_track.dart';
 import 'package:treyhope_dev/constants/youtube_short.dart';
 
@@ -114,6 +114,30 @@ class CodeFlows extends StatelessComponent {
                       ]),
                   ],
                 ),
+                div(classes: 'block', [
+                  p(classes: 'has-text-centered', [
+                    .text(
+                      'Available also on',
+                    ),
+                    SmartLink(
+                      href: 'https://music.apple.com/us/artist/travisty/1469723679',
+                      children: [
+                        .text(' Apple Music'),
+                      ],
+                    ),
+                    .text(','),
+                    SmartLink(
+                      href: 'https://www.youtube.com/channel/UCx01WT9gGrPCzuuzzc8NDlA',
+                      children: [
+                        .text(' YouTube Music'),
+                      ],
+                    ),
+
+                    .text(
+                      ', and all other streaming platforms.',
+                    ),
+                  ]),
+                ]),
               ],
             ),
           ],
@@ -124,33 +148,4 @@ class CodeFlows extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [];
-}
-
-class YoutubeVideo extends StatelessComponent {
-  final YoutubeShort short;
-
-  const YoutubeVideo({required this.short});
-
-  @override
-  Component build(BuildContext context) {
-    return div([
-      iframe(
-        src: short.src,
-        allow: 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
-        referrerPolicy: ReferrerPolicy.strictOriginWhenCrossOrigin,
-        attributes: {
-          'width': '100%',
-          'height': '352',
-          'title': 'YouTube video player',
-          'frameborder': '0',
-          'allowfullscreen': '',
-        },
-        [],
-      ),
-      BulmaMessageBody(
-        body: short.description,
-        color: 'is-warning',
-      ),
-    ]);
-  }
 }
