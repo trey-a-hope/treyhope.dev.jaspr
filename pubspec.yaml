@@ -49,33 +49,30 @@ jaspr:
     - /code-flows
     - /blog
     - /blog/coffee-code-jaspr-web-framework
-    - /blog/crash-course-bonfire-ep5-lighting
-    - /blog/coffee-code-working-with-nakama
-    - /blog/coffee-code-development-with-miro
-    - /blog/coffee-code-sorting-firestore-data
-    - /blog/coffee-code-nakama-gaming-servers
+    - /blog/coffee-code-nakama-secure-sessions
+    - /blog/coffee-code-miro-user-flows
+    - /blog/coffee-code-firestore-sorting-toasts
+    - /blog/coffee-code-nakama-backend-servers
     - /blog/tags/jaspr
-    - /blog/tags/web
-    - /blog/tags/bulma
-    - /blog/tags/css
     - /blog/tags/dart
-    - /blog/tags/rpg
-    - /blog/tags/bonfire
-    - /blog/tags/flame
-    - /blog/tags/game-development
-    - /blog/tags/flutter
+    - /blog/tags/webdev
+    - /blog/tags/bulma
+    - /blog/tags/seo
     - /blog/tags/nakama
-    - /blog/tags/coffee
-    - /blog/tags/gift-grab
+    - /blog/tags/gamedev
+    - /blog/tags/flutter
+    - /blog/tags/authentication
+    - /blog/tags/sessions
     - /blog/tags/miro
+    - /blog/tags/ux
     - /blog/tags/userflows
-    - /blog/tags/cappuccino
     - /blog/tags/prototyping
     - /blog/tags/firestore
-    - /blog/tags/toasts
     - /blog/tags/riverpod
-    - /blog/tags/sorting
+    - /blog/tags/toastmessages
+    - /blog/tags/mobiledev
     - /blog/tags/docker
+    - /blog/tags/backend
 
 flutter:
   uses-material-design: true

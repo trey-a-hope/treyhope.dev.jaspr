@@ -3,15 +3,15 @@ author: Trey Hope
 category: coffee-code
 coverImage: 1_nUheo1oNL-JDeI5CFJKWbA.jpg
 date: 2024-04-27
-description: I decided to try out Miro because of it's simplicity and recommendation from other developers.
-slug: coffee-code-development-with-miro
-tags: flutter, miro, userflows, cappuccino, prototyping
-title: Coffee & Code - Creating Custom User Flows for Development with Miro
+description: Discover how to create effective user flows with Miro for better UX planning and smoother development processes.
+slug: coffee-code-miro-user-flows
+tags: miro, ux, userflows, webdev, prototyping
+title: Coffee & Code - Building User Flows with Miro UX
 ---
 
 ![1_nUheo1oNL-JDeI5CFJKWbA.jpg](./1_nUheo1oNL-JDeI5CFJKWbA.jpg)
 
-> Cappuccino from [**Cafés De Origin**](https://cafesdeorigen.net/) in El Poblado, Medellín
+> Cappuccino from [**Cafés De Origin**](https://cafesdeorigen.net/) in El Poblado, Medellín, Colombia.
 > 
 
 When it comes to building applications, I used to jump right into development.

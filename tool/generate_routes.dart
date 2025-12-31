@@ -25,3 +25,5 @@ ${routes.map((r) => '  - $r').join('\n')}
   print('Add this to your pubspec.yaml under jaspr:');
   print(yamlContent);
 }
+
+// run "dart run tool/generate_routes.dart" to generate routes in pubspec.yaml

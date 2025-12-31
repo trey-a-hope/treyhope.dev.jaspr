@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/components/blog_tags.dart';
 import 'package:treyhope_dev/components/bulma_panel.dart';
 import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
@@ -28,7 +29,7 @@ class BlogPanel extends StatelessComponent {
           ]),
         ]),
         div(styles: Styles(display: Display.block), classes: 'panel-block', [
-          i([.text('"${blog.description}"')]),
+          p([.text('${blog.description}')]),
           Spacer(.lg),
           span(
             classes: 'is-flex is-align-items-center',
@@ -39,13 +40,7 @@ class BlogPanel extends StatelessComponent {
             ],
           ),
           Spacer(.md),
-          div(classes: 'blog-card-tags', [
-            for (int i = 0; i < blog.tags.length; i++)
-              SmartLink(
-                href: '/blog/tags/${blog.tags[i]}',
-                children: [.text('#${blog.tags[i]}')],
-              ),
-          ]),
+          BlogTags(blog: blog),
         ]),
         div(classes: 'panel-block', [
           SmartLink(

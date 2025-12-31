@@ -1,5 +1,6 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:treyhope_dev/components/blog_tags.dart';
 import 'package:treyhope_dev/components/clock_icon.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
@@ -68,9 +69,7 @@ class BlogPage extends StatelessComponent {
           ),
 
           Spacer(.md),
-          div(classes: 'tags', [
-            for (final tag in blog!.tags) span(classes: 'tag is-link', [.text(tag)]),
-          ]),
+          BlogTags(blog: blog!),
           hr(),
           div(
             classes: 'content',

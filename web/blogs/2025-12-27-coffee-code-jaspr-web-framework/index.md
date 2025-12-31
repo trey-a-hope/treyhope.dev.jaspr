@@ -3,10 +3,10 @@ author: Trey Hope
 category: coffee-code
 coverImage: 1.jpg
 date: 2025-12-27
-description: From my college days using Dreamweaver for web development to now, web development has made some amazing strides.
+description: Build modern websites with Jaspr and Bulma CSS. Enjoy improved SEO, better routing, and faster load times than Flutter Web.
 slug: coffee-code-jaspr-web-framework
-tags: jaspr, web, bulma, css, dart
-title: Coffee & Code - Using Jaspr (Web) and Bulma (CSS) to Build My Website
+tags: jaspr, dart, webdev, bulma, seo
+title: Coffee & Code - Using Jaspr & Bulma for Web Development
 ---
 
 ![1000153524.jpg](./1.jpg)

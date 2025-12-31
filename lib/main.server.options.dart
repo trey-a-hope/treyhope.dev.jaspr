@@ -6,6 +6,7 @@
 
 import 'package:jaspr/server.dart';
 import 'package:treyhope_dev/components/blog_panel.dart' as _blog_panel;
+import 'package:treyhope_dev/components/blog_tags.dart' as _blog_tags;
 import 'package:treyhope_dev/components/header.dart' as _header;
 import 'package:treyhope_dev/components/work_history_card.dart'
     as _work_history_card;
@@ -35,6 +36,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
   clients: {_app.App: ClientTarget<_app.App>('app')},
   styles: () => [
     ..._blog_panel.BlogPanel.styles,
+    ..._blog_tags.BlogTags.styles,
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
     ..._blog_page.BlogPage.styles,

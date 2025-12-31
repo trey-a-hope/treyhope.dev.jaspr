@@ -3,15 +3,15 @@ author: Trey Hope
 category: coffee-code
 coverImage: 1_9sHLR6ZeA6kVSo3ATCQDWQ.jpg
 date: 2024-05-23
-description: During my previous usage of Nakama, I didn't fully utilize sessions for proper user authentication.
-slug: coffee-code-working-with-nakama
-tags: nakama, coffee, flutter, game-development, gift-grab
-title: Coffee & Code — Working With Nakama, The Only Gaming Backend You Need
+description: Master Nakama's session system for secure user authentication in game backends with practical Flutter examples.
+slug: coffee-code-nakama-secure-sessions
+tags: nakama, gamedev, flutter, authentication, sessions
+title: Coffee & Code - Nakama Sessions & Authentication
 ---
 
 ![Preview image](./1_9sHLR6ZeA6kVSo3ATCQDWQ.jpg)
 
-> Mocha Latte from [**Teapot Cafe Lounge**](https://teapotcafelounge.com/) in Dayton, OH.
+> Cappuccino from [**Café Zeppelin**](https://www.instagram.com/zeppelinmedellin/) in Laureles, Medellín, Colombia.
 > 
 
 In one of my most recent applications, known as Gift Grab, the concept of a user's "session" was implemented in a rather simplistic way.
