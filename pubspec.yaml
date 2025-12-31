@@ -53,6 +53,7 @@ jaspr:
     - /blog/coffee-code-miro-user-flows
     - /blog/coffee-code-firestore-sorting-toasts
     - /blog/coffee-code-nakama-backend-servers
+    - /blog/coffee-code-flutter-flame-mario
     - /blog/tags/jaspr
     - /blog/tags/dart
     - /blog/tags/webdev
@@ -73,6 +74,9 @@ jaspr:
     - /blog/tags/mobiledev
     - /blog/tags/docker
     - /blog/tags/backend
+    - /blog/tags/flame
+    - /blog/tags/tiled
+    - /blog/tags/mobile
 
 flutter:
   uses-material-design: true
