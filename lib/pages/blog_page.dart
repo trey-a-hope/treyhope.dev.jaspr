@@ -14,13 +14,11 @@ import 'package:markdown/markdown.dart' as md;
 class BlogPage extends StatelessComponent {
   final String slug;
 
-  late final Blog? blog;
-
-  BlogPage({required this.slug});
+  const BlogPage({required this.slug});
 
   @override
   Component build(BuildContext context) {
-    blog = Globals.allBlogs.where((b) => b.slug == slug).firstOrNull;
+    final blog = Globals.allBlogs.where((b) => b.slug == slug).firstOrNull;
 
     if (blog == null) {
       return div(classes: 'container section has-text-centered', [
@@ -28,17 +26,28 @@ class BlogPage extends StatelessComponent {
       ]);
     }
 
+    return BlogView(blog);
+  }
+}
+
+class BlogView extends StatelessComponent {
+  final Blog blog;
+
+  const BlogView(this.blog);
+
+  @override
+  Component build(BuildContext context) {
     // Convert markdown to HTML
     final htmlContent = md.markdownToHtml(
-      blog!.content,
+      blog.content,
       extensionSet: md.ExtensionSet.gitHubFlavored,
     );
 
     return div([
       Document.head(
-        title: '${blog!.title} | Trey Hope',
+        title: '${blog.title} | Trey Hope',
         children: [
-          ...blog!.metaTags,
+          ...blog.metaTags,
           link(
             rel: 'stylesheet',
             href: 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css',
@@ -67,10 +76,10 @@ class BlogPage extends StatelessComponent {
             ),
             Spacer(.lg),
             // Blog header
-            h1(classes: 'title is-1', [.text(blog!.title)]),
+            h1(classes: 'title is-1', [.text(blog.title)]),
             Spacer(.sm),
             div(classes: 'subtitle', [
-              .text('${blog!.description}'),
+              .text('${blog.description}'),
             ]),
             Spacer(.xs),
 
@@ -79,12 +88,12 @@ class BlogPage extends StatelessComponent {
               styles: Styles(gap: Gap(column: 0.5.rem)),
               [
                 ClockIcon(),
-                .text('${(blog!.date).formatDate} by ${blog!.author}'),
+                .text('${(blog.date).formatDate} by ${blog.author}'),
               ],
             ),
 
             Spacer(.md),
-            BlogTags(blog: blog!),
+            BlogTags(blog: blog),
             hr(),
             div(
               classes: 'content',
@@ -98,7 +107,7 @@ class BlogPage extends StatelessComponent {
               ),
               [
                 SmartLink(
-                  href: blog!.getShareLink(SharePlatform.x),
+                  href: blog.getShareLink(SharePlatform.x),
                   classes: 'button is-warning',
                   children: [
                     span(classes: 'icon', [i(classes: 'fab fa-x-twitter', [])]),
@@ -107,7 +116,7 @@ class BlogPage extends StatelessComponent {
                 ),
                 Spacer(.md, vertical: false),
                 SmartLink(
-                  href: blog!.getShareLink(SharePlatform.linkedIn),
+                  href: blog.getShareLink(SharePlatform.linkedIn),
                   classes: 'button is-warning',
                   children: [
                     span(classes: 'icon', [i(classes: 'fab fa-linkedin', [])]),
@@ -127,7 +136,6 @@ class BlogPage extends StatelessComponent {
     // Constrain content width for better readability
     css('.blog-content-wrapper').styles(
       maxWidth: 680.px,
-      padding: Spacing.symmetric(horizontal: 20.px),
       margin: Spacing.symmetric(horizontal: Unit.auto),
     ),
     // Make images fill the full width of the content area

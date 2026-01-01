@@ -94,6 +94,7 @@ class HeaderState extends State<Header> {
     css('.navbar-burger').styles(
       border: Border.none,
       cursor: Cursor.pointer,
+      color: Colors.darkGray,
       backgroundColor: Colors.transparent,
     ),
     css('.navbar').styles(

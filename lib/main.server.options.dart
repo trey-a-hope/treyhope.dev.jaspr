@@ -39,7 +39,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._blog_tags.BlogTags.styles,
     ..._header.HeaderState.styles,
     ..._work_history_card.WorkHistoryCard.styles,
-    ..._blog_page.BlogPage.styles,
+    ..._blog_page.BlogView.styles,
     ..._code_flows.CodeFlows.styles,
     ..._page_not_found.PageNotFound.styles,
     ..._app.App.styles,
