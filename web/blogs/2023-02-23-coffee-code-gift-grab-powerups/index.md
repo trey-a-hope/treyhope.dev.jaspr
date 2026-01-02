@@ -33,8 +33,6 @@ I also increased the game time to 45 seconds.
 
 Of course, I’ll still need to add multiple levels, high scores, and difficulty adjustments, but this was a good start.
 
-
-<!-- this works "/blogs/2023-02-23-coffee-code-gift-grab-powerups/gift-grab.mp4" -->
 <video width="100%" height="auto" controls key="gift-grab-video">
   <source src="./gift-grab.mp4" type="video/mp4">
   Your browser does not support the video tag.
