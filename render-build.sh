@@ -15,6 +15,6 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Build the app
 echo "Building Jaspr app..."
-jaspr build
+jaspr build --sitemap-domain https://treyhope.dev
 
 echo "Jaspr build complete!"
