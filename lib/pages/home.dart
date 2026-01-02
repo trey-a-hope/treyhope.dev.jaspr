@@ -4,6 +4,7 @@ import 'package:treyhope_dev/components/embedded_webview_widget.dart';
 import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
+import 'package:treyhope_dev/constants/component_keys.dart';
 
 // import '../components/counter.dart';
 
@@ -20,6 +21,7 @@ class Home extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return Scaffold(
+      key: ComponentKeys.homeScaffold,
       title: 'Hi, I\'m Trey Hope',
       subtitle: 'I\'m a Flutter fanatic, passionate about building websites, mobile apps, and desktop applications.',
       heroSize: 'is-medium',

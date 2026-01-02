@@ -8,7 +8,13 @@ class Scaffold extends StatelessComponent {
   final List<section> sections;
   final String heroSize;
 
-  const Scaffold({required this.title, required this.subtitle, this.heroSize = 'is-small', this.sections = const []});
+  const Scaffold({
+    required this.title,
+    required this.subtitle,
+    this.heroSize = 'is-small',
+    this.sections = const [],
+    super.key,
+  });
 
   @override
   Component build(BuildContext context) {
