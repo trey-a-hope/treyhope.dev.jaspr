@@ -108,8 +108,8 @@ class CodeFlows extends StatelessComponent {
                     for (int i = 0; i < SpotifyTrack.values.length; i++)
                       div(classes: 'column is-12-mobile is-6-tablet', [
                         // Changed to is-12-mobile and is-6-tablet
-                        SpotifyPreview(
-                          src: SpotifyTrack.values[i].src,
+                        SpotifyTrackPreview(
+                          track: SpotifyTrack.values[i],
                         ),
                       ]),
                   ],

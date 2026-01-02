@@ -1,12 +1,13 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/components/about_card.dart';
 import 'package:treyhope_dev/components/embedded_quiz_widget.dart';
 import 'package:treyhope_dev/components/scaffold.dart';
 import 'package:treyhope_dev/components/smart_link.dart';
 import 'package:treyhope_dev/components/spacer.dart';
+import 'package:treyhope_dev/components/spotify_artist_preview.dart';
 import 'package:treyhope_dev/components/work_history_card.dart';
 import 'package:treyhope_dev/constants/globals.dart';
+import 'package:treyhope_dev/constants/spotify_artist.dart';
 
 // By using the @client annotation this component will be automatically compiled to javascript and mounted
 // on the client. Therefore:
@@ -24,21 +25,80 @@ class About extends StatelessComponent {
       sections: [
         section(classes: 'section has-background-dark', [
           div(classes: 'container', [
-            div(classes: 'columns', [
-              div(classes: 'column is-half', [
-                AboutCard(),
-              ]),
-              div(classes: 'column is-half', [
-                div(classes: 'has-text-centered', [
-                  h4(classes: 'title is-4 ', [.text('Take my quiz')]),
-                  h5(classes: '', [.text('It won\'t take long, I promise.')]),
+            div(
+              classes: 'columns is-multiline is-mobile is-vcentered',
+              [
+                div(classes: 'column is-12-mobile is-3-tablet is-3-desktop', [
+                  // Only using section here for extra padding around image.
+                  div(classes: 'section', [
+                    figure(classes: 'image is-square', [
+                      img(classes: 'is-rounded', src: '/images/profile.jpg'),
+                    ]),
+                  ]),
                 ]),
-                Spacer(.md),
-                EmbeddedQuizWidget(),
-                Spacer(.md),
-                _Sentence(),
-              ]),
+                div(classes: 'column is-12-mobile is-9-tablet is-9-desktop', [
+                  div(classes: 'block', [
+                    h4(classes: 'title is-4', [
+                      .text(
+                        'I\'m a software developer that has a knack for creating. A small town in Ohio named '
+                        'Trotwood is the start, and Austin, TX is my base currently. Being a quote unquote, "tech guy", what started as '
+                        'graphic design using Photoshop, has evolved into a core love for software development.',
+                      ),
+                    ]),
+                    h5(classes: 'subtitle is-5', [
+                      .text(
+                        'My hobbies include;',
+                      ),
+                    ]),
+                    div(
+                      classes: 'block',
+                      styles: Styles(
+                        display: Display.flex,
+                        flexWrap: FlexWrap.wrap,
+                        gap: Gap(column: 0.5.rem, row: 0.5.rem),
+                      ),
+                      [
+                        for (final hobby in Globals.hobbies)
+                          span(classes: 'tag is-warning is-medium', [
+                            .text(hobby),
+                          ]),
+                      ],
+                    ),
+                  ]),
+                ]),
+              ],
+            ),
+          ]),
+        ]),
+        section(classes: 'section has-background-link-dark', [
+          div(classes: 'container', [
+            div(classes: 'has-text-centered', [
+              h3(classes: 'title is-3', [.text('Take my quiz')]),
+              h5(classes: 'subtitle is-5', [.text('It won\'t take long, I promise.')]),
             ]),
+            Spacer(.xl),
+            EmbeddedQuizWidget(),
+            _Sentence(),
+          ]),
+        ]),
+        section(classes: 'section has-background-dark', [
+          div(classes: 'container', [
+            div(classes: 'has-text-centered', [
+              h3(classes: 'title is-3', [.text('Who I Listen To')]),
+              h5(classes: 'subtitle is-5', [.text('Some of my favorite music artists')]),
+            ]),
+            Spacer(.xl),
+            div(
+              classes: 'columns is-multiline is-mobile',
+              [
+                for (int i = 0; i < SpotifyArtist.values.length; i++)
+                  div(classes: 'column is-12-mobile is-6-tablet is-3-desktop', [
+                    SpotifyArtistPreview(
+                      artist: SpotifyArtist.values[i],
+                    ),
+                  ]),
+              ],
+            ),
           ]),
         ]),
         section(classes: 'section has-background-link-dark', [

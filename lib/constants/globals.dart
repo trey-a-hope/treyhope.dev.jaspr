@@ -12,6 +12,18 @@ class Globals {
   static const desktopBreakpoint = 1024;
   static const blogPaginationCount = 9;
 
+  static const List<String> hobbies = [
+    'Riding bikes',
+    'Watching documentaries',
+    'Playing cards',
+    'Salsa dancing',
+    'Conspiracy theories',
+    'Coffee shops',
+    'Making music',
+    'Traveling',
+    'Aprendiendo español',
+  ];
+
   // Work experience timeline
   static const workHistories = [
     WorkHistoryData(

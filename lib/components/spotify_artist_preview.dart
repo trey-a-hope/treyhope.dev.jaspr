@@ -1,17 +1,17 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
-import 'package:treyhope_dev/constants/spotify_track.dart';
+import 'package:treyhope_dev/constants/spotify_artist.dart';
 
-class SpotifyTrackPreview extends StatelessComponent {
-  final SpotifyTrack track;
+class SpotifyArtistPreview extends StatelessComponent {
+  final SpotifyArtist artist;
 
-  const SpotifyTrackPreview({required this.track});
+  const SpotifyArtistPreview({required this.artist});
 
   @override
   Component build(BuildContext context) {
     return iframe(
       id: 'spotify-embed-iframe',
-      src: track.src,
+      src: artist.src,
       styles: Styles(radius: BorderRadius.circular(12.px)),
       allow: 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture',
       attributes: {
