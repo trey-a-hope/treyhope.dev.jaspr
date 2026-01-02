@@ -1,0 +1,5 @@
+entrypoint: lib/main.server.dart
+assets:
+  - assets/blogs/
+  - assets/images/
+  - assets/blogs.json
