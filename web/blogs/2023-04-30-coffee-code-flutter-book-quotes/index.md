@@ -31,7 +31,7 @@ In the app, I upload meta data related to the book, then on the dashboard, my fa
 
 Making apps that are truly effective in everyday life is the mantra.
  
- <video width="100%" height="auto" controls key="gift-grab-video">
-   <source src="./AQP9PYZc8TMRiW7cOYmVgJOjG0m6HKt5EUjsfws3rcOOhB9u1i7J0kqH8V9Cwofpn6ZfGFA15v673ek2JSvZz9B-.mp4" type="video/mp4">
+<video width="100%" height="auto" controls key="flutter-book-quotes-video">
+   <source src="./AQP9PYZc8TMRiW7cOYmVgJOjG0m6HKt5EUjsfws3rcOOhB9u1i7J0kqH8V9Cwofpn6ZfGFA15v673ek2JSvZz9B.mp4" type="video/mp4">
    Your browser does not support the video tag.
- </video>
+</video>

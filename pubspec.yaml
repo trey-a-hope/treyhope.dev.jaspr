@@ -55,6 +55,8 @@ jaspr:
     - /blog/coffee-code-firestore-sorting-toasts
     - /blog/coffee-code-nakama-backend-servers
     - /blog/coffee-code-flutter-flame-mario
+    - /blog/coffee-code-firebase-migration-authentication
+    - /blog/coffee-code-book-quotes-updates
     - /blog/coffee-code-flutter-book-quotes
     - /blog/coffee-code-gift-grab-powerups
     - /blog/coffee-code-questionz-flutter-app
@@ -81,9 +83,16 @@ jaspr:
     - /blog/tags/flame
     - /blog/tags/tiled
     - /blog/tags/mobile
+    - /blog/tags/firebase
+    - /blog/tags/migration
+    - /blog/tags/cloudFirestore
+    - /blog/tags/database
+    - /blog/tags/bookquotes
+    - /blog/tags/mobileapp
+    - /blog/tags/uidesign
+    - /blog/tags/animations
     - /blog/tags/books
     - /blog/tags/quotes
-    - /blog/tags/mobileapp
     - /blog/tags/reading
     - /blog/tags/gamedevelopment
     - /blog/tags/powerups
