@@ -1,4 +1,0 @@
-entrypoint: lib/main.server.dart
-frontend:
-  build:
-    command: jaspr build
